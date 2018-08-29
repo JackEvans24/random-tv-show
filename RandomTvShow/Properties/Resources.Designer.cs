@@ -93,9 +93,9 @@ namespace RandomTvShow.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap _4985_200 {
+        internal static System.Drawing.Bitmap close_icon {
             get {
-                object obj = ResourceManager.GetObject("_4985_200", resourceCulture);
+                object obj = ResourceManager.GetObject("close_icon", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -103,9 +103,9 @@ namespace RandomTvShow.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap close_icon {
+        internal static System.Drawing.Bitmap close_icon_alt {
             get {
-                object obj = ResourceManager.GetObject("close_icon", resourceCulture);
+                object obj = ResourceManager.GetObject("close_icon_alt", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -123,6 +123,16 @@ namespace RandomTvShow.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap hard_drive_icon_alt {
+            get {
+                object obj = ResourceManager.GetObject("hard_drive_icon_alt", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap online_icon {
             get {
                 object obj = ResourceManager.GetObject("online_icon", resourceCulture);
@@ -133,9 +143,39 @@ namespace RandomTvShow.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap online_icon_alt {
+            get {
+                object obj = ResourceManager.GetObject("online_icon_alt", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap refresh_icon_alt {
+            get {
+                object obj = ResourceManager.GetObject("refresh_icon_alt", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap settings_icon {
             get {
                 object obj = ResourceManager.GetObject("settings_icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap settings_icon_alt {
+            get {
+                object obj = ResourceManager.GetObject("settings_icon_alt", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

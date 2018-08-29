@@ -58,5 +58,65 @@ namespace RandomTvShow.Properties {
                 this["Shortcut2Path"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Gray")]
+        public global::System.Drawing.Color AppColourBg {
+            get {
+                return ((global::System.Drawing.Color)(this["AppColourBg"]));
+            }
+            set {
+                this["AppColourBg"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("DimGray")]
+        public global::System.Drawing.Color AppColourMenu {
+            get {
+                return ((global::System.Drawing.Color)(this["AppColourMenu"]));
+            }
+            set {
+                this["AppColourMenu"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Silver")]
+        public global::System.Drawing.Color AppColourHighlight {
+            get {
+                return ((global::System.Drawing.Color)(this["AppColourHighlight"]));
+            }
+            set {
+                this["AppColourHighlight"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("WhiteSmoke")]
+        public global::System.Drawing.Color AppColourText {
+            get {
+                return ((global::System.Drawing.Color)(this["AppColourText"]));
+            }
+            set {
+                this["AppColourText"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int ThemeIndex {
+            get {
+                return ((int)(this["ThemeIndex"]));
+            }
+            set {
+                this["ThemeIndex"] = value;
+            }
+        }
     }
 }

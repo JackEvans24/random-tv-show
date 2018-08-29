@@ -14,3 +14,4 @@ C:\Users\Jack\source\repos\RandomTvShow\RandomTvShow\obj\Debug\Random Episode.ex
 C:\Users\Jack\source\repos\RandomTvShow\RandomTvShow\obj\Debug\Random Episode.pdb
 C:\Users\Jack\source\repos\RandomTvShow\RandomTvShow\obj\Debug\Interop.Shell32.dll
 C:\Users\Jack\source\repos\RandomTvShow\RandomTvShow\obj\Debug\RandomTvShow.csproj.ResolveComReference.cache
+C:\Users\Jack\source\repos\RandomTvShow\RandomTvShow\obj\Debug\RandomTvShow.csprojResolveAssemblyReference.cache

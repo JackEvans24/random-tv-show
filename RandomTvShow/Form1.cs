@@ -28,10 +28,7 @@ namespace RandomTvShow
         System.Windows.Forms.Timer timer = new System.Windows.Forms.Timer();
         string timerFolder = "";
 
-        static string[] favouriteRandoms = { "adventure-time", "archer", "bobs-burgers", "regular-show" };
-        static string[] cartoonsBoi = { @"D:\Jevan's shit\Cartoons boii\Adventure Time",
-                                        @"D:\Jevan's shit\Cartoons boii\Futurama",
-                                        @"D:\Jevan's shit\Cartoons boii\Regular Show" };
+        static string[] videoExtensions = { ".AVI", ".MP4", ".DIVX", ".WMV", ".MKV" };
         static Tuple<string, string>[] onlineCartoons = {
             Tuple.Create("Adventure Time", "adventure-time"),
             Tuple.Create("Aqua Teen Hunger Force", "aqua-teen-hunger-force"),
@@ -75,7 +72,7 @@ namespace RandomTvShow
 
         };
 
-        static string[] videoExtensions = { ".AVI", ".MP4", ".DIVX", ".WMV", ".MKV" };
+        AppTab currentTab;
 
         #endregion
 
@@ -97,11 +94,17 @@ namespace RandomTvShow
             InitializeComponent();
             timer.Tick += Timer_Tick;
 
+            AppDesignProvider.SetTheme(this, (AppTheme)Properties.Settings.Default.ThemeIndex);
+            HardDriveLabel_Click(this.HardDriveLabel, null);
+
             VersionNumberLabel.Text = "Random TV Show\r\nVersion: " + 
                 System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString();
 
             if (string.IsNullOrWhiteSpace(Properties.Settings.Default.MainDrivePath))
+            {
                 Properties.Settings.Default.MainDrivePath = Environment.GetFolderPath(Environment.SpecialFolder.MyVideos);
+                Properties.Settings.Default.Save();
+            }
 
             // On load, load shows from the hard drive
             LoadFromDrive();
@@ -111,9 +114,7 @@ namespace RandomTvShow
 
         protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
         {
-            if (keyData == (Keys.Control | Keys.O))
-                SelectFromOnline(favouriteRandoms);
-            else if (!string.IsNullOrWhiteSpace(Properties.Settings.Default.Shortcut1Path) &&
+            if (!string.IsNullOrWhiteSpace(Properties.Settings.Default.Shortcut1Path) &&
                 keyData == (Keys.Control | Keys.D1) || keyData == (Keys.Control | Keys.NumPad1))
                 PickAndPlayVideoFile(Properties.Settings.Default.Shortcut1Path);
             else if (!string.IsNullOrWhiteSpace(Properties.Settings.Default.Shortcut2Path) &&
@@ -140,9 +141,9 @@ namespace RandomTvShow
         private void HardDriveLabel_Click(object sender, EventArgs e)
         {
             // Change label border & backcolor, and populate list from hard drive
-            HardDriveLabel.BackColor = Color.White;
-            OnlineLabel.BackColor = Color.Transparent;
-            SettingsLabel.BackColor = Color.Transparent;
+            currentTab = AppTab.HardDrive;
+            AppDesignProvider.SetCurrentTab(this, (AppTheme)Properties.Settings.Default.ThemeIndex, currentTab);
+
             ShowsLayout.Visible = AutoplayButton.Visible = true;
             SettingsLayout.Visible = false;
             LoadFromDrive();
@@ -152,9 +153,9 @@ namespace RandomTvShow
         private void OnlineLabel_Click(object sender, EventArgs e)
         {
             // Change label font to border & backcolor, hide refresh labels, and populate list from internal list (onlineCartoons)
-            HardDriveLabel.BackColor = Color.Transparent;
-            OnlineLabel.BackColor = Color.White;
-            SettingsLabel.BackColor = Color.Transparent;
+            currentTab = AppTab.Online;
+            AppDesignProvider.SetCurrentTab(this, (AppTheme)Properties.Settings.Default.ThemeIndex, currentTab);
+
             ShowsLayout.Visible = true;
             SettingsLayout.Visible = false;
             DriveNotFoundLabel.Visible = RefreshLabel.Visible = AutoplayButton.Visible = false;
@@ -168,10 +169,12 @@ namespace RandomTvShow
             Shortcut1Textbox.Text = Properties.Settings.Default.Shortcut1Path;
             Shortcut2Textbox.Text = Properties.Settings.Default.Shortcut2Path;
 
-            HardDriveLabel.BackColor = Color.Transparent;
-            OnlineLabel.BackColor = Color.Transparent;
-            SettingsLabel.BackColor = Color.White;
-            ShowsLayout.Visible = false;
+            currentTab = AppTab.Settings;
+            AppDesignProvider.SetCurrentTab(this, (AppTheme)Properties.Settings.Default.ThemeIndex, currentTab);
+
+            AppDesignProvider.SetThemeLabelFont(this, (AppTheme)Properties.Settings.Default.ThemeIndex);
+
+            ShowsLayout.Visible = DriveNotFoundLabel.Visible = RefreshLabel.Visible = false;
             SettingsLayout.Visible = true;
         }
 
@@ -271,6 +274,12 @@ namespace RandomTvShow
             folderBroswerDialog.SelectedPath = Properties.Settings.Default.MainDrivePath;
         }
 
+        private void MonolithLabel_Click(object sender, EventArgs e)
+        {
+            MonolithLabel.Font = AzureLabel.Font = ForestLabel.Font = new Font(MonolithLabel.Font, FontStyle.Regular);
+            ((Control)sender).Font = new Font(((Control)sender).Font, FontStyle.Underline);
+        }
+
         private void SaveButton_Click(object sender, EventArgs e)
         {
             var validated = true;
@@ -288,10 +297,14 @@ namespace RandomTvShow
             else
                 validated = false;
 
+            Properties.Settings.Default.Save();
+
             if (!validated)
                 MessageBox.Show("Could not set one or more of the default folder paths. Please try again.");
 
-            Properties.Settings.Default.Save();
+            var theme = MonolithLabel.Font.Underline ? 0 : AzureLabel.Font.Underline ? 1 : 2;
+            AppDesignProvider.SetTheme(this, (AppTheme)theme);
+            AppDesignProvider.SetCurrentTab(this, (AppTheme)theme, currentTab);
 
             MainDriveTextbox.Text = Properties.Settings.Default.MainDrivePath;
             Shortcut1Textbox.Text = Properties.Settings.Default.Shortcut1Path;
@@ -480,7 +493,7 @@ namespace RandomTvShow
                     System.Threading.Thread.Sleep(200);
                 }
 
-                RefreshLabel.Image = Properties.Resources._4985_200;
+                RefreshLabel.Image = Properties.Resources.refresh_icon_alt;
                 return "hi";
             });
         }
