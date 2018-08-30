@@ -11,5 +11,26 @@
     <Setting Name="Shortcut2Path" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
+    <Setting Name="AppColourBg" Type="System.Drawing.Color" Scope="User">
+      <Value Profile="(Default)">Gray</Value>
+    </Setting>
+    <Setting Name="AppColourMenu" Type="System.Drawing.Color" Scope="User">
+      <Value Profile="(Default)">DimGray</Value>
+    </Setting>
+    <Setting Name="AppColourHighlight" Type="System.Drawing.Color" Scope="User">
+      <Value Profile="(Default)">Silver</Value>
+    </Setting>
+    <Setting Name="AppColourText" Type="System.Drawing.Color" Scope="User">
+      <Value Profile="(Default)">WhiteSmoke</Value>
+    </Setting>
+    <Setting Name="ThemeIndex" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="AppColourHover" Type="System.Drawing.Color" Scope="User">
+      <Value Profile="(Default)">116, 116, 116</Value>
+    </Setting>
+    <Setting Name="AppColourMenuHover" Type="System.Drawing.Color" Scope="User">
+      <Value Profile="(Default)">116, 116, 116</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

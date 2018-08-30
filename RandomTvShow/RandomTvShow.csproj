@@ -55,6 +55,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AppDesignProvider.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -91,14 +92,24 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Images\settings-icon.png" />
+    <None Include="Images\refresh-icon-alt.png" />
+    <None Include="Images\refresh-icon.png" />
+    <None Include="Resources\settings-icon.png" />
+    <None Include="Resources\online-icon.png" />
+    <None Include="Resources\hard-drive-icon.png" />
+    <None Include="Resources\close-icon.png" />
+    <None Include="Resources\settings-icon-alt.png" />
+    <None Include="Resources\refresh-icon-alt.png" />
+    <None Include="Resources\online-icon-alt.png" />
+    <None Include="Resources\hard-drive-icon-alt.png" />
+    <None Include="Resources\close-icon-alt.png" />
     <None Include="Images\4985-200.png" />
     <None Include="Images\1-dot.png" />
     <None Include="Images\2-dot.png" />
     <None Include="Images\3-dot.png" />
-    <None Include="Images\hard-drive-icon.png" />
-    <None Include="Images\online-icon.png" />
-    <None Include="Images\close-icon.png" />
+    <None Include="Images\1_dot_alt.png" />
+    <None Include="Images\2_dot_alt.png" />
+    <None Include="Images\3_dot_alt.png" />
     <Content Include="Images\play_icon_png_graphic_cave_3qQ_icon.ico" />
   </ItemGroup>
   <ItemGroup>
