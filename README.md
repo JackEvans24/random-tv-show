@@ -1,4 +1,4 @@
-# Random Tv Show
+# Random TV Show
 
 This app is designed to produce a random episode of a specified tv show.
 
