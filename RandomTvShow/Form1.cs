@@ -22,7 +22,6 @@ namespace RandomTvShow
     {
         #region Variables
 
-        bool online = false;
         bool refreshing = false, ready = true;
         Random rnd = new Random();
         System.Windows.Forms.Timer timer = new System.Windows.Forms.Timer();
@@ -147,7 +146,6 @@ namespace RandomTvShow
             ShowsLayout.Visible = AutoplayButton.Visible = true;
             SettingsLayout.Visible = false;
             LoadFromDrive();
-            online = false;
         }
 
         private void OnlineLabel_Click(object sender, EventArgs e)
@@ -160,7 +158,6 @@ namespace RandomTvShow
             SettingsLayout.Visible = false;
             DriveNotFoundLabel.Visible = RefreshLabel.Visible = AutoplayButton.Visible = false;
             LoadFromOnline();
-            online = true;
         }
 
         private void SettingsLabel_Click(object sender, EventArgs e)
@@ -211,7 +208,7 @@ namespace RandomTvShow
                 List<string> selectedShows = new List<string>();
 
                 // If picking from the hard drive...
-                if (!online)
+                if (currentTab == AppTab.HardDrive)
                 {
                     // Add selected shows to list, run Select method
                     foreach (var item in ShowsList.CheckedItems)
@@ -222,7 +219,7 @@ namespace RandomTvShow
                     SelectFromDrive(selectedShows);
                 }
                 // If picking from online shows...
-                else
+                else if (currentTab == AppTab.Online)
                 {
                     // Add the relevant url path selectors to list, join and split (for shows with multiple links), run Select method
                     foreach (var item in ShowsList.CheckedItems)
