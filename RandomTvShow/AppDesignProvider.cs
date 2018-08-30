@@ -15,7 +15,8 @@ namespace RandomTvShow
             Properties.Settings.Default.ThemeIndex = (int)theme;
 
             Label closeLabel = form.Controls.Find("CloseLabel", true).FirstOrDefault() as Label,
-                closeLabel2 = form.Controls.Find("CloseLabel2", true).FirstOrDefault() as Label;
+                closeLabel2 = form.Controls.Find("CloseLabel2", true).FirstOrDefault() as Label,
+                refreshLabel = form.Controls.Find("RefreshLabel", true).FirstOrDefault() as Label;
             switch (theme)
             {
                 case AppTheme.Monolith:
@@ -24,6 +25,7 @@ namespace RandomTvShow
                     Properties.Settings.Default.AppColourHighlight = Color.Silver;
                     Properties.Settings.Default.AppColourText = Color.WhiteSmoke;
                     closeLabel.Image = closeLabel2.Image = Properties.Resources.close_icon_alt;
+                    refreshLabel.Image = Properties.Resources.refresh_icon_alt;
                     break;
 
                 case AppTheme.Forest:
@@ -32,14 +34,16 @@ namespace RandomTvShow
                     Properties.Settings.Default.AppColourHighlight = Color.LimeGreen;
                     Properties.Settings.Default.AppColourText = Color.DarkGreen;
                     closeLabel.Image = closeLabel2.Image = Properties.Resources.close_icon;
+                    refreshLabel.Image = Properties.Resources.refresh_icon;
                     break;
 
-                default:
+                case AppTheme.Azure:
                     Properties.Settings.Default.AppColourBg = Color.Azure;
                     Properties.Settings.Default.AppColourMenu = Color.LightCyan;
                     Properties.Settings.Default.AppColourHighlight = Color.White;
                     Properties.Settings.Default.AppColourText = Color.DarkSlateGray;
                     closeLabel.Image = closeLabel2.Image = Properties.Resources.close_icon;
+                    refreshLabel.Image = Properties.Resources.refresh_icon;
                     break;
             }
 
@@ -64,6 +68,7 @@ namespace RandomTvShow
                 SaveButton = form.Controls.Find("SaveButton", true).FirstOrDefault() as Button;
 
             form.ForeColor =
+                form.Controls.Find("DriveNotFoundLabel", true).FirstOrDefault().ForeColor =
                 form.Controls.Find("ShowsList", true).FirstOrDefault().ForeColor =
                 GoButton.ForeColor = GoButton.FlatAppearance.BorderColor =
                 SaveButton.ForeColor = SaveButton.FlatAppearance.BorderColor =

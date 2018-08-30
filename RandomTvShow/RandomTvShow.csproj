@@ -92,6 +92,8 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Images\refresh-icon-alt.png" />
+    <None Include="Images\refresh-icon.png" />
     <None Include="Resources\settings-icon.png" />
     <None Include="Resources\online-icon.png" />
     <None Include="Resources\hard-drive-icon.png" />
@@ -105,6 +107,9 @@
     <None Include="Images\1-dot.png" />
     <None Include="Images\2-dot.png" />
     <None Include="Images\3-dot.png" />
+    <None Include="Images\1_dot_alt.png" />
+    <None Include="Images\2_dot_alt.png" />
+    <None Include="Images\3_dot_alt.png" />
     <Content Include="Images\play_icon_png_graphic_cave_3qQ_icon.ico" />
   </ItemGroup>
   <ItemGroup>

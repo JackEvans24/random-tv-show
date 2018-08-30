@@ -14,3 +14,20 @@ C:\Users\Jack\source\repos\RandomTvShow\RandomTvShow\obj\Release\RandomTvShow.cs
 C:\Users\Jack\source\repos\RandomTvShow\RandomTvShow\obj\Release\RandomTvShow.csproj.CoreCompileInputs.cache
 C:\Users\Jack\source\repos\RandomTvShow\RandomTvShow\obj\Release\Random Episode.exe
 C:\Users\Jack\source\repos\RandomTvShow\RandomTvShow\obj\Release\Random Episode.pdb
+C:\Users\Jack\source\repos\random-tv-show\RandomTvShow\bin\Release\Random Episode.exe.config
+C:\Users\Jack\source\repos\random-tv-show\RandomTvShow\bin\Release\Random Episode.exe
+C:\Users\Jack\source\repos\random-tv-show\RandomTvShow\bin\Release\Random Episode.pdb
+C:\Users\Jack\source\repos\random-tv-show\RandomTvShow\bin\Release\AngleSharp.dll
+C:\Users\Jack\source\repos\random-tv-show\RandomTvShow\bin\Release\HtmlAgilityPack.dll
+C:\Users\Jack\source\repos\random-tv-show\RandomTvShow\bin\Release\AngleSharp.xml
+C:\Users\Jack\source\repos\random-tv-show\RandomTvShow\bin\Release\HtmlAgilityPack.pdb
+C:\Users\Jack\source\repos\random-tv-show\RandomTvShow\bin\Release\HtmlAgilityPack.xml
+C:\Users\Jack\source\repos\random-tv-show\RandomTvShow\obj\Release\RandomTvShow.csprojResolveAssemblyReference.cache
+C:\Users\Jack\source\repos\random-tv-show\RandomTvShow\obj\Release\Interop.Shell32.dll
+C:\Users\Jack\source\repos\random-tv-show\RandomTvShow\obj\Release\RandomTvShow.csproj.ResolveComReference.cache
+C:\Users\Jack\source\repos\random-tv-show\RandomTvShow\obj\Release\RandomTvShow.Form1.resources
+C:\Users\Jack\source\repos\random-tv-show\RandomTvShow\obj\Release\RandomTvShow.Properties.Resources.resources
+C:\Users\Jack\source\repos\random-tv-show\RandomTvShow\obj\Release\RandomTvShow.csproj.GenerateResource.Cache
+C:\Users\Jack\source\repos\random-tv-show\RandomTvShow\obj\Release\RandomTvShow.csproj.CoreCompileInputs.cache
+C:\Users\Jack\source\repos\random-tv-show\RandomTvShow\obj\Release\Random Episode.exe
+C:\Users\Jack\source\repos\random-tv-show\RandomTvShow\obj\Release\Random Episode.pdb

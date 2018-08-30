@@ -411,7 +411,7 @@
             this.SaveButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.SaveButton.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.SaveButton.ForeColor = System.Drawing.Color.Transparent;
-            this.SaveButton.Location = new System.Drawing.Point(46, 2);
+            this.SaveButton.Location = new System.Drawing.Point(49, 2);
             this.SaveButton.Margin = new System.Windows.Forms.Padding(3, 3, 20, 20);
             this.SaveButton.Name = "SaveButton";
             this.SaveButton.Size = new System.Drawing.Size(111, 51);
@@ -649,8 +649,8 @@
             this.RefreshLabel.BackColor = System.Drawing.Color.Transparent;
             this.RefreshLabel.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.RefreshLabel.ForeColor = System.Drawing.Color.Transparent;
-            this.RefreshLabel.Image = global::RandomTvShow.Properties.Resources.refresh_icon_alt;
-            this.RefreshLabel.Location = new System.Drawing.Point(222, 167);
+            this.RefreshLabel.Image = ((System.Drawing.Image)(resources.GetObject("RefreshLabel.Image")));
+            this.RefreshLabel.Location = new System.Drawing.Point(222, 179);
             this.RefreshLabel.Name = "RefreshLabel";
             this.RefreshLabel.Size = new System.Drawing.Size(96, 96);
             this.RefreshLabel.TabIndex = 4;

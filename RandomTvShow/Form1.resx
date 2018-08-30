@@ -117,18 +117,6 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <metadata name="splitContainer1.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="splitContainer1.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="splitContainer5.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="folderBroswerDialog.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
-  </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="HardDriveLabel.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -140,6 +128,34 @@
         NqVxK+mY2BQxkyye2pRGT9LBUa9xLFl4l3UGiXC0HDFdHHngSjJ8tKkaD5KukU2OZ8mQP6EqfUnXi02i
         Ixl8yEMGFaGDLjqPGFy4sAkvpXkqDHJLt/lyoUXIBF100h12K0vD6Ylz6E3ZgKJPpy8uZtjuDcAXe+Ic
         etmVi5wfuSnppNvcu7AJ6TZteSf9m+SQLjrp3mmM+QHglbxulRVi/QAAAABJRU5ErkJggg==
+</value>
+  </data>
+  <metadata name="splitContainer1.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="splitContainer5.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="folderBroswerDialog.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
+  <data name="RefreshLabel.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
+        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAACXBIWXMAAA3XAAAN1wFCKJt4AAAAB3RJ
+        TUUH4ggeFCgDyJWP+AAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAKsSURBVFhH
+        xZdLiE1xHMfvPMqrRsZjkJUyTSaEnZRpImNmYTFRUrMbGiuJSWmYkp2NhUaRZ5TkkYWwm0QxZSOJPBbe
+        JZSFV/x9vv/zPTPCnXvu1Lk+9Wm63/P7/X/33DnPQt6EEMbhQ9zmaOywyHhswd14CE/hWdyD7TjdpcOQ
+        zUJxwVH50DwfNeyLVirBM9yLk9xbpxCuxsXKgaapqD38qRXgBV7EXdiGc3AJbkD9CmfwAwrVbsTa+CmE
+        QS+bDRqW4/PYGsJ73IRV3lwUavSlD+A3FDfxBw65pDQUt2K6wAn8639bCnoW4qAWMPe9aXQobETt8Vds
+        c5wJ6nfgJ9Qe/8k9lxWHonp8FMtD6HKcGXqW4W28gdfwEuq4OIILXFYcigZQ7HNUORjagJ/xCdY4rhza
+        axQ9jioHQ3Wu6vx9ixMcVw6GNqE46ig3mKFL+RCOnNp86ESx3VFuMEOnquhwFMO+JPstzAlm6PIsuh3F
+        MD39FjnKDWasSEaFfkcx7E+ysNJRbjAjPd4GHMWwO8nKv/qVCzNWJaNCn6MYdiRZ6HWUG8zYmowKnY5i
+        OAWvY4uj3GDGYRRNjioHQ/VI9xp10at1XDkYuhnFf7nZ1eBj1A2vwXF2aKrCOn8sG3rTm93I6VcMitbj
+        MbyCd/Elfkex02WZoacraY0PO/WOi0PRq1ieoEcs/XS38DwudVkmqNfTsx7v9JjX6Hh0KHyAKZdxnjdl
+        hp4ZeFILgB5wW72pNBSnT7O6bQotsB8nu6Qo1FRjD6bvB3dwsTdng4ZzsTWE2ai7V/p+8A61TfeOdag3
+        prm4FnVH1Ta9GYmPuAWrvWx2aDqoFSB+c/5ORL35PFVYgjd4HGfGxcYCzRom2h0NQzYN16BqdFCexl5c
+        jeWf3/+ChZpRB2Kzo5woFH4BXCvdk7XcGcoAAAAASUVORK5CYII=
 </value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">

@@ -97,7 +97,7 @@ namespace RandomTvShow
             AppDesignProvider.SetTheme(this, (AppTheme)Properties.Settings.Default.ThemeIndex);
             HardDriveLabel_Click(this.HardDriveLabel, null);
 
-            VersionNumberLabel.Text = "Random TV Show\r\nVersion: " + 
+            VersionNumberLabel.Text = "Random TV Show\r\nVersion: " +
                 System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString();
 
             if (string.IsNullOrWhiteSpace(Properties.Settings.Default.MainDrivePath))
@@ -483,7 +483,18 @@ namespace RandomTvShow
         {
             var result = await Task.Run(() =>
             {
-                while (refreshing)
+                if ((AppTheme)Properties.Settings.Default.ThemeIndex == AppTheme.Monolith)
+                {
+                    RefreshLabel.Image = Properties.Resources._1_dot_alt;
+                    System.Threading.Thread.Sleep(200);
+                    RefreshLabel.Image = Properties.Resources._2_dot_alt;
+                    System.Threading.Thread.Sleep(200);
+                    RefreshLabel.Image = Properties.Resources._3_dot_alt;
+                    System.Threading.Thread.Sleep(200);
+
+                    RefreshLabel.Image = Properties.Resources.refresh_icon_alt;
+                }
+                else
                 {
                     RefreshLabel.Image = Properties.Resources._1_dot;
                     System.Threading.Thread.Sleep(200);
@@ -491,9 +502,9 @@ namespace RandomTvShow
                     System.Threading.Thread.Sleep(200);
                     RefreshLabel.Image = Properties.Resources._3_dot;
                     System.Threading.Thread.Sleep(200);
-                }
 
-                RefreshLabel.Image = Properties.Resources.refresh_icon_alt;
+                    RefreshLabel.Image = Properties.Resources.refresh_icon;
+                }
                 return "hi";
             });
         }
