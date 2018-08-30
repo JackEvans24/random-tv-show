@@ -10,7 +10,7 @@ namespace RandomTvShow
 {
     public class AppDesignProvider
     {
-        public static void SetTheme(Form1 form, AppTheme theme)
+        public static void SetTheme(MainForm form, AppTheme theme)
         {
             Properties.Settings.Default.ThemeIndex = (int)theme;
 
@@ -21,7 +21,9 @@ namespace RandomTvShow
             {
                 case AppTheme.Monolith:
                     Properties.Settings.Default.AppColourBg = Color.Gray;
+                    Properties.Settings.Default.AppColourHover = Color.FromArgb(120, 120, 120);
                     Properties.Settings.Default.AppColourMenu = Color.DimGray;
+                    Properties.Settings.Default.AppColourMenuHover = Color.FromArgb(116, 116, 116);
                     Properties.Settings.Default.AppColourHighlight = Color.Silver;
                     Properties.Settings.Default.AppColourText = Color.WhiteSmoke;
                     closeLabel.Image = closeLabel2.Image = Properties.Resources.close_icon_alt;
@@ -30,7 +32,9 @@ namespace RandomTvShow
 
                 case AppTheme.Forest:
                     Properties.Settings.Default.AppColourBg = Color.PaleGreen;
+                    Properties.Settings.Default.AppColourHover = Color.LightGreen;
                     Properties.Settings.Default.AppColourMenu = Color.LightGreen;
+                    Properties.Settings.Default.AppColourMenuHover = Color.FromArgb(121, 225, 121);
                     Properties.Settings.Default.AppColourHighlight = Color.LimeGreen;
                     Properties.Settings.Default.AppColourText = Color.DarkGreen;
                     closeLabel.Image = closeLabel2.Image = Properties.Resources.close_icon;
@@ -39,7 +43,9 @@ namespace RandomTvShow
 
                 case AppTheme.Azure:
                     Properties.Settings.Default.AppColourBg = Color.Azure;
+                    Properties.Settings.Default.AppColourHover = Color.FromArgb(210, 255, 255);
                     Properties.Settings.Default.AppColourMenu = Color.LightCyan;
+                    Properties.Settings.Default.AppColourMenuHover = Color.FromArgb(200, 255, 255);
                     Properties.Settings.Default.AppColourHighlight = Color.White;
                     Properties.Settings.Default.AppColourText = Color.DarkSlateGray;
                     closeLabel.Image = closeLabel2.Image = Properties.Resources.close_icon;
@@ -94,7 +100,7 @@ namespace RandomTvShow
             form.Refresh();
         }
 
-        public static void SetThemeLabelFont(Form1 form, AppTheme theme)
+        public static void SetThemeLabelFont(MainForm form, AppTheme theme)
         {
             Label MonolithLabel = (Label)form.Controls.Find("MonolithLabel", true).FirstOrDefault(),
                 AzureLabel = (Label)form.Controls.Find("AzureLabel", true).FirstOrDefault(),
@@ -118,7 +124,7 @@ namespace RandomTvShow
 
         }
 
-        public static void SetCurrentTab(Form1 form, AppTheme theme, AppTab currentTab)
+        public static void SetCurrentTab(MainForm form, AppTheme theme, AppTab currentTab)
         {
             Label HardDriveLabel = form.Controls.Find("HardDriveLabel", true).FirstOrDefault() as Label,
                 OnlineLabel = form.Controls.Find("OnlineLabel", true).FirstOrDefault() as Label,

@@ -118,5 +118,29 @@ namespace RandomTvShow.Properties {
                 this["ThemeIndex"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("116, 116, 116")]
+        public global::System.Drawing.Color AppColourHover {
+            get {
+                return ((global::System.Drawing.Color)(this["AppColourHover"]));
+            }
+            set {
+                this["AppColourHover"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("116, 116, 116")]
+        public global::System.Drawing.Color AppColourMenuHover {
+            get {
+                return ((global::System.Drawing.Color)(this["AppColourMenuHover"]));
+            }
+            set {
+                this["AppColourMenuHover"] = value;
+            }
+        }
     }
 }

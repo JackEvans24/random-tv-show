@@ -18,7 +18,7 @@ using System.Windows.Forms;
 
 namespace RandomTvShow
 {
-    public partial class Form1 : Form
+    public partial class MainForm : Form
     {
         #region Variables
 
@@ -88,7 +88,7 @@ namespace RandomTvShow
 
         #endregion
 
-        public Form1()
+        public MainForm()
         {
             InitializeComponent();
             timer.Tick += Timer_Tick;
@@ -173,6 +173,27 @@ namespace RandomTvShow
 
             ShowsLayout.Visible = DriveNotFoundLabel.Visible = RefreshLabel.Visible = false;
             SettingsLayout.Visible = true;
+        }
+
+        private void HardDriveLabel_MouseEnter(object sender, EventArgs e)
+        {
+            Control label = sender as Control;
+            if (label.BackColor != Properties.Settings.Default.AppColourHighlight)
+                label.BackColor = Properties.Settings.Default.AppColourMenuHover;
+        }
+
+        private void AutoplayButton_MouseEnter(object sender, EventArgs e)
+        {
+            Control label = sender as Control;
+            if (label.BackColor != Properties.Settings.Default.AppColourHighlight)
+                label.BackColor = Properties.Settings.Default.AppColourHover;
+        }
+
+        private void HardDriveLabel_MouseLeave(object sender, EventArgs e)
+        {
+            Control label = sender as Control;
+            if (label.BackColor != Properties.Settings.Default.AppColourHighlight)
+                label.BackColor = Color.Transparent;
         }
 
         private void RefreshLabel_Click(object sender, EventArgs e)

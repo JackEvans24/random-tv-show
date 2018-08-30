@@ -26,9 +26,9 @@ C:\Users\Jack\source\repos\random-tv-show\RandomTvShow\bin\Debug\HtmlAgilityPack
 C:\Users\Jack\source\repos\random-tv-show\RandomTvShow\obj\Debug\RandomTvShow.csprojResolveAssemblyReference.cache
 C:\Users\Jack\source\repos\random-tv-show\RandomTvShow\obj\Debug\Interop.Shell32.dll
 C:\Users\Jack\source\repos\random-tv-show\RandomTvShow\obj\Debug\RandomTvShow.csproj.ResolveComReference.cache
-C:\Users\Jack\source\repos\random-tv-show\RandomTvShow\obj\Debug\RandomTvShow.Form1.resources
 C:\Users\Jack\source\repos\random-tv-show\RandomTvShow\obj\Debug\RandomTvShow.Properties.Resources.resources
 C:\Users\Jack\source\repos\random-tv-show\RandomTvShow\obj\Debug\RandomTvShow.csproj.GenerateResource.Cache
 C:\Users\Jack\source\repos\random-tv-show\RandomTvShow\obj\Debug\RandomTvShow.csproj.CoreCompileInputs.cache
 C:\Users\Jack\source\repos\random-tv-show\RandomTvShow\obj\Debug\Random Episode.exe
 C:\Users\Jack\source\repos\random-tv-show\RandomTvShow\obj\Debug\Random Episode.pdb
+C:\Users\Jack\source\repos\random-tv-show\RandomTvShow\obj\Debug\RandomTvShow.MainForm.resources
