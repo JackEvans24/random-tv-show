@@ -69,6 +69,7 @@ namespace RandomTvShow
 
             form.Controls.Find("TitleLabel", true).FirstOrDefault().BackColor =
                 form.Controls.Find("TitleLabel2", true).FirstOrDefault().BackColor =
+                form.Controls.Find("MinimiseLabel", true).FirstOrDefault().BackColor =
                 form.Controls.Find("MinimiseLabel2", true).FirstOrDefault().BackColor =
                 form.Controls.Find("CloseLabel", true).FirstOrDefault().BackColor =
                 form.Controls.Find("CloseLabel2", true).FirstOrDefault().BackColor =
@@ -86,6 +87,7 @@ namespace RandomTvShow
                 form.Controls.Find("AutoplayButton", true).FirstOrDefault().ForeColor =
                 form.Controls.Find("TitleLabel", true).FirstOrDefault().ForeColor =
                 form.Controls.Find("TitleLabel2", true).FirstOrDefault().ForeColor =
+                form.Controls.Find("MinimiseLabel", true).FirstOrDefault().ForeColor =
                 form.Controls.Find("MinimiseLabel2", true).FirstOrDefault().ForeColor =
                 form.Controls.Find("MainDriveLabel", true).FirstOrDefault().ForeColor =
                 form.Controls.Find("MainDriveTextbox", true).FirstOrDefault().ForeColor =
@@ -136,7 +138,8 @@ namespace RandomTvShow
         {
             Label HardDriveLabel = form.Controls.Find("HardDriveLabel", true).FirstOrDefault() as Label,
                 OnlineLabel = form.Controls.Find("OnlineLabel", true).FirstOrDefault() as Label,
-                SettingsLabel = form.Controls.Find("SettingsLabel", true).FirstOrDefault() as Label;
+                SettingsLabel = form.Controls.Find("SettingsLabel", true).FirstOrDefault() as Label,
+                TitleLabel = form.Controls.Find("TitleLabel", true).FirstOrDefault() as Label;
 
             if (theme == AppTheme.Azure)
             {
@@ -162,9 +165,11 @@ namespace RandomTvShow
             {
                 case AppTab.HardDrive:
                     HardDriveLabel.BackColor = Properties.Settings.Default.AppColourHighlight;
+                    TitleLabel.Text = "Drive";
                     break;
                 case AppTab.Online:
                     OnlineLabel.BackColor = Properties.Settings.Default.AppColourHighlight;
+                    TitleLabel.Text = "Online";
                     break;
                 case AppTab.Settings:
                     SettingsLabel.BackColor = Properties.Settings.Default.AppColourHighlight;

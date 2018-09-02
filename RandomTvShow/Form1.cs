@@ -97,7 +97,7 @@ namespace RandomTvShow
             HardDriveLabel_Click(this.HardDriveLabel, null);
 
             VersionNumberLabel.Text = "Random TV Show\r\nVersion: " +
-                System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString();
+                System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString(3);
 
             if (string.IsNullOrWhiteSpace(Properties.Settings.Default.MainDrivePath))
             {

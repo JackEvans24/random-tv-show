@@ -37,19 +37,17 @@
             this.HardDriveLabel = new System.Windows.Forms.Label();
             this.DriveNotFoundLabel = new System.Windows.Forms.Label();
             this.ShowsLayout = new System.Windows.Forms.TableLayoutPanel();
-            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
+            this.MinimiseLabel = new System.Windows.Forms.Label();
             this.TitleLabel = new System.Windows.Forms.Label();
             this.CloseLabel = new System.Windows.Forms.Label();
-            this.splitContainer2 = new System.Windows.Forms.SplitContainer();
+            this.PlayShowPanel = new System.Windows.Forms.Panel();
             this.AutoplayButton = new System.Windows.Forms.CheckBox();
             this.SettingsLayout = new System.Windows.Forms.TableLayoutPanel();
             this.ThemeLabel = new System.Windows.Forms.Label();
             this.splitContainer7 = new System.Windows.Forms.SplitContainer();
             this.Shortcut2Textbox = new System.Windows.Forms.TextBox();
             this.BrowseS2Button = new System.Windows.Forms.Label();
-            this.splitContainer8 = new System.Windows.Forms.SplitContainer();
-            this.VersionNumberLabel = new System.Windows.Forms.Label();
-            this.SaveButton = new System.Windows.Forms.Button();
             this.MainDriveLabel = new System.Windows.Forms.Label();
             this.splitContainer4 = new System.Windows.Forms.SplitContainer();
             this.MainDriveTextbox = new System.Windows.Forms.TextBox();
@@ -67,30 +65,23 @@
             this.MinimiseLabel2 = new System.Windows.Forms.Label();
             this.TitleLabel2 = new System.Windows.Forms.Label();
             this.CloseLabel2 = new System.Windows.Forms.Label();
+            this.SaveSettingsPanel = new System.Windows.Forms.Panel();
+            this.VersionNumberLabel = new System.Windows.Forms.Label();
+            this.SaveButton = new System.Windows.Forms.Button();
             this.folderBroswerDialog = new System.Windows.Forms.FolderBrowserDialog();
             this.RefreshLabel = new System.Windows.Forms.Label();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.MainPanel = new System.Windows.Forms.Panel();
             this.MenuPanel = new System.Windows.Forms.Panel();
+            this.MainPanel = new System.Windows.Forms.Panel();
             this.MenuBar.SuspendLayout();
             this.ShowsLayout.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
-            this.splitContainer1.Panel1.SuspendLayout();
-            this.splitContainer1.Panel2.SuspendLayout();
-            this.splitContainer1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).BeginInit();
-            this.splitContainer2.Panel1.SuspendLayout();
-            this.splitContainer2.Panel2.SuspendLayout();
-            this.splitContainer2.SuspendLayout();
+            this.tableLayoutPanel3.SuspendLayout();
+            this.PlayShowPanel.SuspendLayout();
             this.SettingsLayout.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer7)).BeginInit();
             this.splitContainer7.Panel1.SuspendLayout();
             this.splitContainer7.Panel2.SuspendLayout();
             this.splitContainer7.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer8)).BeginInit();
-            this.splitContainer8.Panel1.SuspendLayout();
-            this.splitContainer8.Panel2.SuspendLayout();
-            this.splitContainer8.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer4)).BeginInit();
             this.splitContainer4.Panel1.SuspendLayout();
             this.splitContainer4.Panel2.SuspendLayout();
@@ -101,13 +92,17 @@
             this.splitContainer6.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.HeaderLayoutPanel.SuspendLayout();
+            this.SaveSettingsPanel.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
-            this.MainPanel.SuspendLayout();
             this.MenuPanel.SuspendLayout();
+            this.MainPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // ShowsList
             // 
+            this.ShowsList.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.ShowsList.BackColor = System.Drawing.Color.Gray;
             this.ShowsList.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.ShowsList.CheckOnClick = true;
@@ -117,11 +112,12 @@
             this.ShowsList.Location = new System.Drawing.Point(10, 63);
             this.ShowsList.Margin = new System.Windows.Forms.Padding(10, 10, 10, 0);
             this.ShowsList.Name = "ShowsList";
-            this.ShowsList.Size = new System.Drawing.Size(350, 377);
+            this.ShowsList.Size = new System.Drawing.Size(356, 402);
             this.ShowsList.TabIndex = 0;
             // 
             // GoButton
             // 
+            this.GoButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.GoButton.BackColor = System.Drawing.Color.DimGray;
             this.GoButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.GoButton.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -152,7 +148,7 @@
             this.MenuBar.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.MenuBar.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.MenuBar.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.MenuBar.Size = new System.Drawing.Size(84, 263);
+            this.MenuBar.Size = new System.Drawing.Size(85, 263);
             this.MenuBar.TabIndex = 2;
             // 
             // SettingsLabel
@@ -165,7 +161,7 @@
             this.SettingsLabel.Location = new System.Drawing.Point(0, 162);
             this.SettingsLabel.Margin = new System.Windows.Forms.Padding(0);
             this.SettingsLabel.Name = "SettingsLabel";
-            this.SettingsLabel.Size = new System.Drawing.Size(84, 81);
+            this.SettingsLabel.Size = new System.Drawing.Size(85, 81);
             this.SettingsLabel.TabIndex = 3;
             this.SettingsLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.SettingsLabel.Click += new System.EventHandler(this.SettingsLabel_Click);
@@ -182,7 +178,7 @@
             this.OnlineLabel.Location = new System.Drawing.Point(0, 81);
             this.OnlineLabel.Margin = new System.Windows.Forms.Padding(0);
             this.OnlineLabel.Name = "OnlineLabel";
-            this.OnlineLabel.Size = new System.Drawing.Size(84, 81);
+            this.OnlineLabel.Size = new System.Drawing.Size(85, 81);
             this.OnlineLabel.TabIndex = 2;
             this.OnlineLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.OnlineLabel.Click += new System.EventHandler(this.OnlineLabel_Click);
@@ -199,7 +195,7 @@
             this.HardDriveLabel.Location = new System.Drawing.Point(0, 0);
             this.HardDriveLabel.Margin = new System.Windows.Forms.Padding(0);
             this.HardDriveLabel.Name = "HardDriveLabel";
-            this.HardDriveLabel.Size = new System.Drawing.Size(84, 81);
+            this.HardDriveLabel.Size = new System.Drawing.Size(85, 81);
             this.HardDriveLabel.TabIndex = 0;
             this.HardDriveLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.HardDriveLabel.Click += new System.EventHandler(this.HardDriveLabel_Click);
@@ -224,9 +220,9 @@
             this.ShowsLayout.BackColor = System.Drawing.Color.Transparent;
             this.ShowsLayout.ColumnCount = 1;
             this.ShowsLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.ShowsLayout.Controls.Add(this.tableLayoutPanel3, 0, 0);
             this.ShowsLayout.Controls.Add(this.ShowsList, 0, 1);
-            this.ShowsLayout.Controls.Add(this.splitContainer1, 0, 0);
-            this.ShowsLayout.Controls.Add(this.splitContainer2, 0, 2);
+            this.ShowsLayout.Controls.Add(this.PlayShowPanel, 0, 2);
             this.ShowsLayout.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ShowsLayout.Location = new System.Drawing.Point(0, 0);
             this.ShowsLayout.Margin = new System.Windows.Forms.Padding(0);
@@ -235,91 +231,92 @@
             this.ShowsLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
             this.ShowsLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 77.5F));
             this.ShowsLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
-            this.ShowsLayout.Size = new System.Drawing.Size(377, 534);
+            this.ShowsLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.ShowsLayout.Size = new System.Drawing.Size(376, 534);
             this.ShowsLayout.TabIndex = 5;
             // 
-            // splitContainer1
+            // tableLayoutPanel3
             // 
-            this.splitContainer1.BackColor = System.Drawing.Color.Transparent;
-            this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer1.IsSplitterFixed = true;
-            this.splitContainer1.Location = new System.Drawing.Point(0, 0);
-            this.splitContainer1.Margin = new System.Windows.Forms.Padding(0);
-            this.splitContainer1.Name = "splitContainer1";
+            this.tableLayoutPanel3.ColumnCount = 3;
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 64F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 18F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 18F));
+            this.tableLayoutPanel3.Controls.Add(this.MinimiseLabel, 1, 0);
+            this.tableLayoutPanel3.Controls.Add(this.TitleLabel, 0, 0);
+            this.tableLayoutPanel3.Controls.Add(this.CloseLabel, 2, 0);
+            this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel3.Margin = new System.Windows.Forms.Padding(0);
+            this.tableLayoutPanel3.Name = "tableLayoutPanel3";
+            this.tableLayoutPanel3.RowCount = 1;
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(376, 53);
+            this.tableLayoutPanel3.TabIndex = 14;
             // 
-            // splitContainer1.Panel1
+            // MinimiseLabel
             // 
-            this.splitContainer1.Panel1.BackColor = System.Drawing.Color.Transparent;
-            this.splitContainer1.Panel1.Controls.Add(this.TitleLabel);
-            // 
-            // splitContainer1.Panel2
-            // 
-            this.splitContainer1.Panel2.BackColor = System.Drawing.Color.Transparent;
-            this.splitContainer1.Panel2.Controls.Add(this.CloseLabel);
-            this.splitContainer1.Size = new System.Drawing.Size(377, 53);
-            this.splitContainer1.SplitterDistance = 232;
-            this.splitContainer1.SplitterWidth = 1;
-            this.splitContainer1.TabIndex = 3;
+            this.MinimiseLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(116)))), ((int)(((byte)(116)))));
+            this.MinimiseLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.MinimiseLabel.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MinimiseLabel.Location = new System.Drawing.Point(240, 0);
+            this.MinimiseLabel.Margin = new System.Windows.Forms.Padding(0);
+            this.MinimiseLabel.Name = "MinimiseLabel";
+            this.MinimiseLabel.Size = new System.Drawing.Size(67, 53);
+            this.MinimiseLabel.TabIndex = 2;
+            this.MinimiseLabel.Text = "__";
+            this.MinimiseLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.MinimiseLabel.Click += new System.EventHandler(this.MinimiseLabel_Click);
+            this.MinimiseLabel.MouseEnter += new System.EventHandler(this.MinimiseLabel_MouseEnter);
+            this.MinimiseLabel.MouseLeave += new System.EventHandler(this.MinimiseLabel_MouseLeave);
             // 
             // TitleLabel
             // 
-            this.TitleLabel.BackColor = System.Drawing.Color.Transparent;
+            this.TitleLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(116)))), ((int)(((byte)(116)))));
             this.TitleLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.TitleLabel.Font = new System.Drawing.Font("Franklin Gothic Demi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TitleLabel.ForeColor = System.Drawing.Color.Transparent;
-            this.TitleLabel.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.TitleLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TitleLabel.Location = new System.Drawing.Point(0, 0);
+            this.TitleLabel.Margin = new System.Windows.Forms.Padding(0);
             this.TitleLabel.Name = "TitleLabel";
-            this.TitleLabel.Padding = new System.Windows.Forms.Padding(12, 0, 5, 2);
-            this.TitleLabel.Size = new System.Drawing.Size(232, 53);
+            this.TitleLabel.Padding = new System.Windows.Forms.Padding(7, 0, 0, 0);
+            this.TitleLabel.Size = new System.Drawing.Size(240, 53);
             this.TitleLabel.TabIndex = 0;
-            this.TitleLabel.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
+            this.TitleLabel.Text = "Drive";
+            this.TitleLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.TitleLabel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.TitleLabel_MouseDown);
             // 
             // CloseLabel
             // 
-            this.CloseLabel.BackColor = System.Drawing.Color.DimGray;
+            this.CloseLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(116)))), ((int)(((byte)(116)))));
             this.CloseLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.CloseLabel.Font = new System.Drawing.Font("Franklin Gothic Demi", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CloseLabel.ForeColor = System.Drawing.Color.Transparent;
             this.CloseLabel.Image = global::RandomTvShow.Properties.Resources.close_icon_alt;
-            this.CloseLabel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.CloseLabel.Location = new System.Drawing.Point(0, 0);
+            this.CloseLabel.Location = new System.Drawing.Point(307, 0);
+            this.CloseLabel.Margin = new System.Windows.Forms.Padding(0);
             this.CloseLabel.Name = "CloseLabel";
-            this.CloseLabel.Padding = new System.Windows.Forms.Padding(14, 0, 0, 0);
-            this.CloseLabel.Size = new System.Drawing.Size(144, 53);
-            this.CloseLabel.TabIndex = 0;
-            this.CloseLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.CloseLabel.Size = new System.Drawing.Size(69, 53);
+            this.CloseLabel.TabIndex = 1;
             this.CloseLabel.Click += new System.EventHandler(this.CloseLabel_Click);
+            this.CloseLabel.MouseEnter += new System.EventHandler(this.MinimiseLabel_MouseEnter);
+            this.CloseLabel.MouseLeave += new System.EventHandler(this.MinimiseLabel_MouseLeave);
             // 
-            // splitContainer2
+            // PlayShowPanel
             // 
-            this.splitContainer2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer2.IsSplitterFixed = true;
-            this.splitContainer2.Location = new System.Drawing.Point(0, 466);
-            this.splitContainer2.Margin = new System.Windows.Forms.Padding(0);
-            this.splitContainer2.Name = "splitContainer2";
-            // 
-            // splitContainer2.Panel1
-            // 
-            this.splitContainer2.Panel1.Controls.Add(this.GoButton);
-            // 
-            // splitContainer2.Panel2
-            // 
-            this.splitContainer2.Panel2.Controls.Add(this.AutoplayButton);
-            this.splitContainer2.Size = new System.Drawing.Size(377, 68);
-            this.splitContainer2.SplitterDistance = 107;
-            this.splitContainer2.SplitterWidth = 1;
-            this.splitContainer2.TabIndex = 4;
-            this.splitContainer2.TabStop = false;
+            this.PlayShowPanel.Controls.Add(this.AutoplayButton);
+            this.PlayShowPanel.Controls.Add(this.GoButton);
+            this.PlayShowPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.PlayShowPanel.Location = new System.Drawing.Point(0, 466);
+            this.PlayShowPanel.Margin = new System.Windows.Forms.Padding(0);
+            this.PlayShowPanel.Name = "PlayShowPanel";
+            this.PlayShowPanel.Size = new System.Drawing.Size(376, 68);
+            this.PlayShowPanel.TabIndex = 15;
             // 
             // AutoplayButton
             // 
+            this.AutoplayButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.AutoplayButton.AutoSize = true;
             this.AutoplayButton.BackColor = System.Drawing.Color.Transparent;
             this.AutoplayButton.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.AutoplayButton.ForeColor = System.Drawing.Color.Transparent;
-            this.AutoplayButton.Location = new System.Drawing.Point(81, 15);
+            this.AutoplayButton.Location = new System.Drawing.Point(232, 15);
             this.AutoplayButton.Name = "AutoplayButton";
             this.AutoplayButton.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.AutoplayButton.Size = new System.Drawing.Size(124, 32);
@@ -335,7 +332,6 @@
             this.SettingsLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.SettingsLayout.Controls.Add(this.ThemeLabel, 0, 8);
             this.SettingsLayout.Controls.Add(this.splitContainer7, 0, 7);
-            this.SettingsLayout.Controls.Add(this.splitContainer8, 0, 10);
             this.SettingsLayout.Controls.Add(this.MainDriveLabel, 0, 2);
             this.SettingsLayout.Controls.Add(this.splitContainer4, 0, 3);
             this.SettingsLayout.Controls.Add(this.Shortcut2Label, 0, 6);
@@ -343,6 +339,7 @@
             this.SettingsLayout.Controls.Add(this.Shortcut1Label, 0, 4);
             this.SettingsLayout.Controls.Add(this.tableLayoutPanel1, 0, 9);
             this.SettingsLayout.Controls.Add(this.HeaderLayoutPanel, 0, 0);
+            this.SettingsLayout.Controls.Add(this.SaveSettingsPanel, 0, 10);
             this.SettingsLayout.Dock = System.Windows.Forms.DockStyle.Fill;
             this.SettingsLayout.Location = new System.Drawing.Point(0, 0);
             this.SettingsLayout.Name = "SettingsLayout";
@@ -358,7 +355,7 @@
             this.SettingsLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 9.090908F));
             this.SettingsLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 80F));
             this.SettingsLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 79F));
-            this.SettingsLayout.Size = new System.Drawing.Size(377, 534);
+            this.SettingsLayout.Size = new System.Drawing.Size(376, 534);
             this.SettingsLayout.TabIndex = 5;
             this.SettingsLayout.Visible = false;
             // 
@@ -379,6 +376,8 @@
             // 
             this.splitContainer7.BackColor = System.Drawing.Color.Transparent;
             this.splitContainer7.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer7.FixedPanel = System.Windows.Forms.FixedPanel.Panel2;
+            this.splitContainer7.IsSplitterFixed = true;
             this.splitContainer7.Location = new System.Drawing.Point(0, 279);
             this.splitContainer7.Margin = new System.Windows.Forms.Padding(0);
             this.splitContainer7.Name = "splitContainer7";
@@ -386,24 +385,26 @@
             // splitContainer7.Panel1
             // 
             this.splitContainer7.Panel1.Controls.Add(this.Shortcut2Textbox);
+            this.splitContainer7.Panel1.Padding = new System.Windows.Forms.Padding(0, 0, 200, 0);
             // 
             // splitContainer7.Panel2
             // 
             this.splitContainer7.Panel2.Controls.Add(this.BrowseS2Button);
-            this.splitContainer7.Size = new System.Drawing.Size(377, 65);
-            this.splitContainer7.SplitterDistance = 196;
+            this.splitContainer7.Size = new System.Drawing.Size(376, 65);
+            this.splitContainer7.SplitterDistance = 303;
             this.splitContainer7.SplitterWidth = 1;
             this.splitContainer7.TabIndex = 8;
             // 
             // Shortcut2Textbox
             // 
-            this.Shortcut2Textbox.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.Shortcut2Textbox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.Shortcut2Textbox.BackColor = System.Drawing.Color.Gray;
             this.Shortcut2Textbox.ForeColor = System.Drawing.Color.Transparent;
-            this.Shortcut2Textbox.Location = new System.Drawing.Point(10, 2);
-            this.Shortcut2Textbox.Margin = new System.Windows.Forms.Padding(10, 3, 5, 3);
+            this.Shortcut2Textbox.Location = new System.Drawing.Point(10, 10);
+            this.Shortcut2Textbox.Margin = new System.Windows.Forms.Padding(0);
             this.Shortcut2Textbox.Name = "Shortcut2Textbox";
-            this.Shortcut2Textbox.Size = new System.Drawing.Size(238, 22);
+            this.Shortcut2Textbox.Size = new System.Drawing.Size(30, 22);
             this.Shortcut2Textbox.TabIndex = 0;
             // 
             // BrowseS2Button
@@ -424,52 +425,6 @@
             this.BrowseS2Button.MouseEnter += new System.EventHandler(this.AutoplayButton_MouseEnter);
             this.BrowseS2Button.MouseLeave += new System.EventHandler(this.HardDriveLabel_MouseLeave);
             // 
-            // splitContainer8
-            // 
-            this.splitContainer8.Location = new System.Drawing.Point(0, 452);
-            this.splitContainer8.Margin = new System.Windows.Forms.Padding(0);
-            this.splitContainer8.Name = "splitContainer8";
-            // 
-            // splitContainer8.Panel1
-            // 
-            this.splitContainer8.Panel1.Controls.Add(this.VersionNumberLabel);
-            // 
-            // splitContainer8.Panel2
-            // 
-            this.splitContainer8.Panel2.Controls.Add(this.SaveButton);
-            this.splitContainer8.Size = new System.Drawing.Size(377, 81);
-            this.splitContainer8.SplitterDistance = 180;
-            this.splitContainer8.SplitterWidth = 1;
-            this.splitContainer8.TabIndex = 10;
-            // 
-            // VersionNumberLabel
-            // 
-            this.VersionNumberLabel.AutoSize = true;
-            this.VersionNumberLabel.BackColor = System.Drawing.Color.Transparent;
-            this.VersionNumberLabel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.VersionNumberLabel.ForeColor = System.Drawing.Color.Transparent;
-            this.VersionNumberLabel.Location = new System.Drawing.Point(3, 36);
-            this.VersionNumberLabel.Name = "VersionNumberLabel";
-            this.VersionNumberLabel.Size = new System.Drawing.Size(126, 40);
-            this.VersionNumberLabel.TabIndex = 0;
-            this.VersionNumberLabel.Text = "Random TV Show\r\nVersion: 1.0.0.0";
-            // 
-            // SaveButton
-            // 
-            this.SaveButton.BackColor = System.Drawing.Color.DimGray;
-            this.SaveButton.FlatAppearance.BorderColor = System.Drawing.Color.WhiteSmoke;
-            this.SaveButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.SaveButton.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SaveButton.ForeColor = System.Drawing.Color.Transparent;
-            this.SaveButton.Location = new System.Drawing.Point(10, 19);
-            this.SaveButton.Margin = new System.Windows.Forms.Padding(3, 3, 20, 20);
-            this.SaveButton.Name = "SaveButton";
-            this.SaveButton.Size = new System.Drawing.Size(111, 51);
-            this.SaveButton.TabIndex = 9;
-            this.SaveButton.Text = "Save";
-            this.SaveButton.UseVisualStyleBackColor = false;
-            this.SaveButton.Click += new System.EventHandler(this.SaveButton_Click);
-            // 
             // MainDriveLabel
             // 
             this.MainDriveLabel.BackColor = System.Drawing.Color.Transparent;
@@ -479,7 +434,7 @@
             this.MainDriveLabel.Location = new System.Drawing.Point(3, 65);
             this.MainDriveLabel.Name = "MainDriveLabel";
             this.MainDriveLabel.Padding = new System.Windows.Forms.Padding(4, 0, 0, 0);
-            this.MainDriveLabel.Size = new System.Drawing.Size(371, 28);
+            this.MainDriveLabel.Size = new System.Drawing.Size(370, 28);
             this.MainDriveLabel.TabIndex = 0;
             this.MainDriveLabel.Text = "Main Drive:";
             this.MainDriveLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -488,6 +443,8 @@
             // 
             this.splitContainer4.BackColor = System.Drawing.Color.Transparent;
             this.splitContainer4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer4.FixedPanel = System.Windows.Forms.FixedPanel.Panel2;
+            this.splitContainer4.IsSplitterFixed = true;
             this.splitContainer4.Location = new System.Drawing.Point(0, 93);
             this.splitContainer4.Margin = new System.Windows.Forms.Padding(0);
             this.splitContainer4.Name = "splitContainer4";
@@ -495,24 +452,26 @@
             // splitContainer4.Panel1
             // 
             this.splitContainer4.Panel1.Controls.Add(this.MainDriveTextbox);
+            this.splitContainer4.Panel1.Padding = new System.Windows.Forms.Padding(0, 0, 200, 0);
             // 
             // splitContainer4.Panel2
             // 
             this.splitContainer4.Panel2.Controls.Add(this.BrowseMainButton);
-            this.splitContainer4.Size = new System.Drawing.Size(377, 65);
-            this.splitContainer4.SplitterDistance = 196;
+            this.splitContainer4.Size = new System.Drawing.Size(376, 65);
+            this.splitContainer4.SplitterDistance = 303;
             this.splitContainer4.SplitterWidth = 1;
             this.splitContainer4.TabIndex = 1;
             // 
             // MainDriveTextbox
             // 
-            this.MainDriveTextbox.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.MainDriveTextbox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.MainDriveTextbox.BackColor = System.Drawing.Color.Gray;
             this.MainDriveTextbox.ForeColor = System.Drawing.Color.Transparent;
-            this.MainDriveTextbox.Location = new System.Drawing.Point(10, 2);
-            this.MainDriveTextbox.Margin = new System.Windows.Forms.Padding(10, 3, 5, 3);
+            this.MainDriveTextbox.Location = new System.Drawing.Point(10, 10);
+            this.MainDriveTextbox.Margin = new System.Windows.Forms.Padding(0);
             this.MainDriveTextbox.Name = "MainDriveTextbox";
-            this.MainDriveTextbox.Size = new System.Drawing.Size(238, 22);
+            this.MainDriveTextbox.Size = new System.Drawing.Size(36, 22);
             this.MainDriveTextbox.TabIndex = 0;
             // 
             // BrowseMainButton
@@ -550,6 +509,8 @@
             // 
             this.splitContainer6.BackColor = System.Drawing.Color.Transparent;
             this.splitContainer6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer6.FixedPanel = System.Windows.Forms.FixedPanel.Panel2;
+            this.splitContainer6.IsSplitterFixed = true;
             this.splitContainer6.Location = new System.Drawing.Point(0, 186);
             this.splitContainer6.Margin = new System.Windows.Forms.Padding(0);
             this.splitContainer6.Name = "splitContainer6";
@@ -557,24 +518,26 @@
             // splitContainer6.Panel1
             // 
             this.splitContainer6.Panel1.Controls.Add(this.Shortcut1Textbox);
+            this.splitContainer6.Panel1.Padding = new System.Windows.Forms.Padding(0, 0, 200, 0);
             // 
             // splitContainer6.Panel2
             // 
             this.splitContainer6.Panel2.Controls.Add(this.BrowseS1Button);
-            this.splitContainer6.Size = new System.Drawing.Size(377, 65);
-            this.splitContainer6.SplitterDistance = 196;
+            this.splitContainer6.Size = new System.Drawing.Size(376, 65);
+            this.splitContainer6.SplitterDistance = 303;
             this.splitContainer6.SplitterWidth = 1;
             this.splitContainer6.TabIndex = 7;
             // 
             // Shortcut1Textbox
             // 
-            this.Shortcut1Textbox.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.Shortcut1Textbox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.Shortcut1Textbox.BackColor = System.Drawing.Color.Gray;
             this.Shortcut1Textbox.ForeColor = System.Drawing.Color.Transparent;
-            this.Shortcut1Textbox.Location = new System.Drawing.Point(10, 2);
-            this.Shortcut1Textbox.Margin = new System.Windows.Forms.Padding(10, 3, 5, 3);
+            this.Shortcut1Textbox.Location = new System.Drawing.Point(10, 10);
+            this.Shortcut1Textbox.Margin = new System.Windows.Forms.Padding(0);
             this.Shortcut1Textbox.Name = "Shortcut1Textbox";
-            this.Shortcut1Textbox.Size = new System.Drawing.Size(238, 22);
+            this.Shortcut1Textbox.Size = new System.Drawing.Size(36, 22);
             this.Shortcut1Textbox.TabIndex = 0;
             // 
             // BrowseS1Button
@@ -621,7 +584,7 @@
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(377, 80);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(376, 80);
             this.tableLayoutPanel1.TabIndex = 12;
             // 
             // ForestLabel
@@ -634,7 +597,7 @@
             this.ForestLabel.Margin = new System.Windows.Forms.Padding(20, 0, 20, 0);
             this.ForestLabel.Name = "ForestLabel";
             this.ForestLabel.Padding = new System.Windows.Forms.Padding(0, 5, 0, 5);
-            this.ForestLabel.Size = new System.Drawing.Size(87, 30);
+            this.ForestLabel.Size = new System.Drawing.Size(86, 30);
             this.ForestLabel.TabIndex = 2;
             this.ForestLabel.Text = "Forest";
             this.ForestLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -693,7 +656,7 @@
             this.HeaderLayoutPanel.Name = "HeaderLayoutPanel";
             this.HeaderLayoutPanel.RowCount = 1;
             this.HeaderLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.HeaderLayoutPanel.Size = new System.Drawing.Size(377, 53);
+            this.HeaderLayoutPanel.Size = new System.Drawing.Size(376, 53);
             this.HeaderLayoutPanel.TabIndex = 13;
             // 
             // MinimiseLabel2
@@ -701,7 +664,7 @@
             this.MinimiseLabel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(116)))), ((int)(((byte)(116)))));
             this.MinimiseLabel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.MinimiseLabel2.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MinimiseLabel2.Location = new System.Drawing.Point(241, 0);
+            this.MinimiseLabel2.Location = new System.Drawing.Point(240, 0);
             this.MinimiseLabel2.Margin = new System.Windows.Forms.Padding(0);
             this.MinimiseLabel2.Name = "MinimiseLabel2";
             this.MinimiseLabel2.Size = new System.Drawing.Size(67, 53);
@@ -716,12 +679,12 @@
             // 
             this.TitleLabel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(116)))), ((int)(((byte)(116)))));
             this.TitleLabel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.TitleLabel2.Font = new System.Drawing.Font("Segoe UI Semibold", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TitleLabel2.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TitleLabel2.Location = new System.Drawing.Point(0, 0);
             this.TitleLabel2.Margin = new System.Windows.Forms.Padding(0);
             this.TitleLabel2.Name = "TitleLabel2";
             this.TitleLabel2.Padding = new System.Windows.Forms.Padding(7, 0, 0, 0);
-            this.TitleLabel2.Size = new System.Drawing.Size(241, 53);
+            this.TitleLabel2.Size = new System.Drawing.Size(240, 53);
             this.TitleLabel2.TabIndex = 0;
             this.TitleLabel2.Text = "Settings";
             this.TitleLabel2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -732,7 +695,7 @@
             this.CloseLabel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(116)))), ((int)(((byte)(116)))));
             this.CloseLabel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.CloseLabel2.Image = global::RandomTvShow.Properties.Resources.close_icon_alt;
-            this.CloseLabel2.Location = new System.Drawing.Point(308, 0);
+            this.CloseLabel2.Location = new System.Drawing.Point(307, 0);
             this.CloseLabel2.Margin = new System.Windows.Forms.Padding(0);
             this.CloseLabel2.Name = "CloseLabel2";
             this.CloseLabel2.Size = new System.Drawing.Size(69, 53);
@@ -740,6 +703,47 @@
             this.CloseLabel2.Click += new System.EventHandler(this.CloseLabel_Click);
             this.CloseLabel2.MouseEnter += new System.EventHandler(this.MinimiseLabel_MouseEnter);
             this.CloseLabel2.MouseLeave += new System.EventHandler(this.MinimiseLabel_MouseLeave);
+            // 
+            // SaveSettingsPanel
+            // 
+            this.SaveSettingsPanel.Controls.Add(this.VersionNumberLabel);
+            this.SaveSettingsPanel.Controls.Add(this.SaveButton);
+            this.SaveSettingsPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.SaveSettingsPanel.Location = new System.Drawing.Point(0, 452);
+            this.SaveSettingsPanel.Margin = new System.Windows.Forms.Padding(0);
+            this.SaveSettingsPanel.Name = "SaveSettingsPanel";
+            this.SaveSettingsPanel.Size = new System.Drawing.Size(376, 82);
+            this.SaveSettingsPanel.TabIndex = 14;
+            // 
+            // VersionNumberLabel
+            // 
+            this.VersionNumberLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.VersionNumberLabel.AutoSize = true;
+            this.VersionNumberLabel.BackColor = System.Drawing.Color.Transparent;
+            this.VersionNumberLabel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.VersionNumberLabel.ForeColor = System.Drawing.Color.Transparent;
+            this.VersionNumberLabel.Location = new System.Drawing.Point(7, 32);
+            this.VersionNumberLabel.Name = "VersionNumberLabel";
+            this.VersionNumberLabel.Size = new System.Drawing.Size(126, 40);
+            this.VersionNumberLabel.TabIndex = 0;
+            this.VersionNumberLabel.Text = "Random TV Show\r\nVersion: 1.0.0.0";
+            // 
+            // SaveButton
+            // 
+            this.SaveButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.SaveButton.BackColor = System.Drawing.Color.DimGray;
+            this.SaveButton.FlatAppearance.BorderColor = System.Drawing.Color.WhiteSmoke;
+            this.SaveButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.SaveButton.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SaveButton.ForeColor = System.Drawing.Color.Transparent;
+            this.SaveButton.Location = new System.Drawing.Point(256, 20);
+            this.SaveButton.Margin = new System.Windows.Forms.Padding(3, 3, 20, 20);
+            this.SaveButton.Name = "SaveButton";
+            this.SaveButton.Size = new System.Drawing.Size(111, 51);
+            this.SaveButton.TabIndex = 9;
+            this.SaveButton.Text = "Save";
+            this.SaveButton.UseVisualStyleBackColor = false;
+            this.SaveButton.Click += new System.EventHandler(this.SaveButton_Click);
             // 
             // RefreshLabel
             // 
@@ -771,17 +775,6 @@
             this.tableLayoutPanel2.Size = new System.Drawing.Size(461, 534);
             this.tableLayoutPanel2.TabIndex = 5;
             // 
-            // MainPanel
-            // 
-            this.MainPanel.Controls.Add(this.SettingsLayout);
-            this.MainPanel.Controls.Add(this.ShowsLayout);
-            this.MainPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.MainPanel.Location = new System.Drawing.Point(84, 0);
-            this.MainPanel.Margin = new System.Windows.Forms.Padding(0);
-            this.MainPanel.Name = "MainPanel";
-            this.MainPanel.Size = new System.Drawing.Size(377, 534);
-            this.MainPanel.TabIndex = 3;
-            // 
             // MenuPanel
             // 
             this.MenuPanel.Controls.Add(this.MenuBar);
@@ -789,8 +782,19 @@
             this.MenuPanel.Location = new System.Drawing.Point(0, 0);
             this.MenuPanel.Margin = new System.Windows.Forms.Padding(0);
             this.MenuPanel.Name = "MenuPanel";
-            this.MenuPanel.Size = new System.Drawing.Size(84, 534);
+            this.MenuPanel.Size = new System.Drawing.Size(85, 534);
             this.MenuPanel.TabIndex = 4;
+            // 
+            // MainPanel
+            // 
+            this.MainPanel.Controls.Add(this.SettingsLayout);
+            this.MainPanel.Controls.Add(this.ShowsLayout);
+            this.MainPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.MainPanel.Location = new System.Drawing.Point(85, 0);
+            this.MainPanel.Margin = new System.Windows.Forms.Padding(0);
+            this.MainPanel.Name = "MainPanel";
+            this.MainPanel.Size = new System.Drawing.Size(376, 534);
+            this.MainPanel.TabIndex = 3;
             // 
             // MainForm
             // 
@@ -799,30 +803,22 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Gray;
             this.ClientSize = new System.Drawing.Size(461, 534);
-            this.Controls.Add(this.RefreshLabel);
+            this.ControlBox = false;
             this.Controls.Add(this.DriveNotFoundLabel);
+            this.Controls.Add(this.RefreshLabel);
             this.Controls.Add(this.tableLayoutPanel2);
             this.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(461, 534);
             this.MinimizeBox = false;
-            this.MinimumSize = new System.Drawing.Size(461, 534);
+            this.MinimumSize = new System.Drawing.Size(479, 552);
             this.Name = "MainForm";
-            this.Text = "Pick some shows...";
             this.MenuBar.ResumeLayout(false);
             this.ShowsLayout.ResumeLayout(false);
-            this.splitContainer1.Panel1.ResumeLayout(false);
-            this.splitContainer1.Panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
-            this.splitContainer1.ResumeLayout(false);
-            this.splitContainer2.Panel1.ResumeLayout(false);
-            this.splitContainer2.Panel2.ResumeLayout(false);
-            this.splitContainer2.Panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
-            this.splitContainer2.ResumeLayout(false);
+            this.tableLayoutPanel3.ResumeLayout(false);
+            this.PlayShowPanel.ResumeLayout(false);
+            this.PlayShowPanel.PerformLayout();
             this.SettingsLayout.ResumeLayout(false);
             this.splitContainer7.Panel1.ResumeLayout(false);
             this.splitContainer7.Panel1.PerformLayout();
@@ -830,11 +826,6 @@
             this.splitContainer7.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer7)).EndInit();
             this.splitContainer7.ResumeLayout(false);
-            this.splitContainer8.Panel1.ResumeLayout(false);
-            this.splitContainer8.Panel1.PerformLayout();
-            this.splitContainer8.Panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer8)).EndInit();
-            this.splitContainer8.ResumeLayout(false);
             this.splitContainer4.Panel1.ResumeLayout(false);
             this.splitContainer4.Panel1.PerformLayout();
             this.splitContainer4.Panel2.ResumeLayout(false);
@@ -850,9 +841,11 @@
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.HeaderLayoutPanel.ResumeLayout(false);
+            this.SaveSettingsPanel.ResumeLayout(false);
+            this.SaveSettingsPanel.PerformLayout();
             this.tableLayoutPanel2.ResumeLayout(false);
-            this.MainPanel.ResumeLayout(false);
             this.MenuPanel.ResumeLayout(false);
+            this.MainPanel.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -866,12 +859,8 @@
         private System.Windows.Forms.Label DriveNotFoundLabel;
         private System.Windows.Forms.Label RefreshLabel;
         private System.Windows.Forms.TableLayoutPanel ShowsLayout;
-        private System.Windows.Forms.SplitContainer splitContainer1;
-        private System.Windows.Forms.Label CloseLabel;
-        private System.Windows.Forms.SplitContainer splitContainer2;
         private System.Windows.Forms.CheckBox AutoplayButton;
         private System.Windows.Forms.Label OnlineLabel;
-        private System.Windows.Forms.Label TitleLabel;
         private System.Windows.Forms.Label SettingsLabel;
         private System.Windows.Forms.TableLayoutPanel SettingsLayout;
         private System.Windows.Forms.Label MainDriveLabel;
@@ -888,7 +877,6 @@
         private System.Windows.Forms.TextBox Shortcut1Textbox;
         private System.Windows.Forms.Label BrowseS1Button;
         private System.Windows.Forms.Button SaveButton;
-        private System.Windows.Forms.SplitContainer splitContainer8;
         private System.Windows.Forms.Label VersionNumberLabel;
         private System.Windows.Forms.Label ThemeLabel;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
@@ -902,6 +890,12 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.Panel MainPanel;
         private System.Windows.Forms.Panel MenuPanel;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
+        private System.Windows.Forms.Label MinimiseLabel;
+        private System.Windows.Forms.Label TitleLabel;
+        private System.Windows.Forms.Label CloseLabel;
+        private System.Windows.Forms.Panel SaveSettingsPanel;
+        private System.Windows.Forms.Panel PlayShowPanel;
     }
 }
 
