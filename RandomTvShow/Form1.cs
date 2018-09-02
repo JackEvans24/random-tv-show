@@ -201,10 +201,17 @@ namespace RandomTvShow
                 label.BackColor = Color.Transparent;
         }
 
+        private void MinimiseLabel_MouseEnter(object sender, EventArgs e)
+        {
+            Control label = sender as Control;
+            if (label.BackColor != Properties.Settings.Default.AppColourHighlight)
+                label.BackColor = Properties.Settings.Default.AppColourMenu;
+        }
+
         private void MinimiseLabel_MouseLeave(object sender, EventArgs e)
         {
             Control control = sender as Control;
-            control.BackColor = Properties.Settings.Default.AppColourMenu;
+            control.BackColor = Properties.Settings.Default.AppColourMenuHover;
         }
 
         private void RefreshLabel_Click(object sender, EventArgs e)

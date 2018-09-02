@@ -62,14 +62,18 @@ namespace RandomTvShow
                 form.Controls.Find("Shortcut2Textbox", true).FirstOrDefault().BackColor =
                 Properties.Settings.Default.AppColourBg;
 
-            SplitContainer mainSplitContainer = form.Controls.Find("splitContainer3", true).FirstOrDefault() as SplitContainer;
-            mainSplitContainer.Panel1.BackColor =
+            form.Controls.Find("MenuPanel", true).FirstOrDefault().BackColor =
                 form.Controls.Find("GoButton", true).FirstOrDefault().BackColor =
                 form.Controls.Find("SaveButton", true).FirstOrDefault().BackColor =
+                Properties.Settings.Default.AppColourMenu;
+
+            form.Controls.Find("TitleLabel", true).FirstOrDefault().BackColor =
+                form.Controls.Find("TitleLabel2", true).FirstOrDefault().BackColor =
                 form.Controls.Find("MinimiseLabel2", true).FirstOrDefault().BackColor =
                 form.Controls.Find("CloseLabel", true).FirstOrDefault().BackColor =
                 form.Controls.Find("CloseLabel2", true).FirstOrDefault().BackColor =
-                Properties.Settings.Default.AppColourMenu;
+                Properties.Settings.Default.AppColourMenuHover;
+
 
             Button GoButton = form.Controls.Find("GoButton", true).FirstOrDefault() as Button,
                 SaveButton = form.Controls.Find("SaveButton", true).FirstOrDefault() as Button;
@@ -80,6 +84,8 @@ namespace RandomTvShow
                 GoButton.ForeColor = GoButton.FlatAppearance.BorderColor =
                 SaveButton.ForeColor = SaveButton.FlatAppearance.BorderColor =
                 form.Controls.Find("AutoplayButton", true).FirstOrDefault().ForeColor =
+                form.Controls.Find("TitleLabel", true).FirstOrDefault().ForeColor =
+                form.Controls.Find("TitleLabel2", true).FirstOrDefault().ForeColor =
                 form.Controls.Find("MinimiseLabel2", true).FirstOrDefault().ForeColor =
                 form.Controls.Find("MainDriveLabel", true).FirstOrDefault().ForeColor =
                 form.Controls.Find("MainDriveTextbox", true).FirstOrDefault().ForeColor =
