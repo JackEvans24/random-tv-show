@@ -62,13 +62,19 @@ namespace RandomTvShow
                 form.Controls.Find("Shortcut2Textbox", true).FirstOrDefault().BackColor =
                 Properties.Settings.Default.AppColourBg;
 
-            SplitContainer mainSplitContainer = form.Controls.Find("splitContainer3", true).FirstOrDefault() as SplitContainer;
-            mainSplitContainer.Panel1.BackColor =
+            form.Controls.Find("MenuPanel", true).FirstOrDefault().BackColor =
                 form.Controls.Find("GoButton", true).FirstOrDefault().BackColor =
                 form.Controls.Find("SaveButton", true).FirstOrDefault().BackColor =
+                Properties.Settings.Default.AppColourMenu;
+
+            form.Controls.Find("TitleLabel", true).FirstOrDefault().BackColor =
+                form.Controls.Find("TitleLabel2", true).FirstOrDefault().BackColor =
+                form.Controls.Find("MinimiseLabel", true).FirstOrDefault().BackColor =
+                form.Controls.Find("MinimiseLabel2", true).FirstOrDefault().BackColor =
                 form.Controls.Find("CloseLabel", true).FirstOrDefault().BackColor =
                 form.Controls.Find("CloseLabel2", true).FirstOrDefault().BackColor =
-                Properties.Settings.Default.AppColourMenu;
+                Properties.Settings.Default.AppColourMenuHover;
+
 
             Button GoButton = form.Controls.Find("GoButton", true).FirstOrDefault() as Button,
                 SaveButton = form.Controls.Find("SaveButton", true).FirstOrDefault() as Button;
@@ -79,6 +85,10 @@ namespace RandomTvShow
                 GoButton.ForeColor = GoButton.FlatAppearance.BorderColor =
                 SaveButton.ForeColor = SaveButton.FlatAppearance.BorderColor =
                 form.Controls.Find("AutoplayButton", true).FirstOrDefault().ForeColor =
+                form.Controls.Find("TitleLabel", true).FirstOrDefault().ForeColor =
+                form.Controls.Find("TitleLabel2", true).FirstOrDefault().ForeColor =
+                form.Controls.Find("MinimiseLabel", true).FirstOrDefault().ForeColor =
+                form.Controls.Find("MinimiseLabel2", true).FirstOrDefault().ForeColor =
                 form.Controls.Find("MainDriveLabel", true).FirstOrDefault().ForeColor =
                 form.Controls.Find("MainDriveTextbox", true).FirstOrDefault().ForeColor =
                 form.Controls.Find("BrowseMainButton", true).FirstOrDefault().ForeColor =
@@ -128,7 +138,8 @@ namespace RandomTvShow
         {
             Label HardDriveLabel = form.Controls.Find("HardDriveLabel", true).FirstOrDefault() as Label,
                 OnlineLabel = form.Controls.Find("OnlineLabel", true).FirstOrDefault() as Label,
-                SettingsLabel = form.Controls.Find("SettingsLabel", true).FirstOrDefault() as Label;
+                SettingsLabel = form.Controls.Find("SettingsLabel", true).FirstOrDefault() as Label,
+                TitleLabel = form.Controls.Find("TitleLabel", true).FirstOrDefault() as Label;
 
             if (theme == AppTheme.Azure)
             {
@@ -154,9 +165,11 @@ namespace RandomTvShow
             {
                 case AppTab.HardDrive:
                     HardDriveLabel.BackColor = Properties.Settings.Default.AppColourHighlight;
+                    TitleLabel.Text = "Drive";
                     break;
                 case AppTab.Online:
                     OnlineLabel.BackColor = Properties.Settings.Default.AppColourHighlight;
+                    TitleLabel.Text = "Online";
                     break;
                 case AppTab.Settings:
                     SettingsLabel.BackColor = Properties.Settings.Default.AppColourHighlight;

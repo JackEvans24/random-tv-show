@@ -97,7 +97,7 @@ namespace RandomTvShow
             HardDriveLabel_Click(this.HardDriveLabel, null);
 
             VersionNumberLabel.Text = "Random TV Show\r\nVersion: " +
-                System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString();
+                System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString(3);
 
             if (string.IsNullOrWhiteSpace(Properties.Settings.Default.MainDrivePath))
             {
@@ -130,6 +130,11 @@ namespace RandomTvShow
                 ReleaseCapture();
                 SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
             }
+        }
+
+        private void MinimiseLabel_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
         }
 
         private void CloseLabel_Click(object sender, EventArgs e)
@@ -194,6 +199,19 @@ namespace RandomTvShow
             Control label = sender as Control;
             if (label.BackColor != Properties.Settings.Default.AppColourHighlight)
                 label.BackColor = Color.Transparent;
+        }
+
+        private void MinimiseLabel_MouseEnter(object sender, EventArgs e)
+        {
+            Control label = sender as Control;
+            if (label.BackColor != Properties.Settings.Default.AppColourHighlight)
+                label.BackColor = Properties.Settings.Default.AppColourMenu;
+        }
+
+        private void MinimiseLabel_MouseLeave(object sender, EventArgs e)
+        {
+            Control control = sender as Control;
+            control.BackColor = Properties.Settings.Default.AppColourMenuHover;
         }
 
         private void RefreshLabel_Click(object sender, EventArgs e)
