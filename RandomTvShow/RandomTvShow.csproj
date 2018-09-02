@@ -7,7 +7,7 @@
     <ProjectGuid>{4CCDBC12-0172-4FDB-A809-6209C8C669C1}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <RootNamespace>RandomTvShow</RootNamespace>
-    <AssemblyName>Random Episode</AssemblyName>
+    <AssemblyName>6</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>

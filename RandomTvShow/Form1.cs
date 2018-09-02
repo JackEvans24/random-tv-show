@@ -132,6 +132,11 @@ namespace RandomTvShow
             }
         }
 
+        private void MinimiseLabel_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
+
         private void CloseLabel_Click(object sender, EventArgs e)
         {
             Close();
@@ -194,6 +199,12 @@ namespace RandomTvShow
             Control label = sender as Control;
             if (label.BackColor != Properties.Settings.Default.AppColourHighlight)
                 label.BackColor = Color.Transparent;
+        }
+
+        private void MinimiseLabel_MouseLeave(object sender, EventArgs e)
+        {
+            Control control = sender as Control;
+            control.BackColor = Properties.Settings.Default.AppColourMenu;
         }
 
         private void RefreshLabel_Click(object sender, EventArgs e)

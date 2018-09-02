@@ -66,6 +66,7 @@ namespace RandomTvShow
             mainSplitContainer.Panel1.BackColor =
                 form.Controls.Find("GoButton", true).FirstOrDefault().BackColor =
                 form.Controls.Find("SaveButton", true).FirstOrDefault().BackColor =
+                form.Controls.Find("MinimiseLabel2", true).FirstOrDefault().BackColor =
                 form.Controls.Find("CloseLabel", true).FirstOrDefault().BackColor =
                 form.Controls.Find("CloseLabel2", true).FirstOrDefault().BackColor =
                 Properties.Settings.Default.AppColourMenu;
@@ -79,6 +80,7 @@ namespace RandomTvShow
                 GoButton.ForeColor = GoButton.FlatAppearance.BorderColor =
                 SaveButton.ForeColor = SaveButton.FlatAppearance.BorderColor =
                 form.Controls.Find("AutoplayButton", true).FirstOrDefault().ForeColor =
+                form.Controls.Find("MinimiseLabel2", true).FirstOrDefault().ForeColor =
                 form.Controls.Find("MainDriveLabel", true).FirstOrDefault().ForeColor =
                 form.Controls.Find("MainDriveTextbox", true).FirstOrDefault().ForeColor =
                 form.Controls.Find("BrowseMainButton", true).FirstOrDefault().ForeColor =

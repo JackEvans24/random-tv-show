@@ -51,9 +51,6 @@
             this.splitContainer8 = new System.Windows.Forms.SplitContainer();
             this.VersionNumberLabel = new System.Windows.Forms.Label();
             this.SaveButton = new System.Windows.Forms.Button();
-            this.splitContainer5 = new System.Windows.Forms.SplitContainer();
-            this.TitleLabel2 = new System.Windows.Forms.Label();
-            this.CloseLabel2 = new System.Windows.Forms.Label();
             this.MainDriveLabel = new System.Windows.Forms.Label();
             this.splitContainer4 = new System.Windows.Forms.SplitContainer();
             this.MainDriveTextbox = new System.Windows.Forms.TextBox();
@@ -67,6 +64,10 @@
             this.ForestLabel = new System.Windows.Forms.Label();
             this.AzureLabel = new System.Windows.Forms.Label();
             this.MonolithLabel = new System.Windows.Forms.Label();
+            this.HeaderLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
+            this.MinimiseLabel2 = new System.Windows.Forms.Label();
+            this.TitleLabel2 = new System.Windows.Forms.Label();
+            this.CloseLabel2 = new System.Windows.Forms.Label();
             this.folderBroswerDialog = new System.Windows.Forms.FolderBrowserDialog();
             this.RefreshLabel = new System.Windows.Forms.Label();
             this.MenuBar.SuspendLayout();
@@ -92,10 +93,6 @@
             this.splitContainer8.Panel1.SuspendLayout();
             this.splitContainer8.Panel2.SuspendLayout();
             this.splitContainer8.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer5)).BeginInit();
-            this.splitContainer5.Panel1.SuspendLayout();
-            this.splitContainer5.Panel2.SuspendLayout();
-            this.splitContainer5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer4)).BeginInit();
             this.splitContainer4.Panel1.SuspendLayout();
             this.splitContainer4.Panel2.SuspendLayout();
@@ -105,6 +102,7 @@
             this.splitContainer6.Panel2.SuspendLayout();
             this.splitContainer6.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
+            this.HeaderLayoutPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // ShowsList
@@ -360,13 +358,13 @@
             this.SettingsLayout.Controls.Add(this.ThemeLabel, 0, 7);
             this.SettingsLayout.Controls.Add(this.splitContainer7, 0, 6);
             this.SettingsLayout.Controls.Add(this.splitContainer8, 0, 9);
-            this.SettingsLayout.Controls.Add(this.splitContainer5, 0, 0);
             this.SettingsLayout.Controls.Add(this.MainDriveLabel, 0, 1);
             this.SettingsLayout.Controls.Add(this.splitContainer4, 0, 2);
             this.SettingsLayout.Controls.Add(this.Shortcut2Label, 0, 5);
             this.SettingsLayout.Controls.Add(this.splitContainer6, 0, 4);
             this.SettingsLayout.Controls.Add(this.Shortcut1Label, 0, 3);
             this.SettingsLayout.Controls.Add(this.tableLayoutPanel1, 0, 8);
+            this.SettingsLayout.Controls.Add(this.HeaderLayoutPanel, 0, 0);
             this.SettingsLayout.Dock = System.Windows.Forms.DockStyle.Fill;
             this.SettingsLayout.Location = new System.Drawing.Point(0, 0);
             this.SettingsLayout.Name = "SettingsLayout";
@@ -486,7 +484,7 @@
             this.SaveButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.SaveButton.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.SaveButton.ForeColor = System.Drawing.Color.Transparent;
-            this.SaveButton.Location = new System.Drawing.Point(39, 2);
+            this.SaveButton.Location = new System.Drawing.Point(35, 2);
             this.SaveButton.Margin = new System.Windows.Forms.Padding(3, 3, 20, 20);
             this.SaveButton.Name = "SaveButton";
             this.SaveButton.Size = new System.Drawing.Size(111, 51);
@@ -494,60 +492,6 @@
             this.SaveButton.Text = "Save";
             this.SaveButton.UseVisualStyleBackColor = false;
             this.SaveButton.Click += new System.EventHandler(this.SaveButton_Click);
-            // 
-            // splitContainer5
-            // 
-            this.splitContainer5.BackColor = System.Drawing.Color.Transparent;
-            this.splitContainer5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer5.IsSplitterFixed = true;
-            this.splitContainer5.Location = new System.Drawing.Point(0, 0);
-            this.splitContainer5.Margin = new System.Windows.Forms.Padding(0);
-            this.splitContainer5.Name = "splitContainer5";
-            // 
-            // splitContainer5.Panel1
-            // 
-            this.splitContainer5.Panel1.BackColor = System.Drawing.Color.Transparent;
-            this.splitContainer5.Panel1.Controls.Add(this.TitleLabel2);
-            // 
-            // splitContainer5.Panel2
-            // 
-            this.splitContainer5.Panel2.BackColor = System.Drawing.Color.Transparent;
-            this.splitContainer5.Panel2.Controls.Add(this.CloseLabel2);
-            this.splitContainer5.Size = new System.Drawing.Size(380, 53);
-            this.splitContainer5.SplitterDistance = 234;
-            this.splitContainer5.SplitterWidth = 1;
-            this.splitContainer5.TabIndex = 4;
-            // 
-            // TitleLabel2
-            // 
-            this.TitleLabel2.BackColor = System.Drawing.Color.Transparent;
-            this.TitleLabel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.TitleLabel2.Font = new System.Drawing.Font("Franklin Gothic Demi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TitleLabel2.ForeColor = System.Drawing.Color.Transparent;
-            this.TitleLabel2.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.TitleLabel2.Location = new System.Drawing.Point(0, 0);
-            this.TitleLabel2.Name = "TitleLabel2";
-            this.TitleLabel2.Padding = new System.Windows.Forms.Padding(12, 0, 5, 2);
-            this.TitleLabel2.Size = new System.Drawing.Size(234, 53);
-            this.TitleLabel2.TabIndex = 0;
-            this.TitleLabel2.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
-            this.TitleLabel2.MouseDown += new System.Windows.Forms.MouseEventHandler(this.TitleLabel_MouseDown);
-            // 
-            // CloseLabel2
-            // 
-            this.CloseLabel2.BackColor = System.Drawing.Color.DimGray;
-            this.CloseLabel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.CloseLabel2.Font = new System.Drawing.Font("Franklin Gothic Demi", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CloseLabel2.ForeColor = System.Drawing.Color.Transparent;
-            this.CloseLabel2.Image = global::RandomTvShow.Properties.Resources.close_icon_alt;
-            this.CloseLabel2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.CloseLabel2.Location = new System.Drawing.Point(0, 0);
-            this.CloseLabel2.Name = "CloseLabel2";
-            this.CloseLabel2.Padding = new System.Windows.Forms.Padding(14, 0, 0, 0);
-            this.CloseLabel2.Size = new System.Drawing.Size(145, 53);
-            this.CloseLabel2.TabIndex = 0;
-            this.CloseLabel2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.CloseLabel2.Click += new System.EventHandler(this.CloseLabel_Click);
             // 
             // MainDriveLabel
             // 
@@ -757,6 +701,64 @@
             this.MonolithLabel.MouseEnter += new System.EventHandler(this.AutoplayButton_MouseEnter);
             this.MonolithLabel.MouseLeave += new System.EventHandler(this.HardDriveLabel_MouseLeave);
             // 
+            // HeaderLayoutPanel
+            // 
+            this.HeaderLayoutPanel.ColumnCount = 3;
+            this.HeaderLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 64F));
+            this.HeaderLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 18F));
+            this.HeaderLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 18F));
+            this.HeaderLayoutPanel.Controls.Add(this.MinimiseLabel2, 1, 0);
+            this.HeaderLayoutPanel.Controls.Add(this.TitleLabel2, 0, 0);
+            this.HeaderLayoutPanel.Controls.Add(this.CloseLabel2, 2, 0);
+            this.HeaderLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.HeaderLayoutPanel.Location = new System.Drawing.Point(0, 0);
+            this.HeaderLayoutPanel.Margin = new System.Windows.Forms.Padding(0);
+            this.HeaderLayoutPanel.Name = "HeaderLayoutPanel";
+            this.HeaderLayoutPanel.RowCount = 1;
+            this.HeaderLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.HeaderLayoutPanel.Size = new System.Drawing.Size(380, 53);
+            this.HeaderLayoutPanel.TabIndex = 13;
+            // 
+            // MinimiseLabel2
+            // 
+            this.MinimiseLabel2.BackColor = System.Drawing.Color.DimGray;
+            this.MinimiseLabel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.MinimiseLabel2.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MinimiseLabel2.Location = new System.Drawing.Point(243, 0);
+            this.MinimiseLabel2.Margin = new System.Windows.Forms.Padding(0);
+            this.MinimiseLabel2.Name = "MinimiseLabel2";
+            this.MinimiseLabel2.Size = new System.Drawing.Size(68, 53);
+            this.MinimiseLabel2.TabIndex = 2;
+            this.MinimiseLabel2.Text = "__";
+            this.MinimiseLabel2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.MinimiseLabel2.Click += new System.EventHandler(this.MinimiseLabel_Click);
+            this.MinimiseLabel2.MouseEnter += new System.EventHandler(this.HardDriveLabel_MouseEnter);
+            this.MinimiseLabel2.MouseLeave += new System.EventHandler(this.MinimiseLabel_MouseLeave);
+            // 
+            // TitleLabel2
+            // 
+            this.TitleLabel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.TitleLabel2.Location = new System.Drawing.Point(0, 0);
+            this.TitleLabel2.Margin = new System.Windows.Forms.Padding(0);
+            this.TitleLabel2.Name = "TitleLabel2";
+            this.TitleLabel2.Size = new System.Drawing.Size(243, 53);
+            this.TitleLabel2.TabIndex = 0;
+            this.TitleLabel2.MouseDown += new System.Windows.Forms.MouseEventHandler(this.TitleLabel_MouseDown);
+            // 
+            // CloseLabel2
+            // 
+            this.CloseLabel2.BackColor = System.Drawing.Color.DimGray;
+            this.CloseLabel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.CloseLabel2.Image = global::RandomTvShow.Properties.Resources.close_icon_alt;
+            this.CloseLabel2.Location = new System.Drawing.Point(311, 0);
+            this.CloseLabel2.Margin = new System.Windows.Forms.Padding(0);
+            this.CloseLabel2.Name = "CloseLabel2";
+            this.CloseLabel2.Size = new System.Drawing.Size(69, 53);
+            this.CloseLabel2.TabIndex = 1;
+            this.CloseLabel2.Click += new System.EventHandler(this.CloseLabel_Click);
+            this.CloseLabel2.MouseEnter += new System.EventHandler(this.HardDriveLabel_MouseEnter);
+            this.CloseLabel2.MouseLeave += new System.EventHandler(this.MinimiseLabel_MouseLeave);
+            // 
             // RefreshLabel
             // 
             this.RefreshLabel.BackColor = System.Drawing.Color.Transparent;
@@ -817,10 +819,6 @@
             this.splitContainer8.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer8)).EndInit();
             this.splitContainer8.ResumeLayout(false);
-            this.splitContainer5.Panel1.ResumeLayout(false);
-            this.splitContainer5.Panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer5)).EndInit();
-            this.splitContainer5.ResumeLayout(false);
             this.splitContainer4.Panel1.ResumeLayout(false);
             this.splitContainer4.Panel1.PerformLayout();
             this.splitContainer4.Panel2.ResumeLayout(false);
@@ -835,6 +833,7 @@
             this.splitContainer6.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
+            this.HeaderLayoutPanel.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -860,9 +859,6 @@
         private System.Windows.Forms.Label MainDriveLabel;
         private System.Windows.Forms.SplitContainer splitContainer4;
         private System.Windows.Forms.TextBox MainDriveTextbox;
-        private System.Windows.Forms.SplitContainer splitContainer5;
-        private System.Windows.Forms.Label TitleLabel2;
-        private System.Windows.Forms.Label CloseLabel2;
         private System.Windows.Forms.Label BrowseMainButton;
         private System.Windows.Forms.FolderBrowserDialog folderBroswerDialog;
         private System.Windows.Forms.SplitContainer splitContainer7;
@@ -881,6 +877,10 @@
         private System.Windows.Forms.Label ForestLabel;
         private System.Windows.Forms.Label AzureLabel;
         private System.Windows.Forms.Label MonolithLabel;
+        private System.Windows.Forms.TableLayoutPanel HeaderLayoutPanel;
+        private System.Windows.Forms.Label TitleLabel2;
+        private System.Windows.Forms.Label MinimiseLabel2;
+        private System.Windows.Forms.Label CloseLabel2;
     }
 }
 
