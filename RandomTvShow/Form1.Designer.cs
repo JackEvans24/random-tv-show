@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.ShowsList = new System.Windows.Forms.CheckedListBox();
             this.GoButton = new System.Windows.Forms.Button();
@@ -73,6 +74,7 @@
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.MenuPanel = new System.Windows.Forms.Panel();
             this.MainPanel = new System.Windows.Forms.Panel();
+            this.FormTooltip = new System.Windows.Forms.ToolTip(this.components);
             this.MenuBar.SuspendLayout();
             this.ShowsLayout.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
@@ -128,6 +130,7 @@
             this.GoButton.Size = new System.Drawing.Size(111, 49);
             this.GoButton.TabIndex = 1;
             this.GoButton.Text = "Go!";
+            this.FormTooltip.SetToolTip(this.GoButton, "Play a random video");
             this.GoButton.UseVisualStyleBackColor = false;
             this.GoButton.Click += new System.EventHandler(this.GoButton_Click);
             // 
@@ -164,6 +167,7 @@
             this.SettingsLabel.Size = new System.Drawing.Size(85, 81);
             this.SettingsLabel.TabIndex = 3;
             this.SettingsLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.FormTooltip.SetToolTip(this.SettingsLabel, "Settings");
             this.SettingsLabel.Click += new System.EventHandler(this.SettingsLabel_Click);
             this.SettingsLabel.MouseEnter += new System.EventHandler(this.HardDriveLabel_MouseEnter);
             this.SettingsLabel.MouseLeave += new System.EventHandler(this.HardDriveLabel_MouseLeave);
@@ -181,6 +185,7 @@
             this.OnlineLabel.Size = new System.Drawing.Size(85, 81);
             this.OnlineLabel.TabIndex = 2;
             this.OnlineLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.FormTooltip.SetToolTip(this.OnlineLabel, "Random Show from the Web");
             this.OnlineLabel.Click += new System.EventHandler(this.OnlineLabel_Click);
             this.OnlineLabel.MouseEnter += new System.EventHandler(this.HardDriveLabel_MouseEnter);
             this.OnlineLabel.MouseLeave += new System.EventHandler(this.HardDriveLabel_MouseLeave);
@@ -198,6 +203,7 @@
             this.HardDriveLabel.Size = new System.Drawing.Size(85, 81);
             this.HardDriveLabel.TabIndex = 0;
             this.HardDriveLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.FormTooltip.SetToolTip(this.HardDriveLabel, "Random Show from Drive");
             this.HardDriveLabel.Click += new System.EventHandler(this.HardDriveLabel_Click);
             this.HardDriveLabel.MouseEnter += new System.EventHandler(this.HardDriveLabel_MouseEnter);
             this.HardDriveLabel.MouseLeave += new System.EventHandler(this.HardDriveLabel_MouseLeave);
@@ -265,6 +271,7 @@
             this.MinimiseLabel.TabIndex = 2;
             this.MinimiseLabel.Text = "__";
             this.MinimiseLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.FormTooltip.SetToolTip(this.MinimiseLabel, "Close");
             this.MinimiseLabel.Click += new System.EventHandler(this.MinimiseLabel_Click);
             this.MinimiseLabel.MouseEnter += new System.EventHandler(this.MinimiseLabel_MouseEnter);
             this.MinimiseLabel.MouseLeave += new System.EventHandler(this.MinimiseLabel_MouseLeave);
@@ -294,6 +301,7 @@
             this.CloseLabel.Name = "CloseLabel";
             this.CloseLabel.Size = new System.Drawing.Size(69, 53);
             this.CloseLabel.TabIndex = 1;
+            this.FormTooltip.SetToolTip(this.CloseLabel, "Close");
             this.CloseLabel.Click += new System.EventHandler(this.CloseLabel_Click);
             this.CloseLabel.MouseEnter += new System.EventHandler(this.MinimiseLabel_MouseEnter);
             this.CloseLabel.MouseLeave += new System.EventHandler(this.MinimiseLabel_MouseLeave);
@@ -322,6 +330,7 @@
             this.AutoplayButton.Size = new System.Drawing.Size(124, 32);
             this.AutoplayButton.TabIndex = 0;
             this.AutoplayButton.Text = "Autoplay";
+            this.FormTooltip.SetToolTip(this.AutoplayButton, "Select to play another video when the current one ends");
             this.AutoplayButton.UseVisualStyleBackColor = false;
             this.AutoplayButton.MouseEnter += new System.EventHandler(this.AutoplayButton_MouseEnter);
             this.AutoplayButton.MouseLeave += new System.EventHandler(this.HardDriveLabel_MouseLeave);
@@ -391,7 +400,7 @@
             // 
             this.splitContainer7.Panel2.Controls.Add(this.BrowseS2Button);
             this.splitContainer7.Size = new System.Drawing.Size(376, 65);
-            this.splitContainer7.SplitterDistance = 303;
+            this.splitContainer7.SplitterDistance = 306;
             this.splitContainer7.SplitterWidth = 1;
             this.splitContainer7.TabIndex = 8;
             // 
@@ -404,7 +413,7 @@
             this.Shortcut2Textbox.Location = new System.Drawing.Point(10, 10);
             this.Shortcut2Textbox.Margin = new System.Windows.Forms.Padding(0);
             this.Shortcut2Textbox.Name = "Shortcut2Textbox";
-            this.Shortcut2Textbox.Size = new System.Drawing.Size(30, 22);
+            this.Shortcut2Textbox.Size = new System.Drawing.Size(33, 22);
             this.Shortcut2Textbox.TabIndex = 0;
             // 
             // BrowseS2Button
@@ -458,7 +467,7 @@
             // 
             this.splitContainer4.Panel2.Controls.Add(this.BrowseMainButton);
             this.splitContainer4.Size = new System.Drawing.Size(376, 65);
-            this.splitContainer4.SplitterDistance = 303;
+            this.splitContainer4.SplitterDistance = 306;
             this.splitContainer4.SplitterWidth = 1;
             this.splitContainer4.TabIndex = 1;
             // 
@@ -471,7 +480,7 @@
             this.MainDriveTextbox.Location = new System.Drawing.Point(10, 10);
             this.MainDriveTextbox.Margin = new System.Windows.Forms.Padding(0);
             this.MainDriveTextbox.Name = "MainDriveTextbox";
-            this.MainDriveTextbox.Size = new System.Drawing.Size(36, 22);
+            this.MainDriveTextbox.Size = new System.Drawing.Size(39, 22);
             this.MainDriveTextbox.TabIndex = 0;
             // 
             // BrowseMainButton
@@ -524,7 +533,7 @@
             // 
             this.splitContainer6.Panel2.Controls.Add(this.BrowseS1Button);
             this.splitContainer6.Size = new System.Drawing.Size(376, 65);
-            this.splitContainer6.SplitterDistance = 303;
+            this.splitContainer6.SplitterDistance = 306;
             this.splitContainer6.SplitterWidth = 1;
             this.splitContainer6.TabIndex = 7;
             // 
@@ -537,7 +546,7 @@
             this.Shortcut1Textbox.Location = new System.Drawing.Point(10, 10);
             this.Shortcut1Textbox.Margin = new System.Windows.Forms.Padding(0);
             this.Shortcut1Textbox.Name = "Shortcut1Textbox";
-            this.Shortcut1Textbox.Size = new System.Drawing.Size(36, 22);
+            this.Shortcut1Textbox.Size = new System.Drawing.Size(39, 22);
             this.Shortcut1Textbox.TabIndex = 0;
             // 
             // BrowseS1Button
@@ -671,6 +680,7 @@
             this.MinimiseLabel2.TabIndex = 2;
             this.MinimiseLabel2.Text = "__";
             this.MinimiseLabel2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.FormTooltip.SetToolTip(this.MinimiseLabel2, "Minimise");
             this.MinimiseLabel2.Click += new System.EventHandler(this.MinimiseLabel_Click);
             this.MinimiseLabel2.MouseEnter += new System.EventHandler(this.MinimiseLabel_MouseEnter);
             this.MinimiseLabel2.MouseLeave += new System.EventHandler(this.MinimiseLabel_MouseLeave);
@@ -700,6 +710,7 @@
             this.CloseLabel2.Name = "CloseLabel2";
             this.CloseLabel2.Size = new System.Drawing.Size(69, 53);
             this.CloseLabel2.TabIndex = 1;
+            this.FormTooltip.SetToolTip(this.CloseLabel2, "Close");
             this.CloseLabel2.Click += new System.EventHandler(this.CloseLabel_Click);
             this.CloseLabel2.MouseEnter += new System.EventHandler(this.MinimiseLabel_MouseEnter);
             this.CloseLabel2.MouseLeave += new System.EventHandler(this.MinimiseLabel_MouseLeave);
@@ -742,6 +753,7 @@
             this.SaveButton.Size = new System.Drawing.Size(111, 51);
             this.SaveButton.TabIndex = 9;
             this.SaveButton.Text = "Save";
+            this.FormTooltip.SetToolTip(this.SaveButton, "Save these settings");
             this.SaveButton.UseVisualStyleBackColor = false;
             this.SaveButton.Click += new System.EventHandler(this.SaveButton_Click);
             // 
@@ -795,6 +807,11 @@
             this.MainPanel.Name = "MainPanel";
             this.MainPanel.Size = new System.Drawing.Size(376, 534);
             this.MainPanel.TabIndex = 3;
+            // 
+            // FormTooltip
+            // 
+            this.FormTooltip.BackColor = System.Drawing.Color.White;
+            this.FormTooltip.ForeColor = System.Drawing.Color.Black;
             // 
             // MainForm
             // 
@@ -896,6 +913,7 @@
         private System.Windows.Forms.Label CloseLabel;
         private System.Windows.Forms.Panel SaveSettingsPanel;
         private System.Windows.Forms.Panel PlayShowPanel;
+        private System.Windows.Forms.ToolTip FormTooltip;
     }
 }
 
