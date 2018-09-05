@@ -33,15 +33,11 @@
             this.ShowsList = new System.Windows.Forms.CheckedListBox();
             this.GoButton = new System.Windows.Forms.Button();
             this.MenuBar = new System.Windows.Forms.TableLayoutPanel();
-            this.SettingsLabel = new System.Windows.Forms.Label();
-            this.OnlineLabel = new System.Windows.Forms.Label();
-            this.HardDriveLabel = new System.Windows.Forms.Label();
             this.DriveNotFoundLabel = new System.Windows.Forms.Label();
             this.ShowsLayout = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.MinimiseLabel = new System.Windows.Forms.Label();
             this.TitleLabel = new System.Windows.Forms.Label();
-            this.CloseLabel = new System.Windows.Forms.Label();
             this.PlayShowPanel = new System.Windows.Forms.Panel();
             this.AutoplayButton = new System.Windows.Forms.CheckBox();
             this.SettingsLayout = new System.Windows.Forms.TableLayoutPanel();
@@ -65,16 +61,21 @@
             this.HeaderLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.MinimiseLabel2 = new System.Windows.Forms.Label();
             this.TitleLabel2 = new System.Windows.Forms.Label();
-            this.CloseLabel2 = new System.Windows.Forms.Label();
             this.SaveSettingsPanel = new System.Windows.Forms.Panel();
             this.VersionNumberLabel = new System.Windows.Forms.Label();
             this.SaveButton = new System.Windows.Forms.Button();
             this.folderBroswerDialog = new System.Windows.Forms.FolderBrowserDialog();
-            this.RefreshLabel = new System.Windows.Forms.Label();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.MenuPanel = new System.Windows.Forms.Panel();
             this.MainPanel = new System.Windows.Forms.Panel();
             this.FormTooltip = new System.Windows.Forms.ToolTip(this.components);
+            this.SettingsLabel = new System.Windows.Forms.Label();
+            this.OnlineLabel = new System.Windows.Forms.Label();
+            this.HardDriveLabel = new System.Windows.Forms.Label();
+            this.CloseLabel2 = new System.Windows.Forms.Label();
+            this.CloseLabel = new System.Windows.Forms.Label();
+            this.RefreshLabel = new System.Windows.Forms.Label();
+            this.ShowPlayer = new AxWMPLib.AxWindowsMediaPlayer();
             this.MenuBar.SuspendLayout();
             this.ShowsLayout.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
@@ -98,6 +99,7 @@
             this.tableLayoutPanel2.SuspendLayout();
             this.MenuPanel.SuspendLayout();
             this.MainPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ShowPlayer)).BeginInit();
             this.SuspendLayout();
             // 
             // ShowsList
@@ -153,60 +155,6 @@
             this.MenuBar.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.MenuBar.Size = new System.Drawing.Size(85, 263);
             this.MenuBar.TabIndex = 2;
-            // 
-            // SettingsLabel
-            // 
-            this.SettingsLabel.BackColor = System.Drawing.Color.Transparent;
-            this.SettingsLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.SettingsLabel.Font = new System.Drawing.Font("Franklin Gothic Book", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SettingsLabel.ForeColor = System.Drawing.Color.Transparent;
-            this.SettingsLabel.Image = global::RandomTvShow.Properties.Resources.settings_icon_alt;
-            this.SettingsLabel.Location = new System.Drawing.Point(0, 162);
-            this.SettingsLabel.Margin = new System.Windows.Forms.Padding(0);
-            this.SettingsLabel.Name = "SettingsLabel";
-            this.SettingsLabel.Size = new System.Drawing.Size(85, 81);
-            this.SettingsLabel.TabIndex = 3;
-            this.SettingsLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.FormTooltip.SetToolTip(this.SettingsLabel, "Settings");
-            this.SettingsLabel.Click += new System.EventHandler(this.SettingsLabel_Click);
-            this.SettingsLabel.MouseEnter += new System.EventHandler(this.HardDriveLabel_MouseEnter);
-            this.SettingsLabel.MouseLeave += new System.EventHandler(this.HardDriveLabel_MouseLeave);
-            // 
-            // OnlineLabel
-            // 
-            this.OnlineLabel.BackColor = System.Drawing.Color.Transparent;
-            this.OnlineLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.OnlineLabel.Font = new System.Drawing.Font("Franklin Gothic Book", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.OnlineLabel.ForeColor = System.Drawing.Color.Transparent;
-            this.OnlineLabel.Image = global::RandomTvShow.Properties.Resources.online_icon_alt;
-            this.OnlineLabel.Location = new System.Drawing.Point(0, 81);
-            this.OnlineLabel.Margin = new System.Windows.Forms.Padding(0);
-            this.OnlineLabel.Name = "OnlineLabel";
-            this.OnlineLabel.Size = new System.Drawing.Size(85, 81);
-            this.OnlineLabel.TabIndex = 2;
-            this.OnlineLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.FormTooltip.SetToolTip(this.OnlineLabel, "Random Show from the Web");
-            this.OnlineLabel.Click += new System.EventHandler(this.OnlineLabel_Click);
-            this.OnlineLabel.MouseEnter += new System.EventHandler(this.HardDriveLabel_MouseEnter);
-            this.OnlineLabel.MouseLeave += new System.EventHandler(this.HardDriveLabel_MouseLeave);
-            // 
-            // HardDriveLabel
-            // 
-            this.HardDriveLabel.BackColor = System.Drawing.Color.Silver;
-            this.HardDriveLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.HardDriveLabel.Font = new System.Drawing.Font("Franklin Gothic Book", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.HardDriveLabel.ForeColor = System.Drawing.Color.Transparent;
-            this.HardDriveLabel.Image = ((System.Drawing.Image)(resources.GetObject("HardDriveLabel.Image")));
-            this.HardDriveLabel.Location = new System.Drawing.Point(0, 0);
-            this.HardDriveLabel.Margin = new System.Windows.Forms.Padding(0);
-            this.HardDriveLabel.Name = "HardDriveLabel";
-            this.HardDriveLabel.Size = new System.Drawing.Size(85, 81);
-            this.HardDriveLabel.TabIndex = 0;
-            this.HardDriveLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.FormTooltip.SetToolTip(this.HardDriveLabel, "Random Show from Drive");
-            this.HardDriveLabel.Click += new System.EventHandler(this.HardDriveLabel_Click);
-            this.HardDriveLabel.MouseEnter += new System.EventHandler(this.HardDriveLabel_MouseEnter);
-            this.HardDriveLabel.MouseLeave += new System.EventHandler(this.HardDriveLabel_MouseLeave);
             // 
             // DriveNotFoundLabel
             // 
@@ -290,21 +238,6 @@
             this.TitleLabel.Text = "Drive";
             this.TitleLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.TitleLabel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.TitleLabel_MouseDown);
-            // 
-            // CloseLabel
-            // 
-            this.CloseLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(116)))), ((int)(((byte)(116)))));
-            this.CloseLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.CloseLabel.Image = global::RandomTvShow.Properties.Resources.close_icon_alt;
-            this.CloseLabel.Location = new System.Drawing.Point(307, 0);
-            this.CloseLabel.Margin = new System.Windows.Forms.Padding(0);
-            this.CloseLabel.Name = "CloseLabel";
-            this.CloseLabel.Size = new System.Drawing.Size(69, 53);
-            this.CloseLabel.TabIndex = 1;
-            this.FormTooltip.SetToolTip(this.CloseLabel, "Close");
-            this.CloseLabel.Click += new System.EventHandler(this.CloseLabel_Click);
-            this.CloseLabel.MouseEnter += new System.EventHandler(this.MinimiseLabel_MouseEnter);
-            this.CloseLabel.MouseLeave += new System.EventHandler(this.MinimiseLabel_MouseLeave);
             // 
             // PlayShowPanel
             // 
@@ -394,13 +327,13 @@
             // splitContainer7.Panel1
             // 
             this.splitContainer7.Panel1.Controls.Add(this.Shortcut2Textbox);
-            this.splitContainer7.Panel1.Padding = new System.Windows.Forms.Padding(0, 0, 200, 0);
+            this.splitContainer7.Panel1.Padding = new System.Windows.Forms.Padding(0, 0, 145, 0);
             // 
             // splitContainer7.Panel2
             // 
             this.splitContainer7.Panel2.Controls.Add(this.BrowseS2Button);
             this.splitContainer7.Size = new System.Drawing.Size(376, 65);
-            this.splitContainer7.SplitterDistance = 306;
+            this.splitContainer7.SplitterDistance = 303;
             this.splitContainer7.SplitterWidth = 1;
             this.splitContainer7.TabIndex = 8;
             // 
@@ -413,7 +346,7 @@
             this.Shortcut2Textbox.Location = new System.Drawing.Point(10, 10);
             this.Shortcut2Textbox.Margin = new System.Windows.Forms.Padding(0);
             this.Shortcut2Textbox.Name = "Shortcut2Textbox";
-            this.Shortcut2Textbox.Size = new System.Drawing.Size(33, 22);
+            this.Shortcut2Textbox.Size = new System.Drawing.Size(43, 22);
             this.Shortcut2Textbox.TabIndex = 0;
             // 
             // BrowseS2Button
@@ -461,13 +394,13 @@
             // splitContainer4.Panel1
             // 
             this.splitContainer4.Panel1.Controls.Add(this.MainDriveTextbox);
-            this.splitContainer4.Panel1.Padding = new System.Windows.Forms.Padding(0, 0, 200, 0);
+            this.splitContainer4.Panel1.Padding = new System.Windows.Forms.Padding(0, 0, 145, 0);
             // 
             // splitContainer4.Panel2
             // 
             this.splitContainer4.Panel2.Controls.Add(this.BrowseMainButton);
             this.splitContainer4.Size = new System.Drawing.Size(376, 65);
-            this.splitContainer4.SplitterDistance = 306;
+            this.splitContainer4.SplitterDistance = 303;
             this.splitContainer4.SplitterWidth = 1;
             this.splitContainer4.TabIndex = 1;
             // 
@@ -480,7 +413,7 @@
             this.MainDriveTextbox.Location = new System.Drawing.Point(10, 10);
             this.MainDriveTextbox.Margin = new System.Windows.Forms.Padding(0);
             this.MainDriveTextbox.Name = "MainDriveTextbox";
-            this.MainDriveTextbox.Size = new System.Drawing.Size(39, 22);
+            this.MainDriveTextbox.Size = new System.Drawing.Size(43, 22);
             this.MainDriveTextbox.TabIndex = 0;
             // 
             // BrowseMainButton
@@ -527,13 +460,13 @@
             // splitContainer6.Panel1
             // 
             this.splitContainer6.Panel1.Controls.Add(this.Shortcut1Textbox);
-            this.splitContainer6.Panel1.Padding = new System.Windows.Forms.Padding(0, 0, 200, 0);
+            this.splitContainer6.Panel1.Padding = new System.Windows.Forms.Padding(0, 0, 145, 0);
             // 
             // splitContainer6.Panel2
             // 
             this.splitContainer6.Panel2.Controls.Add(this.BrowseS1Button);
             this.splitContainer6.Size = new System.Drawing.Size(376, 65);
-            this.splitContainer6.SplitterDistance = 306;
+            this.splitContainer6.SplitterDistance = 303;
             this.splitContainer6.SplitterWidth = 1;
             this.splitContainer6.TabIndex = 7;
             // 
@@ -546,7 +479,7 @@
             this.Shortcut1Textbox.Location = new System.Drawing.Point(10, 10);
             this.Shortcut1Textbox.Margin = new System.Windows.Forms.Padding(0);
             this.Shortcut1Textbox.Name = "Shortcut1Textbox";
-            this.Shortcut1Textbox.Size = new System.Drawing.Size(39, 22);
+            this.Shortcut1Textbox.Size = new System.Drawing.Size(43, 22);
             this.Shortcut1Textbox.TabIndex = 0;
             // 
             // BrowseS1Button
@@ -700,21 +633,6 @@
             this.TitleLabel2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.TitleLabel2.MouseDown += new System.Windows.Forms.MouseEventHandler(this.TitleLabel_MouseDown);
             // 
-            // CloseLabel2
-            // 
-            this.CloseLabel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(116)))), ((int)(((byte)(116)))));
-            this.CloseLabel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.CloseLabel2.Image = global::RandomTvShow.Properties.Resources.close_icon_alt;
-            this.CloseLabel2.Location = new System.Drawing.Point(307, 0);
-            this.CloseLabel2.Margin = new System.Windows.Forms.Padding(0);
-            this.CloseLabel2.Name = "CloseLabel2";
-            this.CloseLabel2.Size = new System.Drawing.Size(69, 53);
-            this.CloseLabel2.TabIndex = 1;
-            this.FormTooltip.SetToolTip(this.CloseLabel2, "Close");
-            this.CloseLabel2.Click += new System.EventHandler(this.CloseLabel_Click);
-            this.CloseLabel2.MouseEnter += new System.EventHandler(this.MinimiseLabel_MouseEnter);
-            this.CloseLabel2.MouseLeave += new System.EventHandler(this.MinimiseLabel_MouseLeave);
-            // 
             // SaveSettingsPanel
             // 
             this.SaveSettingsPanel.Controls.Add(this.VersionNumberLabel);
@@ -756,19 +674,6 @@
             this.FormTooltip.SetToolTip(this.SaveButton, "Save these settings");
             this.SaveButton.UseVisualStyleBackColor = false;
             this.SaveButton.Click += new System.EventHandler(this.SaveButton_Click);
-            // 
-            // RefreshLabel
-            // 
-            this.RefreshLabel.BackColor = System.Drawing.Color.Transparent;
-            this.RefreshLabel.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.RefreshLabel.ForeColor = System.Drawing.Color.Transparent;
-            this.RefreshLabel.Image = ((System.Drawing.Image)(resources.GetObject("RefreshLabel.Image")));
-            this.RefreshLabel.Location = new System.Drawing.Point(222, 195);
-            this.RefreshLabel.Name = "RefreshLabel";
-            this.RefreshLabel.Size = new System.Drawing.Size(96, 96);
-            this.RefreshLabel.TabIndex = 4;
-            this.RefreshLabel.Visible = false;
-            this.RefreshLabel.Click += new System.EventHandler(this.RefreshLabel_Click);
             // 
             // tableLayoutPanel2
             // 
@@ -813,6 +718,112 @@
             this.FormTooltip.BackColor = System.Drawing.Color.White;
             this.FormTooltip.ForeColor = System.Drawing.Color.Black;
             // 
+            // SettingsLabel
+            // 
+            this.SettingsLabel.BackColor = System.Drawing.Color.Transparent;
+            this.SettingsLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.SettingsLabel.Font = new System.Drawing.Font("Franklin Gothic Book", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SettingsLabel.ForeColor = System.Drawing.Color.Transparent;
+            this.SettingsLabel.Image = global::RandomTvShow.Properties.Resources.settings_icon_alt;
+            this.SettingsLabel.Location = new System.Drawing.Point(0, 162);
+            this.SettingsLabel.Margin = new System.Windows.Forms.Padding(0);
+            this.SettingsLabel.Name = "SettingsLabel";
+            this.SettingsLabel.Size = new System.Drawing.Size(85, 81);
+            this.SettingsLabel.TabIndex = 3;
+            this.SettingsLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.FormTooltip.SetToolTip(this.SettingsLabel, "Settings");
+            this.SettingsLabel.Click += new System.EventHandler(this.SettingsLabel_Click);
+            this.SettingsLabel.MouseEnter += new System.EventHandler(this.HardDriveLabel_MouseEnter);
+            this.SettingsLabel.MouseLeave += new System.EventHandler(this.HardDriveLabel_MouseLeave);
+            // 
+            // OnlineLabel
+            // 
+            this.OnlineLabel.BackColor = System.Drawing.Color.Transparent;
+            this.OnlineLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.OnlineLabel.Font = new System.Drawing.Font("Franklin Gothic Book", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.OnlineLabel.ForeColor = System.Drawing.Color.Transparent;
+            this.OnlineLabel.Image = global::RandomTvShow.Properties.Resources.online_icon_alt;
+            this.OnlineLabel.Location = new System.Drawing.Point(0, 81);
+            this.OnlineLabel.Margin = new System.Windows.Forms.Padding(0);
+            this.OnlineLabel.Name = "OnlineLabel";
+            this.OnlineLabel.Size = new System.Drawing.Size(85, 81);
+            this.OnlineLabel.TabIndex = 2;
+            this.OnlineLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.FormTooltip.SetToolTip(this.OnlineLabel, "Random Show from the Web");
+            this.OnlineLabel.Click += new System.EventHandler(this.OnlineLabel_Click);
+            this.OnlineLabel.MouseEnter += new System.EventHandler(this.HardDriveLabel_MouseEnter);
+            this.OnlineLabel.MouseLeave += new System.EventHandler(this.HardDriveLabel_MouseLeave);
+            // 
+            // HardDriveLabel
+            // 
+            this.HardDriveLabel.BackColor = System.Drawing.Color.Silver;
+            this.HardDriveLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.HardDriveLabel.Font = new System.Drawing.Font("Franklin Gothic Book", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.HardDriveLabel.ForeColor = System.Drawing.Color.Transparent;
+            this.HardDriveLabel.Image = ((System.Drawing.Image)(resources.GetObject("HardDriveLabel.Image")));
+            this.HardDriveLabel.Location = new System.Drawing.Point(0, 0);
+            this.HardDriveLabel.Margin = new System.Windows.Forms.Padding(0);
+            this.HardDriveLabel.Name = "HardDriveLabel";
+            this.HardDriveLabel.Size = new System.Drawing.Size(85, 81);
+            this.HardDriveLabel.TabIndex = 0;
+            this.HardDriveLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.FormTooltip.SetToolTip(this.HardDriveLabel, "Random Show from Drive");
+            this.HardDriveLabel.Click += new System.EventHandler(this.HardDriveLabel_Click);
+            this.HardDriveLabel.MouseEnter += new System.EventHandler(this.HardDriveLabel_MouseEnter);
+            this.HardDriveLabel.MouseLeave += new System.EventHandler(this.HardDriveLabel_MouseLeave);
+            // 
+            // CloseLabel2
+            // 
+            this.CloseLabel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(116)))), ((int)(((byte)(116)))));
+            this.CloseLabel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.CloseLabel2.Image = global::RandomTvShow.Properties.Resources.close_icon_alt;
+            this.CloseLabel2.Location = new System.Drawing.Point(307, 0);
+            this.CloseLabel2.Margin = new System.Windows.Forms.Padding(0);
+            this.CloseLabel2.Name = "CloseLabel2";
+            this.CloseLabel2.Size = new System.Drawing.Size(69, 53);
+            this.CloseLabel2.TabIndex = 1;
+            this.FormTooltip.SetToolTip(this.CloseLabel2, "Close");
+            this.CloseLabel2.Click += new System.EventHandler(this.CloseLabel_Click);
+            this.CloseLabel2.MouseEnter += new System.EventHandler(this.MinimiseLabel_MouseEnter);
+            this.CloseLabel2.MouseLeave += new System.EventHandler(this.MinimiseLabel_MouseLeave);
+            // 
+            // CloseLabel
+            // 
+            this.CloseLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(116)))), ((int)(((byte)(116)))));
+            this.CloseLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.CloseLabel.Image = global::RandomTvShow.Properties.Resources.close_icon_alt;
+            this.CloseLabel.Location = new System.Drawing.Point(307, 0);
+            this.CloseLabel.Margin = new System.Windows.Forms.Padding(0);
+            this.CloseLabel.Name = "CloseLabel";
+            this.CloseLabel.Size = new System.Drawing.Size(69, 53);
+            this.CloseLabel.TabIndex = 1;
+            this.FormTooltip.SetToolTip(this.CloseLabel, "Close");
+            this.CloseLabel.Click += new System.EventHandler(this.CloseLabel_Click);
+            this.CloseLabel.MouseEnter += new System.EventHandler(this.MinimiseLabel_MouseEnter);
+            this.CloseLabel.MouseLeave += new System.EventHandler(this.MinimiseLabel_MouseLeave);
+            // 
+            // RefreshLabel
+            // 
+            this.RefreshLabel.BackColor = System.Drawing.Color.Transparent;
+            this.RefreshLabel.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.RefreshLabel.ForeColor = System.Drawing.Color.Transparent;
+            this.RefreshLabel.Image = ((System.Drawing.Image)(resources.GetObject("RefreshLabel.Image")));
+            this.RefreshLabel.Location = new System.Drawing.Point(222, 195);
+            this.RefreshLabel.Name = "RefreshLabel";
+            this.RefreshLabel.Size = new System.Drawing.Size(96, 96);
+            this.RefreshLabel.TabIndex = 4;
+            this.RefreshLabel.Visible = false;
+            this.RefreshLabel.Click += new System.EventHandler(this.RefreshLabel_Click);
+            // 
+            // ShowPlayer
+            // 
+            this.ShowPlayer.Enabled = true;
+            this.ShowPlayer.Location = new System.Drawing.Point(342, 48);
+            this.ShowPlayer.Name = "ShowPlayer";
+            this.ShowPlayer.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("ShowPlayer.OcxState")));
+            this.ShowPlayer.Size = new System.Drawing.Size(25, 23);
+            this.ShowPlayer.TabIndex = 3;
+            // 
             // MainForm
             // 
             this.AcceptButton = this.GoButton;
@@ -824,6 +835,7 @@
             this.Controls.Add(this.DriveNotFoundLabel);
             this.Controls.Add(this.RefreshLabel);
             this.Controls.Add(this.tableLayoutPanel2);
+            this.Controls.Add(this.ShowPlayer);
             this.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
@@ -863,6 +875,7 @@
             this.tableLayoutPanel2.ResumeLayout(false);
             this.MenuPanel.ResumeLayout(false);
             this.MainPanel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.ShowPlayer)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -914,6 +927,7 @@
         private System.Windows.Forms.Panel SaveSettingsPanel;
         private System.Windows.Forms.Panel PlayShowPanel;
         private System.Windows.Forms.ToolTip FormTooltip;
+        private AxWMPLib.AxWindowsMediaPlayer ShowPlayer;
     }
 }
 

@@ -32,3 +32,8 @@ C:\Users\Jack\source\repos\random-tv-show\RandomTvShow\obj\Debug\RandomTvShow.cs
 C:\Users\Jack\source\repos\random-tv-show\RandomTvShow\obj\Debug\Random Episode.exe
 C:\Users\Jack\source\repos\random-tv-show\RandomTvShow\obj\Debug\Random Episode.pdb
 C:\Users\Jack\source\repos\random-tv-show\RandomTvShow\obj\Debug\RandomTvShow.csprojResolveAssemblyReference.cache
+C:\Users\Jack\source\repos\random-tv-show\RandomTvShow\bin\Debug\Interop.WMPLib.dll
+C:\Users\Jack\source\repos\random-tv-show\RandomTvShow\bin\Debug\AxInterop.WMPLib.dll
+C:\Users\Jack\source\repos\random-tv-show\RandomTvShow\obj\Debug\Interop.WMPLib.dll
+C:\Users\Jack\source\repos\random-tv-show\RandomTvShow\obj\Debug\AxInterop.WMPLib.dll
+C:\Users\Jack\source\repos\random-tv-show\RandomTvShow\obj\Debug\RandomTvShow.PlayerWindow.resources

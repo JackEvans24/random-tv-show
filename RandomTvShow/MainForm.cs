@@ -1,17 +1,13 @@
 ﻿using AngleSharp;
-using AngleSharp.Dom;
 using AngleSharp.Parser.Html;
-using Shell32;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -150,6 +146,8 @@ namespace RandomTvShow
 
             ShowsLayout.Visible = AutoplayButton.Visible = true;
             SettingsLayout.Visible = false;
+            Refresh();
+
             LoadFromDrive();
         }
 
@@ -162,6 +160,7 @@ namespace RandomTvShow
             ShowsLayout.Visible = true;
             SettingsLayout.Visible = false;
             DriveNotFoundLabel.Visible = RefreshLabel.Visible = AutoplayButton.Visible = false;
+
             LoadFromOnline();
         }
 
@@ -281,10 +280,16 @@ namespace RandomTvShow
 
         private void Timer_Tick(object sender, EventArgs e)
         {
-            if (AutoplayButton.Checked)
-                PickAndPlayVideoFile(timerFolder);
-            else
+            if (ShowPlayer.playState != WMPLib.WMPPlayState.wmppsMediaEnded && ShowPlayer.currentMedia != null)
+            {
                 timer.Stop();
+                timer.Interval = (int)((ShowPlayer.currentMedia.duration - ShowPlayer.Ctlcontrols.currentPosition) * 1000) + 1;
+                timer.Start();
+            }
+            else {
+                if (AutoplayButton.Checked)
+                    LoadFromDrive();
+            }
         }
 
         private void BrowseMainButton_Click(object sender, EventArgs e)
@@ -430,7 +435,7 @@ namespace RandomTvShow
         /// <returns>True if the video is started</returns>
         private bool PickAndPlayVideoFile(string folderPath)
         {
-            // Stop the timer if it is running
+            // Stop the timer if it's running
             if (timer.Enabled)
                 timer.Stop();
 
@@ -441,19 +446,27 @@ namespace RandomTvShow
             // If it's a video file, play it and break the loop
             try
             {
-                Process.Start(file);
+                // Open the file in the media player control, set and start timer
+                new Thread(() =>
+                {
+                    Thread.CurrentThread.IsBackground = true;
+                    ShowPlayer.currentMedia = ShowPlayer.newMedia(file);
+                    ShowPlayer.openPlayer(file);
 
-                // Get the length of the video file and set the timer for that length, and start it.
-                // A new episode will start on Timer Tick if the autoplay button is checked.
-                timerFolder = folderPath;
-                TimeSpan episodeLength = GetLengthOfVideo(file);
-                timer.Interval = episodeLength != TimeSpan.Zero ? (int)episodeLength.TotalMilliseconds : (12 * 60 * 100);
+                }).Start();
+
+                timer.Interval = (int)(ShowPlayer.newMedia(file).duration * 1000);
                 timer.Start();
-
+                
                 return true;
             }
-            catch (Exception) { }
+            catch (Exception ex) { }
             return false;
+        }
+
+        private void OpenFileInMediaPlayer(string file)
+        {
+            ShowPlayer.openPlayer(file);
         }
 
         /// <summary>
@@ -553,25 +566,6 @@ namespace RandomTvShow
         static bool IsVideoFile(string path)
         {
             return Array.IndexOf(videoExtensions, Path.GetExtension(path).ToUpperInvariant()) != -1;
-        }
-
-        /// <summary>
-        /// Get the length of a video file, for use with the timer
-        /// </summary>
-        /// <param name="filepath">The video file to return the length of</param>
-        static TimeSpan GetLengthOfVideo(string filepath)
-        {
-            var shell = new Shell();
-            var folder = shell.NameSpace(Path.GetDirectoryName(filepath));
-            foreach (FolderItem2 item in folder.Items())
-            {
-                if (item.Name == Path.GetFileNameWithoutExtension(filepath))
-                {
-                    return TimeSpan.FromSeconds(item.ExtendedProperty("System.Media.Duration") / 10000000);
-                }
-            }
-
-            return new TimeSpan();
         }
 
         #endregion
