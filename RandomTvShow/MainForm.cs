@@ -229,7 +229,7 @@ namespace RandomTvShow
                 return;
 
             refreshing = true;
-            UpdateLoaderIcon();
+            Task.Run(() => UpdateLoaderIcon());
 
             for (int i = 0; i < 10; i++)
             {
@@ -339,19 +339,31 @@ namespace RandomTvShow
 
         private void SaveButton_Click(object sender, EventArgs e)
         {
+            var settingsChanged = false;
             var validated = true;
 
             if (Directory.Exists(MainDriveTextbox.Text))
+            {
                 Properties.Settings.Default.MainDrivePath = MainDriveTextbox.Text;
-            else
+                settingsChanged = true;
+            }
+            else if (!string.IsNullOrWhiteSpace(MainDriveTextbox.Text))
                 validated = false;
+
             if (Directory.Exists(Shortcut1Textbox.Text))
+            {
                 Properties.Settings.Default.Shortcut1Path = Shortcut1Textbox.Text;
-            else
+                settingsChanged = true;
+            }
+            else if (!string.IsNullOrWhiteSpace(Shortcut1Textbox.Text))
                 validated = false;
+
             if (Directory.Exists(Shortcut2Textbox.Text))
+            {
                 Properties.Settings.Default.Shortcut2Path = Shortcut2Textbox.Text;
-            else
+                settingsChanged = true;
+            }
+            else if (!string.IsNullOrWhiteSpace(Shortcut2Textbox.Text))
                 validated = false;
 
             Properties.Settings.Default.Save();
@@ -360,8 +372,15 @@ namespace RandomTvShow
                 MessageBox.Show("Could not set one or more of the default folder paths. Please try again.");
 
             var theme = MonolithLabel.Font.Underline ? 0 : AzureLabel.Font.Underline ? 1 : 2;
+            settingsChanged |= theme != Properties.Settings.Default.ThemeIndex;
             AppDesignProvider.SetTheme(this, (AppTheme)theme);
             AppDesignProvider.SetCurrentTab(this, (AppTheme)theme, currentTab);
+
+            if (settingsChanged)
+                Task.Run(() =>
+                {
+                    UpdateSettingsButton();
+                });
 
             MainDriveTextbox.Text = Properties.Settings.Default.MainDrivePath;
             Shortcut1Textbox.Text = Properties.Settings.Default.Shortcut1Path;
@@ -540,34 +559,48 @@ namespace RandomTvShow
         /// <summary>
         /// Change the refresh icon to a loading "..." for at least one cycle while the program searches for the Ext HDD
         /// </summary>
-        private async void UpdateLoaderIcon()
+        private void UpdateLoaderIcon()
         {
-            var result = await Task.Run(() =>
+            if ((AppTheme)Properties.Settings.Default.ThemeIndex == AppTheme.Monolith)
             {
-                if ((AppTheme)Properties.Settings.Default.ThemeIndex == AppTheme.Monolith)
-                {
-                    RefreshLabel.Image = Properties.Resources._1_dot_alt;
-                    System.Threading.Thread.Sleep(200);
-                    RefreshLabel.Image = Properties.Resources._2_dot_alt;
-                    System.Threading.Thread.Sleep(200);
-                    RefreshLabel.Image = Properties.Resources._3_dot_alt;
-                    System.Threading.Thread.Sleep(200);
+                RefreshLabel.BackColor = Color.Transparent;
+                RefreshLabel.MouseEnter -= AutoplayButton_MouseEnter;
 
-                    RefreshLabel.Image = Properties.Resources.refresh_icon_alt;
-                }
-                else
-                {
-                    RefreshLabel.Image = Properties.Resources._1_dot;
-                    System.Threading.Thread.Sleep(200);
-                    RefreshLabel.Image = Properties.Resources._2_dot;
-                    System.Threading.Thread.Sleep(200);
-                    RefreshLabel.Image = Properties.Resources._3_dot;
-                    System.Threading.Thread.Sleep(200);
+                RefreshLabel.Image = Properties.Resources._1_dot_alt;
+                System.Threading.Thread.Sleep(200);
+                RefreshLabel.Image = Properties.Resources._2_dot_alt;
+                System.Threading.Thread.Sleep(200);
+                RefreshLabel.Image = Properties.Resources._3_dot_alt;
+                System.Threading.Thread.Sleep(200);
 
-                    RefreshLabel.Image = Properties.Resources.refresh_icon;
-                }
-                return "hi";
-            });
+                RefreshLabel.Image = Properties.Resources.refresh_icon_alt;
+                RefreshLabel.MouseEnter += AutoplayButton_MouseEnter;
+            }
+            else
+            {
+                RefreshLabel.BackColor = Color.Transparent;
+                RefreshLabel.MouseEnter -= AutoplayButton_MouseEnter;
+
+                RefreshLabel.Image = Properties.Resources._1_dot;
+                System.Threading.Thread.Sleep(200);
+                RefreshLabel.Image = Properties.Resources._2_dot;
+                System.Threading.Thread.Sleep(200);
+                RefreshLabel.Image = Properties.Resources._3_dot;
+                System.Threading.Thread.Sleep(200);
+
+                RefreshLabel.Image = Properties.Resources.refresh_icon;
+                RefreshLabel.MouseEnter += AutoplayButton_MouseEnter;
+            }
+        }
+
+        /// <summary>
+        /// Change the settings button text to "Saved!", and then back again
+        /// </summary>
+        private void UpdateSettingsButton()
+        {
+            SaveButton.Text = "Saved!";
+            Thread.Sleep(1000);
+            SaveButton.Text = "Save";
         }
 
         /// <summary>

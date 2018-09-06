@@ -168,10 +168,12 @@
             // 
             // DriveNotFoundLabel
             // 
+            this.DriveNotFoundLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.DriveNotFoundLabel.BackColor = System.Drawing.Color.Transparent;
             this.DriveNotFoundLabel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DriveNotFoundLabel.ForeColor = System.Drawing.Color.Transparent;
-            this.DriveNotFoundLabel.Location = new System.Drawing.Point(87, 140);
+            this.DriveNotFoundLabel.Location = new System.Drawing.Point(94, 140);
             this.DriveNotFoundLabel.Name = "DriveNotFoundLabel";
             this.DriveNotFoundLabel.Size = new System.Drawing.Size(367, 69);
             this.DriveNotFoundLabel.TabIndex = 3;
@@ -806,16 +808,20 @@
             // 
             // RefreshLabel
             // 
+            this.RefreshLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.RefreshLabel.BackColor = System.Drawing.Color.Transparent;
             this.RefreshLabel.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.RefreshLabel.ForeColor = System.Drawing.Color.Transparent;
             this.RefreshLabel.Image = ((System.Drawing.Image)(resources.GetObject("RefreshLabel.Image")));
-            this.RefreshLabel.Location = new System.Drawing.Point(222, 195);
+            this.RefreshLabel.Location = new System.Drawing.Point(222, 180);
             this.RefreshLabel.Name = "RefreshLabel";
             this.RefreshLabel.Size = new System.Drawing.Size(96, 96);
             this.RefreshLabel.TabIndex = 4;
             this.RefreshLabel.Visible = false;
             this.RefreshLabel.Click += new System.EventHandler(this.RefreshLabel_Click);
+            this.RefreshLabel.MouseEnter += new System.EventHandler(this.AutoplayButton_MouseEnter);
+            this.RefreshLabel.MouseLeave += new System.EventHandler(this.HardDriveLabel_MouseLeave);
             // 
             // HardDriveLabel
             // 
@@ -942,8 +948,8 @@
             this.BackColor = System.Drawing.Color.Gray;
             this.ClientSize = new System.Drawing.Size(461, 534);
             this.ControlBox = false;
-            this.Controls.Add(this.DriveNotFoundLabel);
             this.Controls.Add(this.RefreshLabel);
+            this.Controls.Add(this.DriveNotFoundLabel);
             this.Controls.Add(this.tableLayoutPanel2);
             this.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
