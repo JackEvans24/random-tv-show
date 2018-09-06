@@ -119,6 +119,8 @@
     <None Include="Images\1_dot_alt.png" />
     <None Include="Images\2_dot_alt.png" />
     <None Include="Images\3_dot_alt.png" />
+    <None Include="Images\play-icon.png" />
+    <None Include="Images\play-icon-alt.png" />
     <Content Include="Images\play_icon_png_graphic_cave_3qQ_icon.ico" />
   </ItemGroup>
   <ItemGroup>

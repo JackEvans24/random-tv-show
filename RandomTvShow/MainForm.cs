@@ -21,7 +21,7 @@ namespace RandomTvShow
         bool refreshing = false, ready = true;
         Random rnd = new Random();
         System.Windows.Forms.Timer timer = new System.Windows.Forms.Timer();
-        string timerFolder = "";
+        string[] timerFolders;
 
         static string[] videoExtensions = { ".AVI", ".MP4", ".DIVX", ".WMV", ".MKV" };
         static Tuple<string, string>[] onlineCartoons = {
@@ -145,10 +145,20 @@ namespace RandomTvShow
             AppDesignProvider.SetCurrentTab(this, (AppTheme)Properties.Settings.Default.ThemeIndex, currentTab);
 
             ShowsLayout.Visible = AutoplayButton.Visible = true;
-            SettingsLayout.Visible = false;
+            PlayerLayout.Visible = SettingsLayout.Visible = false;
             Refresh();
 
             LoadFromDrive();
+        }
+
+        private void PlayLabel_Click(object sender, EventArgs e)
+        {
+            currentTab = AppTab.Player;
+            AppDesignProvider.SetCurrentTab(this, (AppTheme)Properties.Settings.Default.ThemeIndex, currentTab);
+
+            PlayerLayout.Visible = true;
+            ShowsLayout.Visible = SettingsLayout.Visible = false;
+            DriveNotFoundLabel.Visible = RefreshLabel.Visible = AutoplayButton.Visible = false;
         }
 
         private void OnlineLabel_Click(object sender, EventArgs e)
@@ -158,7 +168,7 @@ namespace RandomTvShow
             AppDesignProvider.SetCurrentTab(this, (AppTheme)Properties.Settings.Default.ThemeIndex, currentTab);
 
             ShowsLayout.Visible = true;
-            SettingsLayout.Visible = false;
+            PlayerLayout.Visible = SettingsLayout.Visible = false;
             DriveNotFoundLabel.Visible = RefreshLabel.Visible = AutoplayButton.Visible = false;
 
             LoadFromOnline();
@@ -175,7 +185,7 @@ namespace RandomTvShow
 
             AppDesignProvider.SetThemeLabelFont(this, (AppTheme)Properties.Settings.Default.ThemeIndex);
 
-            ShowsLayout.Visible = DriveNotFoundLabel.Visible = RefreshLabel.Visible = false;
+            ShowsLayout.Visible = PlayerLayout.Visible = DriveNotFoundLabel.Visible = RefreshLabel.Visible = false;
             SettingsLayout.Visible = true;
         }
 
@@ -280,15 +290,21 @@ namespace RandomTvShow
 
         private void Timer_Tick(object sender, EventArgs e)
         {
-            if (ShowPlayer.playState != WMPLib.WMPPlayState.wmppsMediaEnded && ShowPlayer.currentMedia != null)
+            if (ShowPlayer.playState != WMPLib.WMPPlayState.wmppsStopped)
             {
                 timer.Stop();
-                timer.Interval = (int)((ShowPlayer.currentMedia.duration - ShowPlayer.Ctlcontrols.currentPosition) * 1000) + 1;
+
+                var accurateTimer = ShowPlayer.Ctlcontrols.isAvailable["currentPosition"] && ShowPlayer.Ctlcontrols.currentPosition != 0;
+                if (accurateTimer)
+                    timer.Interval = Math.Max((int)((ShowPlayer.currentMedia.duration - ShowPlayer.Ctlcontrols.currentPosition) * 1000), 1000);
+                else
+                    timer.Interval = 1000;
+
                 timer.Start();
             }
             else {
                 if (AutoplayButton.Checked)
-                    LoadFromDrive();
+                    SelectFromDrive(timerFolders);
             }
         }
 
@@ -422,9 +438,11 @@ namespace RandomTvShow
                 if (attempts > 4)
                 {
                     MessageBox.Show("Could not find a show to launch...\r\n\r\nPlease try again.", "Could not launch", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                    break;
+                    return;
                 }
             }
+
+            timerFolders = selectedShows.ToArray();
         }
 
         /// <summary>
@@ -451,10 +469,9 @@ namespace RandomTvShow
                 {
                     Thread.CurrentThread.IsBackground = true;
                     ShowPlayer.currentMedia = ShowPlayer.newMedia(file);
-                    ShowPlayer.openPlayer(file);
-
                 }).Start();
 
+                PlayLabel_Click(null, null);
                 timer.Interval = (int)(ShowPlayer.newMedia(file).duration * 1000);
                 timer.Start();
                 
@@ -462,11 +479,6 @@ namespace RandomTvShow
             }
             catch (Exception ex) { }
             return false;
-        }
-
-        private void OpenFileInMediaPlayer(string file)
-        {
-            ShowPlayer.openPlayer(file);
         }
 
         /// <summary>
