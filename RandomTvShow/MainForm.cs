@@ -377,10 +377,7 @@ namespace RandomTvShow
             AppDesignProvider.SetCurrentTab(this, (AppTheme)theme, currentTab);
 
             if (settingsChanged)
-                Task.Run(() =>
-                {
-                    UpdateSettingsButton();
-                });
+                UpdateSettingsButton();
 
             MainDriveTextbox.Text = Properties.Settings.Default.MainDrivePath;
             Shortcut1Textbox.Text = Properties.Settings.Default.Shortcut1Path;
@@ -599,8 +596,9 @@ namespace RandomTvShow
         private void UpdateSettingsButton()
         {
             SaveButton.Text = "Saved!";
-            Thread.Sleep(1000);
-            SaveButton.Text = "Save";
+            var t = new System.Windows.Forms.Timer() { Interval = 800 };
+            t.Tick += (s, e) => { SaveButton.Text = "Save"; t.Stop(); };
+            t.Start();
         }
 
         /// <summary>

@@ -37,3 +37,25 @@ C:\Users\Jack\source\repos\random-tv-show\RandomTvShow\bin\Debug\AxInterop.WMPLi
 C:\Users\Jack\source\repos\random-tv-show\RandomTvShow\obj\Debug\Interop.WMPLib.dll
 C:\Users\Jack\source\repos\random-tv-show\RandomTvShow\obj\Debug\AxInterop.WMPLib.dll
 C:\Users\Jack\source\repos\random-tv-show\RandomTvShow\obj\Debug\RandomTvShow.PlayerWindow.resources
+C:\Users\j.evans\source\repos\RandomTvShow\RandomTvShow\bin\Debug\Random Episode.exe.config
+C:\Users\j.evans\source\repos\RandomTvShow\RandomTvShow\bin\Debug\Random Episode.exe
+C:\Users\j.evans\source\repos\RandomTvShow\RandomTvShow\bin\Debug\Random Episode.pdb
+C:\Users\j.evans\source\repos\RandomTvShow\RandomTvShow\bin\Debug\AngleSharp.dll
+C:\Users\j.evans\source\repos\RandomTvShow\RandomTvShow\bin\Debug\HtmlAgilityPack.dll
+C:\Users\j.evans\source\repos\RandomTvShow\RandomTvShow\bin\Debug\AngleSharp.xml
+C:\Users\j.evans\source\repos\RandomTvShow\RandomTvShow\bin\Debug\HtmlAgilityPack.pdb
+C:\Users\j.evans\source\repos\RandomTvShow\RandomTvShow\bin\Debug\HtmlAgilityPack.xml
+C:\Users\j.evans\source\repos\RandomTvShow\RandomTvShow\bin\Debug\Interop.WMPLib.dll
+C:\Users\j.evans\source\repos\RandomTvShow\RandomTvShow\bin\Debug\AxInterop.WMPLib.dll
+C:\Users\j.evans\source\repos\RandomTvShow\RandomTvShow\obj\Debug\RandomTvShow.csprojResolveAssemblyReference.cache
+C:\Users\j.evans\source\repos\RandomTvShow\RandomTvShow\obj\Debug\Interop.Shell32.dll
+C:\Users\j.evans\source\repos\RandomTvShow\RandomTvShow\obj\Debug\Interop.WMPLib.dll
+C:\Users\j.evans\source\repos\RandomTvShow\RandomTvShow\obj\Debug\AxInterop.WMPLib.dll
+C:\Users\j.evans\source\repos\RandomTvShow\RandomTvShow\obj\Debug\RandomTvShow.csproj.ResolveComReference.cache
+C:\Users\j.evans\source\repos\RandomTvShow\RandomTvShow\obj\Debug\RandomTvShow.MainForm.resources
+C:\Users\j.evans\source\repos\RandomTvShow\RandomTvShow\obj\Debug\RandomTvShow.PlayerWindow.resources
+C:\Users\j.evans\source\repos\RandomTvShow\RandomTvShow\obj\Debug\RandomTvShow.Properties.Resources.resources
+C:\Users\j.evans\source\repos\RandomTvShow\RandomTvShow\obj\Debug\RandomTvShow.csproj.GenerateResource.Cache
+C:\Users\j.evans\source\repos\RandomTvShow\RandomTvShow\obj\Debug\RandomTvShow.csproj.CoreCompileInputs.cache
+C:\Users\j.evans\source\repos\RandomTvShow\RandomTvShow\obj\Debug\Random Episode.exe
+C:\Users\j.evans\source\repos\RandomTvShow\RandomTvShow\obj\Debug\Random Episode.pdb
