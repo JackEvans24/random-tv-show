@@ -135,6 +135,9 @@ namespace RandomTvShow
 
         private void CloseLabel_Click(object sender, EventArgs e)
         {
+            if (timer.Enabled)
+                timer.Stop();
+
             Close();
         }
 
