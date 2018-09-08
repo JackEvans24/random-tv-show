@@ -1,17 +1,13 @@
 ﻿using AngleSharp;
-using AngleSharp.Dom;
 using AngleSharp.Parser.Html;
-using Shell32;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -25,7 +21,7 @@ namespace RandomTvShow
         bool refreshing = false, ready = true;
         Random rnd = new Random();
         System.Windows.Forms.Timer timer = new System.Windows.Forms.Timer();
-        string timerFolder = "";
+        string[] timerFolders;
 
         static string[] videoExtensions = { ".AVI", ".MP4", ".DIVX", ".WMV", ".MKV" };
         static Tuple<string, string>[] onlineCartoons = {
@@ -139,6 +135,9 @@ namespace RandomTvShow
 
         private void CloseLabel_Click(object sender, EventArgs e)
         {
+            if (timer.Enabled)
+                timer.Stop();
+
             Close();
         }
 
@@ -149,8 +148,20 @@ namespace RandomTvShow
             AppDesignProvider.SetCurrentTab(this, (AppTheme)Properties.Settings.Default.ThemeIndex, currentTab);
 
             ShowsLayout.Visible = AutoplayButton.Visible = true;
-            SettingsLayout.Visible = false;
+            PlayerLayout.Visible = SettingsLayout.Visible = false;
+            Refresh();
+
             LoadFromDrive();
+        }
+
+        private void PlayLabel_Click(object sender, EventArgs e)
+        {
+            currentTab = AppTab.Player;
+            AppDesignProvider.SetCurrentTab(this, (AppTheme)Properties.Settings.Default.ThemeIndex, currentTab);
+
+            PlayerLayout.Visible = true;
+            ShowsLayout.Visible = SettingsLayout.Visible = false;
+            DriveNotFoundLabel.Visible = RefreshLabel.Visible = AutoplayButton.Visible = false;
         }
 
         private void OnlineLabel_Click(object sender, EventArgs e)
@@ -160,8 +171,9 @@ namespace RandomTvShow
             AppDesignProvider.SetCurrentTab(this, (AppTheme)Properties.Settings.Default.ThemeIndex, currentTab);
 
             ShowsLayout.Visible = true;
-            SettingsLayout.Visible = false;
+            PlayerLayout.Visible = SettingsLayout.Visible = false;
             DriveNotFoundLabel.Visible = RefreshLabel.Visible = AutoplayButton.Visible = false;
+
             LoadFromOnline();
         }
 
@@ -176,7 +188,7 @@ namespace RandomTvShow
 
             AppDesignProvider.SetThemeLabelFont(this, (AppTheme)Properties.Settings.Default.ThemeIndex);
 
-            ShowsLayout.Visible = DriveNotFoundLabel.Visible = RefreshLabel.Visible = false;
+            ShowsLayout.Visible = PlayerLayout.Visible = DriveNotFoundLabel.Visible = RefreshLabel.Visible = false;
             SettingsLayout.Visible = true;
         }
 
@@ -220,7 +232,7 @@ namespace RandomTvShow
                 return;
 
             refreshing = true;
-            UpdateLoaderIcon();
+            Task.Run(() => UpdateLoaderIcon());
 
             for (int i = 0; i < 10; i++)
             {
@@ -281,10 +293,22 @@ namespace RandomTvShow
 
         private void Timer_Tick(object sender, EventArgs e)
         {
-            if (AutoplayButton.Checked)
-                PickAndPlayVideoFile(timerFolder);
-            else
+            if (ShowPlayer.playState != WMPLib.WMPPlayState.wmppsStopped)
+            {
                 timer.Stop();
+
+                var accurateTimer = ShowPlayer.Ctlcontrols.isAvailable["currentPosition"] && ShowPlayer.Ctlcontrols.currentPosition != 0;
+                if (accurateTimer)
+                    timer.Interval = Math.Max((int)((ShowPlayer.currentMedia.duration - ShowPlayer.Ctlcontrols.currentPosition) * 1000), 1000);
+                else
+                    timer.Interval = 1000;
+
+                timer.Start();
+            }
+            else {
+                if (AutoplayButton.Checked)
+                    SelectFromDrive(timerFolders);
+            }
         }
 
         private void BrowseMainButton_Click(object sender, EventArgs e)
@@ -318,19 +342,31 @@ namespace RandomTvShow
 
         private void SaveButton_Click(object sender, EventArgs e)
         {
+            var settingsChanged = false;
             var validated = true;
 
             if (Directory.Exists(MainDriveTextbox.Text))
+            {
                 Properties.Settings.Default.MainDrivePath = MainDriveTextbox.Text;
-            else
+                settingsChanged = true;
+            }
+            else if (!string.IsNullOrWhiteSpace(MainDriveTextbox.Text))
                 validated = false;
+
             if (Directory.Exists(Shortcut1Textbox.Text))
+            {
                 Properties.Settings.Default.Shortcut1Path = Shortcut1Textbox.Text;
-            else
+                settingsChanged = true;
+            }
+            else if (!string.IsNullOrWhiteSpace(Shortcut1Textbox.Text))
                 validated = false;
+
             if (Directory.Exists(Shortcut2Textbox.Text))
+            {
                 Properties.Settings.Default.Shortcut2Path = Shortcut2Textbox.Text;
-            else
+                settingsChanged = true;
+            }
+            else if (!string.IsNullOrWhiteSpace(Shortcut2Textbox.Text))
                 validated = false;
 
             Properties.Settings.Default.Save();
@@ -339,8 +375,12 @@ namespace RandomTvShow
                 MessageBox.Show("Could not set one or more of the default folder paths. Please try again.");
 
             var theme = MonolithLabel.Font.Underline ? 0 : AzureLabel.Font.Underline ? 1 : 2;
+            settingsChanged |= theme != Properties.Settings.Default.ThemeIndex;
             AppDesignProvider.SetTheme(this, (AppTheme)theme);
             AppDesignProvider.SetCurrentTab(this, (AppTheme)theme, currentTab);
+
+            if (settingsChanged)
+                UpdateSettingsButton();
 
             MainDriveTextbox.Text = Properties.Settings.Default.MainDrivePath;
             Shortcut1Textbox.Text = Properties.Settings.Default.Shortcut1Path;
@@ -417,9 +457,11 @@ namespace RandomTvShow
                 if (attempts > 4)
                 {
                     MessageBox.Show("Could not find a show to launch...\r\n\r\nPlease try again.", "Could not launch", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                    break;
+                    return;
                 }
             }
+
+            timerFolders = selectedShows.ToArray();
         }
 
         /// <summary>
@@ -430,7 +472,7 @@ namespace RandomTvShow
         /// <returns>True if the video is started</returns>
         private bool PickAndPlayVideoFile(string folderPath)
         {
-            // Stop the timer if it is running
+            // Stop the timer if it's running
             if (timer.Enabled)
                 timer.Stop();
 
@@ -441,18 +483,20 @@ namespace RandomTvShow
             // If it's a video file, play it and break the loop
             try
             {
-                Process.Start(file);
+                // Open the file in the media player control, set and start timer
+                new Thread(() =>
+                {
+                    Thread.CurrentThread.IsBackground = true;
+                    ShowPlayer.currentMedia = ShowPlayer.newMedia(file);
+                }).Start();
 
-                // Get the length of the video file and set the timer for that length, and start it.
-                // A new episode will start on Timer Tick if the autoplay button is checked.
-                timerFolder = folderPath;
-                TimeSpan episodeLength = GetLengthOfVideo(file);
-                timer.Interval = episodeLength != TimeSpan.Zero ? (int)episodeLength.TotalMilliseconds : (12 * 60 * 100);
+                PlayLabel_Click(null, null);
+                timer.Interval = (int)(ShowPlayer.newMedia(file).duration * 1000);
                 timer.Start();
-
+                
                 return true;
             }
-            catch (Exception) { }
+            catch (Exception ex) { }
             return false;
         }
 
@@ -515,34 +559,49 @@ namespace RandomTvShow
         /// <summary>
         /// Change the refresh icon to a loading "..." for at least one cycle while the program searches for the Ext HDD
         /// </summary>
-        private async void UpdateLoaderIcon()
+        private void UpdateLoaderIcon()
         {
-            var result = await Task.Run(() =>
+            if ((AppTheme)Properties.Settings.Default.ThemeIndex == AppTheme.Monolith)
             {
-                if ((AppTheme)Properties.Settings.Default.ThemeIndex == AppTheme.Monolith)
-                {
-                    RefreshLabel.Image = Properties.Resources._1_dot_alt;
-                    System.Threading.Thread.Sleep(200);
-                    RefreshLabel.Image = Properties.Resources._2_dot_alt;
-                    System.Threading.Thread.Sleep(200);
-                    RefreshLabel.Image = Properties.Resources._3_dot_alt;
-                    System.Threading.Thread.Sleep(200);
+                RefreshLabel.BackColor = Color.Transparent;
+                RefreshLabel.MouseEnter -= AutoplayButton_MouseEnter;
 
-                    RefreshLabel.Image = Properties.Resources.refresh_icon_alt;
-                }
-                else
-                {
-                    RefreshLabel.Image = Properties.Resources._1_dot;
-                    System.Threading.Thread.Sleep(200);
-                    RefreshLabel.Image = Properties.Resources._2_dot;
-                    System.Threading.Thread.Sleep(200);
-                    RefreshLabel.Image = Properties.Resources._3_dot;
-                    System.Threading.Thread.Sleep(200);
+                RefreshLabel.Image = Properties.Resources._1_dot_alt;
+                System.Threading.Thread.Sleep(200);
+                RefreshLabel.Image = Properties.Resources._2_dot_alt;
+                System.Threading.Thread.Sleep(200);
+                RefreshLabel.Image = Properties.Resources._3_dot_alt;
+                System.Threading.Thread.Sleep(200);
 
-                    RefreshLabel.Image = Properties.Resources.refresh_icon;
-                }
-                return "hi";
-            });
+                RefreshLabel.Image = Properties.Resources.refresh_icon_alt;
+                RefreshLabel.MouseEnter += AutoplayButton_MouseEnter;
+            }
+            else
+            {
+                RefreshLabel.BackColor = Color.Transparent;
+                RefreshLabel.MouseEnter -= AutoplayButton_MouseEnter;
+
+                RefreshLabel.Image = Properties.Resources._1_dot;
+                System.Threading.Thread.Sleep(200);
+                RefreshLabel.Image = Properties.Resources._2_dot;
+                System.Threading.Thread.Sleep(200);
+                RefreshLabel.Image = Properties.Resources._3_dot;
+                System.Threading.Thread.Sleep(200);
+
+                RefreshLabel.Image = Properties.Resources.refresh_icon;
+                RefreshLabel.MouseEnter += AutoplayButton_MouseEnter;
+            }
+        }
+
+        /// <summary>
+        /// Change the settings button text to "Saved!", and then back again
+        /// </summary>
+        private void UpdateSettingsButton()
+        {
+            SaveButton.Text = "Saved!";
+            var t = new System.Windows.Forms.Timer() { Interval = 800 };
+            t.Tick += (s, e) => { SaveButton.Text = "Save"; t.Stop(); };
+            t.Start();
         }
 
         /// <summary>
@@ -553,25 +612,6 @@ namespace RandomTvShow
         static bool IsVideoFile(string path)
         {
             return Array.IndexOf(videoExtensions, Path.GetExtension(path).ToUpperInvariant()) != -1;
-        }
-
-        /// <summary>
-        /// Get the length of a video file, for use with the timer
-        /// </summary>
-        /// <param name="filepath">The video file to return the length of</param>
-        static TimeSpan GetLengthOfVideo(string filepath)
-        {
-            var shell = new Shell();
-            var folder = shell.NameSpace(Path.GetDirectoryName(filepath));
-            foreach (FolderItem2 item in folder.Items())
-            {
-                if (item.Name == Path.GetFileNameWithoutExtension(filepath))
-                {
-                    return TimeSpan.FromSeconds(item.ExtendedProperty("System.Media.Duration") / 10000000);
-                }
-            }
-
-            return new TimeSpan();
         }
 
         #endregion
