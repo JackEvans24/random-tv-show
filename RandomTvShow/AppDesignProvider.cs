@@ -16,6 +16,7 @@ namespace RandomTvShow
 
             Label closeLabel = form.Controls.Find("CloseLabel", true).FirstOrDefault() as Label,
                 closeLabel2 = form.Controls.Find("CloseLabel2", true).FirstOrDefault() as Label,
+                closeLabel3 = form.Controls.Find("CloseLabel3", true).FirstOrDefault() as Label,
                 refreshLabel = form.Controls.Find("RefreshLabel", true).FirstOrDefault() as Label;
             switch (theme)
             {
@@ -26,7 +27,7 @@ namespace RandomTvShow
                     Properties.Settings.Default.AppColourMenuHover = Color.FromArgb(116, 116, 116);
                     Properties.Settings.Default.AppColourHighlight = Color.Silver;
                     Properties.Settings.Default.AppColourText = Color.WhiteSmoke;
-                    closeLabel.Image = closeLabel2.Image = Properties.Resources.close_icon_alt;
+                    closeLabel.Image = closeLabel2.Image = closeLabel3.Image = Properties.Resources.close_icon_alt;
                     refreshLabel.Image = Properties.Resources.refresh_icon_alt;
                     break;
 
@@ -37,7 +38,7 @@ namespace RandomTvShow
                     Properties.Settings.Default.AppColourMenuHover = Color.FromArgb(121, 225, 121);
                     Properties.Settings.Default.AppColourHighlight = Color.LimeGreen;
                     Properties.Settings.Default.AppColourText = Color.DarkGreen;
-                    closeLabel.Image = closeLabel2.Image = Properties.Resources.close_icon;
+                    closeLabel.Image = closeLabel2.Image = closeLabel3.Image = Properties.Resources.close_icon;
                     refreshLabel.Image = Properties.Resources.refresh_icon;
                     break;
 
@@ -48,7 +49,7 @@ namespace RandomTvShow
                     Properties.Settings.Default.AppColourMenuHover = Color.FromArgb(200, 255, 255);
                     Properties.Settings.Default.AppColourHighlight = Color.White;
                     Properties.Settings.Default.AppColourText = Color.DarkSlateGray;
-                    closeLabel.Image = closeLabel2.Image = Properties.Resources.close_icon;
+                    closeLabel.Image = closeLabel2.Image = closeLabel3.Image = Properties.Resources.close_icon;
                     refreshLabel.Image = Properties.Resources.refresh_icon;
                     break;
             }
@@ -62,13 +63,22 @@ namespace RandomTvShow
                 form.Controls.Find("Shortcut2Textbox", true).FirstOrDefault().BackColor =
                 Properties.Settings.Default.AppColourBg;
 
-            SplitContainer mainSplitContainer = form.Controls.Find("splitContainer3", true).FirstOrDefault() as SplitContainer;
-            mainSplitContainer.Panel1.BackColor =
+            form.Controls.Find("MenuPanel", true).FirstOrDefault().BackColor =
                 form.Controls.Find("GoButton", true).FirstOrDefault().BackColor =
                 form.Controls.Find("SaveButton", true).FirstOrDefault().BackColor =
+                Properties.Settings.Default.AppColourMenu;
+
+            form.Controls.Find("TitleLabel", true).FirstOrDefault().BackColor =
+                form.Controls.Find("TitleLabel2", true).FirstOrDefault().BackColor =
+                form.Controls.Find("TitleLabel3", true).FirstOrDefault().BackColor =
+                form.Controls.Find("MinimiseLabel", true).FirstOrDefault().BackColor =
+                form.Controls.Find("MinimiseLabel2", true).FirstOrDefault().BackColor =
+                form.Controls.Find("MinimiseLabel3", true).FirstOrDefault().BackColor =
                 form.Controls.Find("CloseLabel", true).FirstOrDefault().BackColor =
                 form.Controls.Find("CloseLabel2", true).FirstOrDefault().BackColor =
-                Properties.Settings.Default.AppColourMenu;
+                form.Controls.Find("CloseLabel3", true).FirstOrDefault().BackColor =
+                Properties.Settings.Default.AppColourMenuHover;
+
 
             Button GoButton = form.Controls.Find("GoButton", true).FirstOrDefault() as Button,
                 SaveButton = form.Controls.Find("SaveButton", true).FirstOrDefault() as Button;
@@ -79,6 +89,12 @@ namespace RandomTvShow
                 GoButton.ForeColor = GoButton.FlatAppearance.BorderColor =
                 SaveButton.ForeColor = SaveButton.FlatAppearance.BorderColor =
                 form.Controls.Find("AutoplayButton", true).FirstOrDefault().ForeColor =
+                form.Controls.Find("TitleLabel", true).FirstOrDefault().ForeColor =
+                form.Controls.Find("TitleLabel2", true).FirstOrDefault().ForeColor =
+                form.Controls.Find("TitleLabel3", true).FirstOrDefault().ForeColor =
+                form.Controls.Find("MinimiseLabel", true).FirstOrDefault().ForeColor =
+                form.Controls.Find("MinimiseLabel2", true).FirstOrDefault().ForeColor =
+                form.Controls.Find("MinimiseLabel3", true).FirstOrDefault().ForeColor =
                 form.Controls.Find("MainDriveLabel", true).FirstOrDefault().ForeColor =
                 form.Controls.Find("MainDriveTextbox", true).FirstOrDefault().ForeColor =
                 form.Controls.Find("BrowseMainButton", true).FirstOrDefault().ForeColor =
@@ -127,36 +143,46 @@ namespace RandomTvShow
         public static void SetCurrentTab(MainForm form, AppTheme theme, AppTab currentTab)
         {
             Label HardDriveLabel = form.Controls.Find("HardDriveLabel", true).FirstOrDefault() as Label,
+                PlayLabel = form.Controls.Find("PlayLabel", true).FirstOrDefault() as Label,
                 OnlineLabel = form.Controls.Find("OnlineLabel", true).FirstOrDefault() as Label,
-                SettingsLabel = form.Controls.Find("SettingsLabel", true).FirstOrDefault() as Label;
+                SettingsLabel = form.Controls.Find("SettingsLabel", true).FirstOrDefault() as Label,
+                TitleLabel = form.Controls.Find("TitleLabel", true).FirstOrDefault() as Label;
 
             if (theme == AppTheme.Azure)
             {
                 HardDriveLabel.Image = Properties.Resources.hard_drive_icon;
+                PlayLabel.Image = Properties.Resources.play_icon;
                 OnlineLabel.Image = Properties.Resources.online_icon;
                 SettingsLabel.Image = Properties.Resources.settings_icon;
             }
             else if (theme == AppTheme.Forest)
             {
                 HardDriveLabel.Image = currentTab == AppTab.HardDrive ? Properties.Resources.hard_drive_icon_alt : Properties.Resources.hard_drive_icon;
+                PlayLabel.Image = currentTab == AppTab.Player ? Properties.Resources.play_icon_alt : Properties.Resources.play_icon;
                 OnlineLabel.Image = currentTab == AppTab.Online ? Properties.Resources.online_icon_alt : Properties.Resources.online_icon;
                 SettingsLabel.Image = currentTab == AppTab.Settings ? Properties.Resources.settings_icon_alt : Properties.Resources.settings_icon;
             }
             else
             {
                 HardDriveLabel.Image = currentTab == AppTab.HardDrive ? Properties.Resources.hard_drive_icon : Properties.Resources.hard_drive_icon_alt;
+                PlayLabel.Image = currentTab == AppTab.Player ? Properties.Resources.play_icon : Properties.Resources.play_icon_alt;
                 OnlineLabel.Image = currentTab == AppTab.Online ? Properties.Resources.online_icon : Properties.Resources.online_icon_alt;
                 SettingsLabel.Image = currentTab == AppTab.Settings ? Properties.Resources.settings_icon : Properties.Resources.settings_icon_alt;
             }
 
-            HardDriveLabel.BackColor = OnlineLabel.BackColor = SettingsLabel.BackColor = Color.Transparent;
+            HardDriveLabel.BackColor = PlayLabel.BackColor = OnlineLabel.BackColor = SettingsLabel.BackColor = Color.Transparent;
             switch (currentTab)
             {
                 case AppTab.HardDrive:
                     HardDriveLabel.BackColor = Properties.Settings.Default.AppColourHighlight;
+                    TitleLabel.Text = "Drive";
+                    break;
+                case AppTab.Player:
+                    PlayLabel.BackColor = Properties.Settings.Default.AppColourHighlight;
                     break;
                 case AppTab.Online:
                     OnlineLabel.BackColor = Properties.Settings.Default.AppColourHighlight;
+                    TitleLabel.Text = "Online";
                     break;
                 case AppTab.Settings:
                     SettingsLabel.BackColor = Properties.Settings.Default.AppColourHighlight;
@@ -168,6 +194,7 @@ namespace RandomTvShow
     public enum AppTab
     {
         HardDrive,
+        Player,
         Online,
         Settings
     }
