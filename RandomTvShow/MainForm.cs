@@ -291,6 +291,11 @@ namespace RandomTvShow
             }
         }
 
+        private void RerollButton_Click(object sender, EventArgs e)
+        {
+            SelectFromDrive(timerFolders);
+        }
+
         private void Timer_Tick(object sender, EventArgs e)
         {
             if (ShowPlayer.playState != WMPLib.WMPPlayState.wmppsStopped)
