@@ -22,4 +22,4 @@ The main turning point of the app was when a friend came over, we used it to wat
 
 ## The future
 
-I have a few features I'd like to add in the near future (most notably changing the *garbage* colour scheme) which each have an issue against them. Anything I'm working on or will be working on in future is stored there.
+I have a few features I'd like to add in the near future (~~most notably changing the *garbage* colour scheme~~ this is now done! The app has 3 themes to choose from, including the painfully bright original blue) which each have an issue against them. Anything I'm working on or will be working on in future is stored there.
