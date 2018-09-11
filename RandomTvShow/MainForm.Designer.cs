@@ -127,6 +127,7 @@
             this.ShowsList.Name = "ShowsList";
             this.ShowsList.Size = new System.Drawing.Size(350, 402);
             this.ShowsList.TabIndex = 0;
+            this.ShowsList.SelectedIndexChanged += new System.EventHandler(this.ShowsList_SelectedIndexChanged);
             // 
             // GoButton
             // 
@@ -433,7 +434,7 @@
             // 
             this.splitContainer7.Panel2.Controls.Add(this.BrowseS2Button);
             this.splitContainer7.Size = new System.Drawing.Size(372, 66);
-            this.splitContainer7.SplitterDistance = 300;
+            this.splitContainer7.SplitterDistance = 303;
             this.splitContainer7.SplitterWidth = 1;
             this.splitContainer7.TabIndex = 8;
             // 
@@ -446,7 +447,7 @@
             this.Shortcut2Textbox.Location = new System.Drawing.Point(11, 10);
             this.Shortcut2Textbox.Margin = new System.Windows.Forms.Padding(0);
             this.Shortcut2Textbox.Name = "Shortcut2Textbox";
-            this.Shortcut2Textbox.Size = new System.Drawing.Size(42, 22);
+            this.Shortcut2Textbox.Size = new System.Drawing.Size(45, 22);
             this.Shortcut2Textbox.TabIndex = 0;
             // 
             // BrowseS2Button
@@ -499,7 +500,7 @@
             // 
             this.splitContainer4.Panel2.Controls.Add(this.BrowseMainButton);
             this.splitContainer4.Size = new System.Drawing.Size(372, 66);
-            this.splitContainer4.SplitterDistance = 300;
+            this.splitContainer4.SplitterDistance = 303;
             this.splitContainer4.SplitterWidth = 1;
             this.splitContainer4.TabIndex = 1;
             // 
@@ -512,7 +513,7 @@
             this.MainDriveTextbox.Location = new System.Drawing.Point(11, 10);
             this.MainDriveTextbox.Margin = new System.Windows.Forms.Padding(0);
             this.MainDriveTextbox.Name = "MainDriveTextbox";
-            this.MainDriveTextbox.Size = new System.Drawing.Size(42, 22);
+            this.MainDriveTextbox.Size = new System.Drawing.Size(45, 22);
             this.MainDriveTextbox.TabIndex = 0;
             // 
             // BrowseMainButton
@@ -564,7 +565,7 @@
             // 
             this.splitContainer6.Panel2.Controls.Add(this.BrowseS1Button);
             this.splitContainer6.Size = new System.Drawing.Size(372, 66);
-            this.splitContainer6.SplitterDistance = 300;
+            this.splitContainer6.SplitterDistance = 303;
             this.splitContainer6.SplitterWidth = 1;
             this.splitContainer6.TabIndex = 7;
             // 
@@ -577,7 +578,7 @@
             this.Shortcut1Textbox.Location = new System.Drawing.Point(11, 10);
             this.Shortcut1Textbox.Margin = new System.Windows.Forms.Padding(0);
             this.Shortcut1Textbox.Name = "Shortcut1Textbox";
-            this.Shortcut1Textbox.Size = new System.Drawing.Size(42, 22);
+            this.Shortcut1Textbox.Size = new System.Drawing.Size(45, 22);
             this.Shortcut1Textbox.TabIndex = 0;
             // 
             // BrowseS1Button

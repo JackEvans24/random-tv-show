@@ -133,6 +133,9 @@
         etmVi5wfuSnppNvcu7AJ6TZteSf9m+SQLjrp3mmM+QHglbxulRVi/QAAAABJRU5ErkJggg==
 </value>
   </data>
+  <metadata name="FormTooltip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>212, 17</value>
+  </metadata>
   <metadata name="folderBroswerDialog.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>

@@ -226,6 +226,18 @@ namespace RandomTvShow
             control.BackColor = Properties.Settings.Default.AppColourMenuHover;
         }
 
+        private void ShowsList_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            List<string> selectedShows = new List<string>();
+
+            foreach (var item in ShowsList.CheckedItems)
+            {
+                selectedShows.Add(item.ToString());
+            }
+
+            timerFolders = selectedShows.ToArray();
+        }
+
         private void RefreshLabel_Click(object sender, EventArgs e)
         {
             if (refreshing)
@@ -407,7 +419,13 @@ namespace RandomTvShow
                 ShowsList.Items.Clear();
                 // Display the name of each folder in "TV Shows" folder
                 foreach (var folder in Directory.GetDirectories(Properties.Settings.Default.MainDrivePath))
-                    ShowsList.Items.Add(Path.GetFileName(folder), false);
+                {
+                    var folderName = Path.GetFileName(folder);
+                    if (timerFolders != null && timerFolders.Contains(folderName))
+                        ShowsList.Items.Add(folderName, true);
+                    else
+                        ShowsList.Items.Add(folderName, false);
+                }
 
                 refreshing = false;
                 DriveNotFoundLabel.Visible = RefreshLabel.Visible = false;
