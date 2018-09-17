@@ -18,7 +18,7 @@ namespace RandomTvShow
     {
         #region Variables
 
-        bool refreshing = false, ready = true;
+        bool refreshing = false, ready = true, useRootFolder = false;
         Random rnd = new Random();
         System.Windows.Forms.Timer timer = new System.Windows.Forms.Timer();
         string[] timerFolders;
@@ -148,7 +148,7 @@ namespace RandomTvShow
             AppDesignProvider.SetCurrentTab(this, (AppTheme)Properties.Settings.Default.ThemeIndex, currentTab);
 
             ShowsLayout.Visible = AutoplayButton.Visible = true;
-            PlayerLayout.Visible = SettingsLayout.Visible = false;
+            PlayerLayout.Visible = SettingsLayout.Visible = SaveSettingsPanel.Visible = false;
             Refresh();
 
             LoadFromDrive();
@@ -160,7 +160,7 @@ namespace RandomTvShow
             AppDesignProvider.SetCurrentTab(this, (AppTheme)Properties.Settings.Default.ThemeIndex, currentTab);
 
             PlayerLayout.Visible = true;
-            ShowsLayout.Visible = SettingsLayout.Visible = false;
+            ShowsLayout.Visible = SettingsLayout.Visible = SaveSettingsPanel.Visible = false;
             ErrorLabel.Visible = RefreshLabel.Visible = AutoplayButton.Visible = false;
         }
 
@@ -171,7 +171,7 @@ namespace RandomTvShow
             AppDesignProvider.SetCurrentTab(this, (AppTheme)Properties.Settings.Default.ThemeIndex, currentTab);
 
             ShowsLayout.Visible = true;
-            PlayerLayout.Visible = SettingsLayout.Visible = false;
+            PlayerLayout.Visible = SettingsLayout.Visible = SaveSettingsPanel.Visible = false;
             ErrorLabel.Visible = RefreshLabel.Visible = AutoplayButton.Visible = false;
 
             LoadFromOnline();
@@ -189,7 +189,7 @@ namespace RandomTvShow
             AppDesignProvider.SetThemeLabelFont(this, (AppTheme)Properties.Settings.Default.ThemeIndex);
 
             ShowsLayout.Visible = PlayerLayout.Visible = ErrorLabel.Visible = RefreshLabel.Visible = false;
-            SettingsLayout.Visible = true;
+            SettingsLayout.Visible = SaveSettingsPanel.Visible = true;
         }
 
         private void HardDriveLabel_MouseEnter(object sender, EventArgs e)
@@ -259,6 +259,13 @@ namespace RandomTvShow
 
         private void GoButton_Click(object sender, EventArgs e)
         {
+            // Select a show from the main folder if there are no folders inside it
+            if (useRootFolder)
+            {
+                SelectFromDrive(new string[] { "" });
+                return;
+            }
+
             // Send the user back if they haven't checked anything
             if (ready && ShowsList.CheckedItems.Count <= 0)
             {
@@ -428,21 +435,37 @@ namespace RandomTvShow
                 }
 
                 refreshing = false;
-                ErrorLabel.Visible = RefreshLabel.Visible = false;
+                ErrorLabel.Visible = RefreshLabel.Visible = useRootFolder = false;
                 ShowsList.Visible = ready = true;
 
                 if (ShowsList.Items.Count <= 0)
                 {
-                    ShowsList.Visible = ready = false;
-                    ErrorLabel.Text = "No shows found in folder...";
-                    ErrorLabel.Visible = RefreshLabel.Visible = true;
+                    FindShowsInRootFolder();
                 }
             }
             else
             {
-                ShowsList.Visible = ready = false;
+                ShowsList.Visible = ready = useRootFolder = false;
                 ErrorLabel.Text = "Drive could not be found...";
                 ErrorLabel.Visible = RefreshLabel.Visible = true;
+            }
+        }
+
+        private void FindShowsInRootFolder()
+        {
+            var videoFiles = Directory.GetFiles(Properties.Settings.Default.MainDrivePath).Where(f => IsVideoFile(f));
+
+            if (videoFiles.Count() == 0)
+            {
+                ShowsList.Visible = ready = false;
+                ErrorLabel.Text = "No folders or video files found in specified folder...";
+                ErrorLabel.Visible = RefreshLabel.Visible = true;
+            }
+            else
+            {
+                ShowsList.Visible = RefreshLabel.Visible = false;
+                ErrorLabel.Text = "Hit \"Go!\" to play a show from the specified folder";
+                ErrorLabel.Visible = ready = useRootFolder = true;
             }
         }
 
@@ -465,7 +488,7 @@ namespace RandomTvShow
             // If no shows are passed in, return
             if (selectedShows == null || selectedShows.Count() <= 0)
             {
-                MessageBox.Show("Please select at least one show.", "Choose something...", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Please select at least one folder.", "Choose something...", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
 
