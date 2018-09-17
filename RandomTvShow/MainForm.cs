@@ -161,7 +161,7 @@ namespace RandomTvShow
 
             PlayerLayout.Visible = true;
             ShowsLayout.Visible = SettingsLayout.Visible = false;
-            DriveNotFoundLabel.Visible = RefreshLabel.Visible = AutoplayButton.Visible = false;
+            ErrorLabel.Visible = RefreshLabel.Visible = AutoplayButton.Visible = false;
         }
 
         private void OnlineLabel_Click(object sender, EventArgs e)
@@ -172,7 +172,7 @@ namespace RandomTvShow
 
             ShowsLayout.Visible = true;
             PlayerLayout.Visible = SettingsLayout.Visible = false;
-            DriveNotFoundLabel.Visible = RefreshLabel.Visible = AutoplayButton.Visible = false;
+            ErrorLabel.Visible = RefreshLabel.Visible = AutoplayButton.Visible = false;
 
             LoadFromOnline();
         }
@@ -188,7 +188,7 @@ namespace RandomTvShow
 
             AppDesignProvider.SetThemeLabelFont(this, (AppTheme)Properties.Settings.Default.ThemeIndex);
 
-            ShowsLayout.Visible = PlayerLayout.Visible = DriveNotFoundLabel.Visible = RefreshLabel.Visible = false;
+            ShowsLayout.Visible = PlayerLayout.Visible = ErrorLabel.Visible = RefreshLabel.Visible = false;
             SettingsLayout.Visible = true;
         }
 
@@ -428,14 +428,21 @@ namespace RandomTvShow
                 }
 
                 refreshing = false;
-                DriveNotFoundLabel.Visible = RefreshLabel.Visible = false;
+                ErrorLabel.Visible = RefreshLabel.Visible = false;
                 ShowsList.Visible = ready = true;
-            }
 
-            if (ShowsList.Items.Count <= 0)
+                if (ShowsList.Items.Count <= 0)
+                {
+                    ShowsList.Visible = ready = false;
+                    ErrorLabel.Text = "No shows found in folder...";
+                    ErrorLabel.Visible = RefreshLabel.Visible = true;
+                }
+            }
+            else
             {
                 ShowsList.Visible = ready = false;
-                DriveNotFoundLabel.Visible = RefreshLabel.Visible = true;
+                ErrorLabel.Text = "Drive could not be found...";
+                ErrorLabel.Visible = RefreshLabel.Visible = true;
             }
         }
 

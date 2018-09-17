@@ -37,7 +37,7 @@
             this.SettingsLabel = new System.Windows.Forms.Label();
             this.OnlineLabel = new System.Windows.Forms.Label();
             this.PlayLabel = new System.Windows.Forms.Label();
-            this.DriveNotFoundLabel = new System.Windows.Forms.Label();
+            this.ErrorLabel = new System.Windows.Forms.Label();
             this.ShowsLayout = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.MinimiseLabel = new System.Windows.Forms.Label();
@@ -240,20 +240,20 @@
             this.PlayLabel.MouseEnter += new System.EventHandler(this.HardDriveLabel_MouseEnter);
             this.PlayLabel.MouseLeave += new System.EventHandler(this.HardDriveLabel_MouseLeave);
             // 
-            // DriveNotFoundLabel
+            // ErrorLabel
             // 
-            this.DriveNotFoundLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.ErrorLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.DriveNotFoundLabel.BackColor = System.Drawing.Color.Transparent;
-            this.DriveNotFoundLabel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DriveNotFoundLabel.ForeColor = System.Drawing.Color.Transparent;
-            this.DriveNotFoundLabel.Location = new System.Drawing.Point(93, 140);
-            this.DriveNotFoundLabel.Name = "DriveNotFoundLabel";
-            this.DriveNotFoundLabel.Size = new System.Drawing.Size(367, 69);
-            this.DriveNotFoundLabel.TabIndex = 3;
-            this.DriveNotFoundLabel.Text = "Drive could not be found...";
-            this.DriveNotFoundLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.DriveNotFoundLabel.Visible = false;
+            this.ErrorLabel.BackColor = System.Drawing.Color.Transparent;
+            this.ErrorLabel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ErrorLabel.ForeColor = System.Drawing.Color.Transparent;
+            this.ErrorLabel.Location = new System.Drawing.Point(93, 140);
+            this.ErrorLabel.Name = "ErrorLabel";
+            this.ErrorLabel.Size = new System.Drawing.Size(367, 69);
+            this.ErrorLabel.TabIndex = 3;
+            this.ErrorLabel.Text = "Drive could not be found...";
+            this.ErrorLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.ErrorLabel.Visible = false;
             // 
             // ShowsLayout
             // 
@@ -382,8 +382,7 @@
             this.SettingsLayout.Controls.Add(this.Shortcut1Label, 0, 4);
             this.SettingsLayout.Controls.Add(this.tableLayoutPanel1, 0, 9);
             this.SettingsLayout.Controls.Add(this.HeaderLayoutPanel, 0, 0);
-            this.SettingsLayout.Controls.Add(this.SaveSettingsPanel, 0, 10);
-            this.SettingsLayout.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.SettingsLayout.Dock = System.Windows.Forms.DockStyle.Top;
             this.SettingsLayout.Location = new System.Drawing.Point(0, 0);
             this.SettingsLayout.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.SettingsLayout.Name = "SettingsLayout";
@@ -434,7 +433,7 @@
             // 
             this.splitContainer7.Panel2.Controls.Add(this.BrowseS2Button);
             this.splitContainer7.Size = new System.Drawing.Size(372, 66);
-            this.splitContainer7.SplitterDistance = 303;
+            this.splitContainer7.SplitterDistance = 295;
             this.splitContainer7.SplitterWidth = 1;
             this.splitContainer7.TabIndex = 8;
             // 
@@ -447,7 +446,7 @@
             this.Shortcut2Textbox.Location = new System.Drawing.Point(11, 10);
             this.Shortcut2Textbox.Margin = new System.Windows.Forms.Padding(0);
             this.Shortcut2Textbox.Name = "Shortcut2Textbox";
-            this.Shortcut2Textbox.Size = new System.Drawing.Size(45, 22);
+            this.Shortcut2Textbox.Size = new System.Drawing.Size(37, 22);
             this.Shortcut2Textbox.TabIndex = 0;
             // 
             // BrowseS2Button
@@ -500,7 +499,7 @@
             // 
             this.splitContainer4.Panel2.Controls.Add(this.BrowseMainButton);
             this.splitContainer4.Size = new System.Drawing.Size(372, 66);
-            this.splitContainer4.SplitterDistance = 303;
+            this.splitContainer4.SplitterDistance = 295;
             this.splitContainer4.SplitterWidth = 1;
             this.splitContainer4.TabIndex = 1;
             // 
@@ -513,7 +512,7 @@
             this.MainDriveTextbox.Location = new System.Drawing.Point(11, 10);
             this.MainDriveTextbox.Margin = new System.Windows.Forms.Padding(0);
             this.MainDriveTextbox.Name = "MainDriveTextbox";
-            this.MainDriveTextbox.Size = new System.Drawing.Size(45, 22);
+            this.MainDriveTextbox.Size = new System.Drawing.Size(37, 22);
             this.MainDriveTextbox.TabIndex = 0;
             // 
             // BrowseMainButton
@@ -565,7 +564,7 @@
             // 
             this.splitContainer6.Panel2.Controls.Add(this.BrowseS1Button);
             this.splitContainer6.Size = new System.Drawing.Size(372, 66);
-            this.splitContainer6.SplitterDistance = 303;
+            this.splitContainer6.SplitterDistance = 295;
             this.splitContainer6.SplitterWidth = 1;
             this.splitContainer6.TabIndex = 7;
             // 
@@ -578,7 +577,7 @@
             this.Shortcut1Textbox.Location = new System.Drawing.Point(11, 10);
             this.Shortcut1Textbox.Margin = new System.Windows.Forms.Padding(0);
             this.Shortcut1Textbox.Name = "Shortcut1Textbox";
-            this.Shortcut1Textbox.Size = new System.Drawing.Size(45, 22);
+            this.Shortcut1Textbox.Size = new System.Drawing.Size(37, 22);
             this.Shortcut1Textbox.TabIndex = 0;
             // 
             // BrowseS1Button
@@ -751,7 +750,7 @@
             // 
             this.SaveSettingsPanel.Controls.Add(this.VersionNumberLabel);
             this.SaveSettingsPanel.Controls.Add(this.SaveButton);
-            this.SaveSettingsPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.SaveSettingsPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.SaveSettingsPanel.Location = new System.Drawing.Point(0, 455);
             this.SaveSettingsPanel.Margin = new System.Windows.Forms.Padding(0);
             this.SaveSettingsPanel.Name = "SaveSettingsPanel";
@@ -818,9 +817,10 @@
             // 
             // MainPanel
             // 
+            this.MainPanel.Controls.Add(this.SaveSettingsPanel);
+            this.MainPanel.Controls.Add(this.SettingsLayout);
             this.MainPanel.Controls.Add(this.PlayerLayout);
             this.MainPanel.Controls.Add(this.ShowsLayout);
-            this.MainPanel.Controls.Add(this.SettingsLayout);
             this.MainPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.MainPanel.Location = new System.Drawing.Point(91, 0);
             this.MainPanel.Margin = new System.Windows.Forms.Padding(0);
@@ -971,7 +971,7 @@
             this.ClientSize = new System.Drawing.Size(463, 537);
             this.ControlBox = false;
             this.Controls.Add(this.RefreshLabel);
-            this.Controls.Add(this.DriveNotFoundLabel);
+            this.Controls.Add(this.ErrorLabel);
             this.Controls.Add(this.tableLayoutPanel2);
             this.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -1026,7 +1026,7 @@
         private System.Windows.Forms.Button GoButton;
         private System.Windows.Forms.TableLayoutPanel MenuBar;
         private System.Windows.Forms.Label HardDriveLabel;
-        private System.Windows.Forms.Label DriveNotFoundLabel;
+        private System.Windows.Forms.Label ErrorLabel;
         private System.Windows.Forms.Label RefreshLabel;
         private System.Windows.Forms.TableLayoutPanel ShowsLayout;
         private System.Windows.Forms.CheckBox AutoplayButton;

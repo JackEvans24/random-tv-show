@@ -86,7 +86,7 @@ namespace RandomTvShow
                 RerollButton = form.Controls.Find("RerollButton", true).FirstOrDefault() as Button;
 
             form.ForeColor =
-                form.Controls.Find("DriveNotFoundLabel", true).FirstOrDefault().ForeColor =
+                form.Controls.Find("ErrorLabel", true).FirstOrDefault().ForeColor =
                 form.Controls.Find("ShowsList", true).FirstOrDefault().ForeColor =
                 GoButton.ForeColor = GoButton.FlatAppearance.BorderColor =
                 SaveButton.ForeColor = SaveButton.FlatAppearance.BorderColor =
