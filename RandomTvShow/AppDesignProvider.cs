@@ -65,6 +65,7 @@ namespace RandomTvShow
 
             form.Controls.Find("MenuPanel", true).FirstOrDefault().BackColor =
                 form.Controls.Find("GoButton", true).FirstOrDefault().BackColor =
+                form.Controls.Find("RerollButton", true).FirstOrDefault().BackColor =
                 form.Controls.Find("SaveButton", true).FirstOrDefault().BackColor =
                 Properties.Settings.Default.AppColourMenu;
 
@@ -81,13 +82,15 @@ namespace RandomTvShow
 
 
             Button GoButton = form.Controls.Find("GoButton", true).FirstOrDefault() as Button,
-                SaveButton = form.Controls.Find("SaveButton", true).FirstOrDefault() as Button;
+                SaveButton = form.Controls.Find("SaveButton", true).FirstOrDefault() as Button,
+                RerollButton = form.Controls.Find("RerollButton", true).FirstOrDefault() as Button;
 
             form.ForeColor =
-                form.Controls.Find("DriveNotFoundLabel", true).FirstOrDefault().ForeColor =
+                form.Controls.Find("ErrorLabel", true).FirstOrDefault().ForeColor =
                 form.Controls.Find("ShowsList", true).FirstOrDefault().ForeColor =
                 GoButton.ForeColor = GoButton.FlatAppearance.BorderColor =
                 SaveButton.ForeColor = SaveButton.FlatAppearance.BorderColor =
+                RerollButton.ForeColor = RerollButton.FlatAppearance.BorderColor =
                 form.Controls.Find("AutoplayButton", true).FirstOrDefault().ForeColor =
                 form.Controls.Find("TitleLabel", true).FirstOrDefault().ForeColor =
                 form.Controls.Find("TitleLabel2", true).FirstOrDefault().ForeColor =
