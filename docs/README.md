@@ -9,5 +9,5 @@ The **Online** tab allows the user to select from a list of online shows, and cl
 Additionally, in the settings a user can set two folders as their shortcut folders. Once these shortcuts are set the user can press `Ctrl+1` or `Ctrl+2` to launch a random video from those folders.
 
 ### Documentation
-1. [User Setup](docs/Setup.md)
-2. [Application History](docs/History.md)
+1. [User Setup](Setup.md)
+2. [Application History](History.md)
