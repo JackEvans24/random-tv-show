@@ -451,6 +451,9 @@ namespace RandomTvShow
             }
         }
 
+        /// <summary>
+        /// Checks the MainDrivePath folder for valid video files, and sets the app to pick from that folder if that is the case
+        /// </summary>
         private void FindShowsInRootFolder()
         {
             var videoFiles = Directory.GetFiles(Properties.Settings.Default.MainDrivePath).Where(f => IsVideoFile(f));
