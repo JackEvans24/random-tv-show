@@ -260,7 +260,7 @@ namespace RandomTvShow
         private void GoButton_Click(object sender, EventArgs e)
         {
             // Select a show from the main folder if there are no folders inside it
-            if (useRootFolder)
+            if (currentTab == AppTab.HardDrive && useRootFolder)
             {
                 SelectFromDrive(new string[] { "" });
                 return;
@@ -552,7 +552,7 @@ namespace RandomTvShow
                 
                 return true;
             }
-            catch (Exception ex) { }
+            catch (Exception) { }
             return false;
         }
 
