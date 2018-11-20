@@ -360,7 +360,7 @@ namespace RandomTvShow
 
         private void MonolithLabel_Click(object sender, EventArgs e)
         {
-            MonolithLabel.Font = AzureLabel.Font = ForestLabel.Font = new Font(MonolithLabel.Font, FontStyle.Regular);
+            MonolithLabel.Font = AzureLabel.Font = ForestLabel.Font = GhostLabel.Font = new Font(MonolithLabel.Font, FontStyle.Regular);
             ((Control)sender).Font = new Font(((Control)sender).Font, FontStyle.Underline);
         }
 
@@ -398,7 +398,7 @@ namespace RandomTvShow
             if (!validated)
                 MessageBox.Show("Could not set one or more of the default folder paths. Please try again.");
 
-            var theme = MonolithLabel.Font.Underline ? 0 : AzureLabel.Font.Underline ? 1 : 2;
+            var theme = MonolithLabel.Font.Underline ? 0 : AzureLabel.Font.Underline ? 1 : ForestLabel.Font.Underline ? 2 : 3;
             settingsChanged |= theme != Properties.Settings.Default.ThemeIndex;
             AppDesignProvider.SetTheme(this, (AppTheme)theme);
             AppDesignProvider.SetCurrentTab(this, (AppTheme)theme, currentTab);

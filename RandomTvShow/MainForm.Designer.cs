@@ -60,6 +60,7 @@
             this.BrowseS1Button = new System.Windows.Forms.Label();
             this.Shortcut1Label = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.GhostLabel = new System.Windows.Forms.Label();
             this.ForestLabel = new System.Windows.Forms.Label();
             this.AzureLabel = new System.Windows.Forms.Label();
             this.MonolithLabel = new System.Windows.Forms.Label();
@@ -433,7 +434,7 @@
             // 
             this.splitContainer7.Panel2.Controls.Add(this.BrowseS2Button);
             this.splitContainer7.Size = new System.Drawing.Size(372, 66);
-            this.splitContainer7.SplitterDistance = 301;
+            this.splitContainer7.SplitterDistance = 307;
             this.splitContainer7.SplitterWidth = 1;
             this.splitContainer7.TabIndex = 8;
             // 
@@ -446,7 +447,7 @@
             this.Shortcut2Textbox.Location = new System.Drawing.Point(11, 10);
             this.Shortcut2Textbox.Margin = new System.Windows.Forms.Padding(0);
             this.Shortcut2Textbox.Name = "Shortcut2Textbox";
-            this.Shortcut2Textbox.Size = new System.Drawing.Size(43, 22);
+            this.Shortcut2Textbox.Size = new System.Drawing.Size(49, 22);
             this.Shortcut2Textbox.TabIndex = 0;
             // 
             // BrowseS2Button
@@ -499,7 +500,7 @@
             // 
             this.splitContainer4.Panel2.Controls.Add(this.BrowseMainButton);
             this.splitContainer4.Size = new System.Drawing.Size(372, 66);
-            this.splitContainer4.SplitterDistance = 301;
+            this.splitContainer4.SplitterDistance = 307;
             this.splitContainer4.SplitterWidth = 1;
             this.splitContainer4.TabIndex = 1;
             // 
@@ -512,7 +513,7 @@
             this.MainDriveTextbox.Location = new System.Drawing.Point(11, 10);
             this.MainDriveTextbox.Margin = new System.Windows.Forms.Padding(0);
             this.MainDriveTextbox.Name = "MainDriveTextbox";
-            this.MainDriveTextbox.Size = new System.Drawing.Size(43, 22);
+            this.MainDriveTextbox.Size = new System.Drawing.Size(49, 22);
             this.MainDriveTextbox.TabIndex = 0;
             // 
             // BrowseMainButton
@@ -564,7 +565,7 @@
             // 
             this.splitContainer6.Panel2.Controls.Add(this.BrowseS1Button);
             this.splitContainer6.Size = new System.Drawing.Size(372, 66);
-            this.splitContainer6.SplitterDistance = 301;
+            this.splitContainer6.SplitterDistance = 307;
             this.splitContainer6.SplitterWidth = 1;
             this.splitContainer6.TabIndex = 7;
             // 
@@ -577,7 +578,7 @@
             this.Shortcut1Textbox.Location = new System.Drawing.Point(11, 10);
             this.Shortcut1Textbox.Margin = new System.Windows.Forms.Padding(0);
             this.Shortcut1Textbox.Name = "Shortcut1Textbox";
-            this.Shortcut1Textbox.Size = new System.Drawing.Size(43, 22);
+            this.Shortcut1Textbox.Size = new System.Drawing.Size(49, 22);
             this.Shortcut1Textbox.TabIndex = 0;
             // 
             // BrowseS1Button
@@ -616,16 +617,36 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel1.Controls.Add(this.GhostLabel, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.ForestLabel, 2, 0);
             this.tableLayoutPanel1.Controls.Add(this.AzureLabel, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.MonolithLabel, 0, 0);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 375);
             this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 1;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.RowCount = 2;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(371, 80);
             this.tableLayoutPanel1.TabIndex = 12;
+            // 
+            // GhostLabel
+            // 
+            this.GhostLabel.AutoSize = true;
+            this.GhostLabel.BackColor = System.Drawing.Color.Transparent;
+            this.GhostLabel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.GhostLabel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.GhostLabel.Location = new System.Drawing.Point(20, 40);
+            this.GhostLabel.Margin = new System.Windows.Forms.Padding(20, 0, 20, 0);
+            this.GhostLabel.Name = "GhostLabel";
+            this.GhostLabel.Padding = new System.Windows.Forms.Padding(0, 5, 0, 5);
+            this.GhostLabel.Size = new System.Drawing.Size(83, 30);
+            this.GhostLabel.TabIndex = 3;
+            this.GhostLabel.Text = "Ghost";
+            this.GhostLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.GhostLabel.Click += new System.EventHandler(this.MonolithLabel_Click);
+            this.GhostLabel.MouseEnter += new System.EventHandler(this.AutoplayButton_MouseEnter);
+            this.GhostLabel.MouseLeave += new System.EventHandler(this.HardDriveLabel_MouseLeave);
             // 
             // ForestLabel
             // 
@@ -1075,6 +1096,7 @@
         private System.Windows.Forms.Label CloseLabel3;
         private System.Windows.Forms.Label PlayLabel;
         private System.Windows.Forms.Button RerollButton;
+        private System.Windows.Forms.Label GhostLabel;
     }
 }
 
