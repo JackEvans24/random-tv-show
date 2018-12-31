@@ -138,7 +138,7 @@ namespace RandomTvShow
                 SwampLabel = (Label)form.Controls.Find("ForestLabel", true).FirstOrDefault(),
                 GhostLabel = (Label)form.Controls.Find("GhostLabel", true).FirstOrDefault();
 
-            MonolithLabel.Font = AzureLabel.Font = SwampLabel.Font = new Font(MonolithLabel.Font, FontStyle.Regular);
+            MonolithLabel.Font = AzureLabel.Font = SwampLabel.Font = GhostLabel.Font = new Font(MonolithLabel.Font, FontStyle.Regular);
             switch (theme)
             {
                 case AppTheme.Monolith:

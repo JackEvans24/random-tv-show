@@ -226,6 +226,12 @@ namespace RandomTvShow
             control.BackColor = Properties.Settings.Default.AppColourMenuHover;
         }
 
+        private void AutoplayButton_CheckedChanged(object sender, EventArgs e)
+        {
+            var isChecked = ((CheckBox)sender).Checked;
+            AutoplayButton.Checked = AutoplayButton2.Checked = isChecked;
+        }
+
         private void ShowsList_SelectedIndexChanged(object sender, EventArgs e)
         {
             List<string> selectedShows = new List<string>();
