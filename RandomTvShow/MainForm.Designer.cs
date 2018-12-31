@@ -76,7 +76,6 @@
             this.MenuPanel = new System.Windows.Forms.Panel();
             this.MainPanel = new System.Windows.Forms.Panel();
             this.PlayerLayout = new System.Windows.Forms.TableLayoutPanel();
-            this.ShowPlayer = new AxWMPLib.AxWindowsMediaPlayer();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.MinimiseLabel3 = new System.Windows.Forms.Label();
             this.TitleLabel3 = new System.Windows.Forms.Label();
@@ -86,6 +85,7 @@
             this.RerollButton = new System.Windows.Forms.Button();
             this.FormTooltip = new System.Windows.Forms.ToolTip(this.components);
             this.RefreshLabel = new System.Windows.Forms.Label();
+            this.ShowPlayer = new AxWMPLib.AxWindowsMediaPlayer();
             this.MenuBar.SuspendLayout();
             this.ShowsLayout.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
@@ -110,9 +110,9 @@
             this.MenuPanel.SuspendLayout();
             this.MainPanel.SuspendLayout();
             this.PlayerLayout.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ShowPlayer)).BeginInit();
             this.tableLayoutPanel4.SuspendLayout();
             this.PlayShowOptionsPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ShowPlayer)).BeginInit();
             this.SuspendLayout();
             // 
             // ShowsList
@@ -874,17 +874,6 @@
             this.PlayerLayout.Size = new System.Drawing.Size(372, 0);
             this.PlayerLayout.TabIndex = 3;
             // 
-            // ShowPlayer
-            // 
-            this.ShowPlayer.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ShowPlayer.Enabled = true;
-            this.ShowPlayer.Location = new System.Drawing.Point(3, 55);
-            this.ShowPlayer.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.ShowPlayer.Name = "ShowPlayer";
-            this.ShowPlayer.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("ShowPlayer.OcxState")));
-            this.ShowPlayer.Size = new System.Drawing.Size(366, 1);
-            this.ShowPlayer.TabIndex = 3;
-            // 
             // tableLayoutPanel4
             // 
             this.tableLayoutPanel4.ColumnCount = 3;
@@ -1020,6 +1009,17 @@
             this.RefreshLabel.MouseEnter += new System.EventHandler(this.AutoplayButton_MouseEnter);
             this.RefreshLabel.MouseLeave += new System.EventHandler(this.HardDriveLabel_MouseLeave);
             // 
+            // ShowPlayer
+            // 
+            this.ShowPlayer.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ShowPlayer.Enabled = true;
+            this.ShowPlayer.Location = new System.Drawing.Point(3, 55);
+            this.ShowPlayer.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.ShowPlayer.Name = "ShowPlayer";
+            this.ShowPlayer.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("ShowPlayer.OcxState")));
+            this.ShowPlayer.Size = new System.Drawing.Size(366, 1);
+            this.ShowPlayer.TabIndex = 3;
+            // 
             // MainForm
             // 
             this.AcceptButton = this.GoButton;
@@ -1072,10 +1072,10 @@
             this.MenuPanel.ResumeLayout(false);
             this.MainPanel.ResumeLayout(false);
             this.PlayerLayout.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.ShowPlayer)).EndInit();
             this.tableLayoutPanel4.ResumeLayout(false);
             this.PlayShowOptionsPanel.ResumeLayout(false);
             this.PlayShowOptionsPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ShowPlayer)).EndInit();
             this.ResumeLayout(false);
 
         }
