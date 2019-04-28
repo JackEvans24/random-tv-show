@@ -115,6 +115,8 @@ namespace RandomTvShow
             else if (!string.IsNullOrWhiteSpace(Properties.Settings.Default.Shortcut2Path) &&
                 keyData == (Keys.Control | Keys.D2) || keyData == (Keys.Control | Keys.NumPad2))
                 PickAndPlayVideoFile(Properties.Settings.Default.Shortcut2Path);
+            else if (keyData == Keys.F12)
+                ShowPlayer.fullScreen = !ShowPlayer.fullScreen;
 
             return base.ProcessCmdKey(ref msg, keyData);
         }
@@ -337,7 +339,16 @@ namespace RandomTvShow
             }
             else {
                 if (AutoplayButton.Checked)
+                {
+                    if (!timerFolders.Any())
+                    {
+                        HardDriveLabel_Click(this.HardDriveLabel, null);
+                        MessageBox.Show("No shows currently selected :(");
+                        return;
+                    }
+
                     SelectFromDrive(timerFolders);
+                }
             }
         }
 
