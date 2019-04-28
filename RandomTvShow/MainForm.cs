@@ -115,7 +115,7 @@ namespace RandomTvShow
             else if (!string.IsNullOrWhiteSpace(Properties.Settings.Default.Shortcut2Path) &&
                 keyData == (Keys.Control | Keys.D2) || keyData == (Keys.Control | Keys.NumPad2))
                 PickAndPlayVideoFile(Properties.Settings.Default.Shortcut2Path);
-            else if (keyData == Keys.F12)
+            else if (keyData == Keys.F12 && ShowPlayer.playState == WMPLib.WMPPlayState.wmppsPlaying)
                 ShowPlayer.fullScreen = !ShowPlayer.fullScreen;
 
             return base.ProcessCmdKey(ref msg, keyData);
