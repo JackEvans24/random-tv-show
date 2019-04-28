@@ -115,6 +115,8 @@ namespace RandomTvShow
             else if (!string.IsNullOrWhiteSpace(Properties.Settings.Default.Shortcut2Path) &&
                 keyData == (Keys.Control | Keys.D2) || keyData == (Keys.Control | Keys.NumPad2))
                 PickAndPlayVideoFile(Properties.Settings.Default.Shortcut2Path);
+            else if (keyData == Keys.F12)
+                ShowPlayer.fullScreen = !ShowPlayer.fullScreen;
 
             return base.ProcessCmdKey(ref msg, keyData);
         }
@@ -226,6 +228,12 @@ namespace RandomTvShow
             control.BackColor = Properties.Settings.Default.AppColourMenuHover;
         }
 
+        private void AutoplayButton_CheckedChanged(object sender, EventArgs e)
+        {
+            var isChecked = ((CheckBox)sender).Checked;
+            AutoplayButton.Checked = AutoplayButton2.Checked = isChecked;
+        }
+
         private void ShowsList_SelectedIndexChanged(object sender, EventArgs e)
         {
             List<string> selectedShows = new List<string>();
@@ -260,7 +268,7 @@ namespace RandomTvShow
         private void GoButton_Click(object sender, EventArgs e)
         {
             // Select a show from the main folder if there are no folders inside it
-            if (useRootFolder)
+            if (currentTab == AppTab.HardDrive && useRootFolder)
             {
                 SelectFromDrive(new string[] { "" });
                 return;
@@ -331,7 +339,16 @@ namespace RandomTvShow
             }
             else {
                 if (AutoplayButton.Checked)
+                {
+                    if (!timerFolders.Any())
+                    {
+                        HardDriveLabel_Click(this.HardDriveLabel, null);
+                        MessageBox.Show("No shows currently selected :(");
+                        return;
+                    }
+
                     SelectFromDrive(timerFolders);
+                }
             }
         }
 
@@ -360,7 +377,7 @@ namespace RandomTvShow
 
         private void MonolithLabel_Click(object sender, EventArgs e)
         {
-            MonolithLabel.Font = AzureLabel.Font = ForestLabel.Font = new Font(MonolithLabel.Font, FontStyle.Regular);
+            MonolithLabel.Font = AzureLabel.Font = ForestLabel.Font = GhostLabel.Font = new Font(MonolithLabel.Font, FontStyle.Regular);
             ((Control)sender).Font = new Font(((Control)sender).Font, FontStyle.Underline);
         }
 
@@ -398,7 +415,7 @@ namespace RandomTvShow
             if (!validated)
                 MessageBox.Show("Could not set one or more of the default folder paths. Please try again.");
 
-            var theme = MonolithLabel.Font.Underline ? 0 : AzureLabel.Font.Underline ? 1 : 2;
+            var theme = MonolithLabel.Font.Underline ? 0 : AzureLabel.Font.Underline ? 1 : ForestLabel.Font.Underline ? 2 : 3;
             settingsChanged |= theme != Properties.Settings.Default.ThemeIndex;
             AppDesignProvider.SetTheme(this, (AppTheme)theme);
             AppDesignProvider.SetCurrentTab(this, (AppTheme)theme, currentTab);
@@ -552,7 +569,7 @@ namespace RandomTvShow
                 
                 return true;
             }
-            catch (Exception ex) { }
+            catch (Exception) { }
             return false;
         }
 

@@ -60,6 +60,7 @@
             this.BrowseS1Button = new System.Windows.Forms.Label();
             this.Shortcut1Label = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.GhostLabel = new System.Windows.Forms.Label();
             this.ForestLabel = new System.Windows.Forms.Label();
             this.AzureLabel = new System.Windows.Forms.Label();
             this.MonolithLabel = new System.Windows.Forms.Label();
@@ -75,14 +76,16 @@
             this.MenuPanel = new System.Windows.Forms.Panel();
             this.MainPanel = new System.Windows.Forms.Panel();
             this.PlayerLayout = new System.Windows.Forms.TableLayoutPanel();
-            this.ShowPlayer = new AxWMPLib.AxWindowsMediaPlayer();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.MinimiseLabel3 = new System.Windows.Forms.Label();
             this.TitleLabel3 = new System.Windows.Forms.Label();
             this.CloseLabel3 = new System.Windows.Forms.Label();
+            this.PlayShowOptionsPanel = new System.Windows.Forms.Panel();
+            this.AutoplayButton2 = new System.Windows.Forms.CheckBox();
             this.RerollButton = new System.Windows.Forms.Button();
             this.FormTooltip = new System.Windows.Forms.ToolTip(this.components);
             this.RefreshLabel = new System.Windows.Forms.Label();
+            this.ShowPlayer = new AxWMPLib.AxWindowsMediaPlayer();
             this.MenuBar.SuspendLayout();
             this.ShowsLayout.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
@@ -107,8 +110,9 @@
             this.MenuPanel.SuspendLayout();
             this.MainPanel.SuspendLayout();
             this.PlayerLayout.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ShowPlayer)).BeginInit();
             this.tableLayoutPanel4.SuspendLayout();
+            this.PlayShowOptionsPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ShowPlayer)).BeginInit();
             this.SuspendLayout();
             // 
             // ShowsList
@@ -125,7 +129,7 @@
             this.ShowsList.Location = new System.Drawing.Point(11, 60);
             this.ShowsList.Margin = new System.Windows.Forms.Padding(11, 10, 11, 0);
             this.ShowsList.Name = "ShowsList";
-            this.ShowsList.Size = new System.Drawing.Size(350, 402);
+            this.ShowsList.Size = new System.Drawing.Size(350, 1);
             this.ShowsList.TabIndex = 0;
             this.ShowsList.SelectedIndexChanged += new System.EventHandler(this.ShowsList_SelectedIndexChanged);
             // 
@@ -264,14 +268,14 @@
             this.ShowsLayout.Controls.Add(this.ShowsList, 0, 1);
             this.ShowsLayout.Controls.Add(this.PlayShowPanel, 0, 2);
             this.ShowsLayout.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ShowsLayout.Location = new System.Drawing.Point(0, 0);
+            this.ShowsLayout.Location = new System.Drawing.Point(0, 537);
             this.ShowsLayout.Margin = new System.Windows.Forms.Padding(0);
             this.ShowsLayout.Name = "ShowsLayout";
             this.ShowsLayout.RowCount = 3;
             this.ShowsLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
             this.ShowsLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.ShowsLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 68F));
-            this.ShowsLayout.Size = new System.Drawing.Size(372, 537);
+            this.ShowsLayout.Size = new System.Drawing.Size(372, 0);
             this.ShowsLayout.TabIndex = 5;
             // 
             // tableLayoutPanel3
@@ -344,7 +348,7 @@
             this.PlayShowPanel.Controls.Add(this.AutoplayButton);
             this.PlayShowPanel.Controls.Add(this.GoButton);
             this.PlayShowPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.PlayShowPanel.Location = new System.Drawing.Point(0, 469);
+            this.PlayShowPanel.Location = new System.Drawing.Point(0, -67);
             this.PlayShowPanel.Margin = new System.Windows.Forms.Padding(0);
             this.PlayShowPanel.Name = "PlayShowPanel";
             this.PlayShowPanel.Size = new System.Drawing.Size(372, 68);
@@ -357,7 +361,7 @@
             this.AutoplayButton.BackColor = System.Drawing.Color.Transparent;
             this.AutoplayButton.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.AutoplayButton.ForeColor = System.Drawing.Color.Transparent;
-            this.AutoplayButton.Location = new System.Drawing.Point(229, 14);
+            this.AutoplayButton.Location = new System.Drawing.Point(227, 15);
             this.AutoplayButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.AutoplayButton.Name = "AutoplayButton";
             this.AutoplayButton.Padding = new System.Windows.Forms.Padding(11, 0, 0, 0);
@@ -366,6 +370,7 @@
             this.AutoplayButton.Text = "Autoplay";
             this.FormTooltip.SetToolTip(this.AutoplayButton, "Select to play another video when the current one ends");
             this.AutoplayButton.UseVisualStyleBackColor = false;
+            this.AutoplayButton.CheckedChanged += new System.EventHandler(this.AutoplayButton_CheckedChanged);
             this.AutoplayButton.MouseEnter += new System.EventHandler(this.AutoplayButton_MouseEnter);
             this.AutoplayButton.MouseLeave += new System.EventHandler(this.HardDriveLabel_MouseLeave);
             // 
@@ -433,7 +438,7 @@
             // 
             this.splitContainer7.Panel2.Controls.Add(this.BrowseS2Button);
             this.splitContainer7.Size = new System.Drawing.Size(372, 66);
-            this.splitContainer7.SplitterDistance = 298;
+            this.splitContainer7.SplitterDistance = 306;
             this.splitContainer7.SplitterWidth = 1;
             this.splitContainer7.TabIndex = 8;
             // 
@@ -446,7 +451,7 @@
             this.Shortcut2Textbox.Location = new System.Drawing.Point(11, 10);
             this.Shortcut2Textbox.Margin = new System.Windows.Forms.Padding(0);
             this.Shortcut2Textbox.Name = "Shortcut2Textbox";
-            this.Shortcut2Textbox.Size = new System.Drawing.Size(40, 22);
+            this.Shortcut2Textbox.Size = new System.Drawing.Size(48, 22);
             this.Shortcut2Textbox.TabIndex = 0;
             // 
             // BrowseS2Button
@@ -499,7 +504,7 @@
             // 
             this.splitContainer4.Panel2.Controls.Add(this.BrowseMainButton);
             this.splitContainer4.Size = new System.Drawing.Size(372, 66);
-            this.splitContainer4.SplitterDistance = 298;
+            this.splitContainer4.SplitterDistance = 306;
             this.splitContainer4.SplitterWidth = 1;
             this.splitContainer4.TabIndex = 1;
             // 
@@ -512,7 +517,7 @@
             this.MainDriveTextbox.Location = new System.Drawing.Point(11, 10);
             this.MainDriveTextbox.Margin = new System.Windows.Forms.Padding(0);
             this.MainDriveTextbox.Name = "MainDriveTextbox";
-            this.MainDriveTextbox.Size = new System.Drawing.Size(40, 22);
+            this.MainDriveTextbox.Size = new System.Drawing.Size(48, 22);
             this.MainDriveTextbox.TabIndex = 0;
             // 
             // BrowseMainButton
@@ -564,7 +569,7 @@
             // 
             this.splitContainer6.Panel2.Controls.Add(this.BrowseS1Button);
             this.splitContainer6.Size = new System.Drawing.Size(372, 66);
-            this.splitContainer6.SplitterDistance = 298;
+            this.splitContainer6.SplitterDistance = 306;
             this.splitContainer6.SplitterWidth = 1;
             this.splitContainer6.TabIndex = 7;
             // 
@@ -577,7 +582,7 @@
             this.Shortcut1Textbox.Location = new System.Drawing.Point(11, 10);
             this.Shortcut1Textbox.Margin = new System.Windows.Forms.Padding(0);
             this.Shortcut1Textbox.Name = "Shortcut1Textbox";
-            this.Shortcut1Textbox.Size = new System.Drawing.Size(40, 22);
+            this.Shortcut1Textbox.Size = new System.Drawing.Size(48, 22);
             this.Shortcut1Textbox.TabIndex = 0;
             // 
             // BrowseS1Button
@@ -612,20 +617,42 @@
             // 
             // tableLayoutPanel1
             // 
+            this.tableLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.tableLayoutPanel1.ColumnCount = 3;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel1.Controls.Add(this.GhostLabel, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.ForestLabel, 2, 0);
             this.tableLayoutPanel1.Controls.Add(this.AzureLabel, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.MonolithLabel, 0, 0);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 375);
             this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 1;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(371, 80);
+            this.tableLayoutPanel1.RowCount = 2;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(372, 80);
             this.tableLayoutPanel1.TabIndex = 12;
+            // 
+            // GhostLabel
+            // 
+            this.GhostLabel.AutoSize = true;
+            this.GhostLabel.BackColor = System.Drawing.Color.Transparent;
+            this.GhostLabel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.GhostLabel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.GhostLabel.Location = new System.Drawing.Point(20, 40);
+            this.GhostLabel.Margin = new System.Windows.Forms.Padding(20, 0, 20, 0);
+            this.GhostLabel.Name = "GhostLabel";
+            this.GhostLabel.Padding = new System.Windows.Forms.Padding(0, 5, 0, 5);
+            this.GhostLabel.Size = new System.Drawing.Size(84, 30);
+            this.GhostLabel.TabIndex = 3;
+            this.GhostLabel.Text = "Ghost";
+            this.GhostLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.GhostLabel.Click += new System.EventHandler(this.MonolithLabel_Click);
+            this.GhostLabel.MouseEnter += new System.EventHandler(this.AutoplayButton_MouseEnter);
+            this.GhostLabel.MouseLeave += new System.EventHandler(this.HardDriveLabel_MouseLeave);
             // 
             // ForestLabel
             // 
@@ -633,11 +660,11 @@
             this.ForestLabel.BackColor = System.Drawing.Color.Transparent;
             this.ForestLabel.Dock = System.Windows.Forms.DockStyle.Top;
             this.ForestLabel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ForestLabel.Location = new System.Drawing.Point(266, 0);
+            this.ForestLabel.Location = new System.Drawing.Point(268, 0);
             this.ForestLabel.Margin = new System.Windows.Forms.Padding(20, 0, 20, 0);
             this.ForestLabel.Name = "ForestLabel";
             this.ForestLabel.Padding = new System.Windows.Forms.Padding(0, 5, 0, 5);
-            this.ForestLabel.Size = new System.Drawing.Size(85, 30);
+            this.ForestLabel.Size = new System.Drawing.Size(84, 30);
             this.ForestLabel.TabIndex = 2;
             this.ForestLabel.Text = "Forest";
             this.ForestLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -651,11 +678,11 @@
             this.AzureLabel.BackColor = System.Drawing.Color.Transparent;
             this.AzureLabel.Dock = System.Windows.Forms.DockStyle.Top;
             this.AzureLabel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AzureLabel.Location = new System.Drawing.Point(143, 0);
+            this.AzureLabel.Location = new System.Drawing.Point(144, 0);
             this.AzureLabel.Margin = new System.Windows.Forms.Padding(20, 0, 20, 0);
             this.AzureLabel.Name = "AzureLabel";
             this.AzureLabel.Padding = new System.Windows.Forms.Padding(0, 5, 0, 5);
-            this.AzureLabel.Size = new System.Drawing.Size(83, 30);
+            this.AzureLabel.Size = new System.Drawing.Size(84, 30);
             this.AzureLabel.TabIndex = 1;
             this.AzureLabel.Text = "Azure";
             this.AzureLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -673,7 +700,7 @@
             this.MonolithLabel.Margin = new System.Windows.Forms.Padding(20, 0, 20, 0);
             this.MonolithLabel.Name = "MonolithLabel";
             this.MonolithLabel.Padding = new System.Windows.Forms.Padding(0, 5, 0, 5);
-            this.MonolithLabel.Size = new System.Drawing.Size(83, 30);
+            this.MonolithLabel.Size = new System.Drawing.Size(84, 30);
             this.MonolithLabel.TabIndex = 0;
             this.MonolithLabel.Text = "Monolith";
             this.MonolithLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -817,10 +844,10 @@
             // 
             // MainPanel
             // 
-            this.MainPanel.Controls.Add(this.SaveSettingsPanel);
-            this.MainPanel.Controls.Add(this.SettingsLayout);
             this.MainPanel.Controls.Add(this.PlayerLayout);
             this.MainPanel.Controls.Add(this.ShowsLayout);
+            this.MainPanel.Controls.Add(this.SaveSettingsPanel);
+            this.MainPanel.Controls.Add(this.SettingsLayout);
             this.MainPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.MainPanel.Location = new System.Drawing.Point(91, 0);
             this.MainPanel.Margin = new System.Windows.Forms.Padding(0);
@@ -834,28 +861,18 @@
             this.PlayerLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.PlayerLayout.Controls.Add(this.ShowPlayer, 0, 1);
             this.PlayerLayout.Controls.Add(this.tableLayoutPanel4, 0, 0);
-            this.PlayerLayout.Controls.Add(this.RerollButton, 0, 2);
+            this.PlayerLayout.Controls.Add(this.PlayShowOptionsPanel, 0, 2);
             this.PlayerLayout.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.PlayerLayout.Location = new System.Drawing.Point(0, 0);
+            this.PlayerLayout.Location = new System.Drawing.Point(0, 537);
             this.PlayerLayout.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.PlayerLayout.Name = "PlayerLayout";
             this.PlayerLayout.RowCount = 3;
             this.PlayerLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 53F));
             this.PlayerLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.PlayerLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 72F));
-            this.PlayerLayout.Size = new System.Drawing.Size(372, 537);
+            this.PlayerLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.PlayerLayout.Size = new System.Drawing.Size(372, 0);
             this.PlayerLayout.TabIndex = 3;
-            // 
-            // ShowPlayer
-            // 
-            this.ShowPlayer.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ShowPlayer.Enabled = true;
-            this.ShowPlayer.Location = new System.Drawing.Point(3, 55);
-            this.ShowPlayer.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.ShowPlayer.Name = "ShowPlayer";
-            this.ShowPlayer.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("ShowPlayer.OcxState")));
-            this.ShowPlayer.Size = new System.Drawing.Size(366, 408);
-            this.ShowPlayer.TabIndex = 3;
             // 
             // tableLayoutPanel4
             // 
@@ -922,6 +939,36 @@
             this.CloseLabel3.MouseEnter += new System.EventHandler(this.MinimiseLabel_MouseEnter);
             this.CloseLabel3.MouseLeave += new System.EventHandler(this.MinimiseLabel_MouseLeave);
             // 
+            // PlayShowOptionsPanel
+            // 
+            this.PlayShowOptionsPanel.Controls.Add(this.AutoplayButton2);
+            this.PlayShowOptionsPanel.Controls.Add(this.RerollButton);
+            this.PlayShowOptionsPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.PlayShowOptionsPanel.Location = new System.Drawing.Point(3, -68);
+            this.PlayShowOptionsPanel.Name = "PlayShowOptionsPanel";
+            this.PlayShowOptionsPanel.Size = new System.Drawing.Size(366, 66);
+            this.PlayShowOptionsPanel.TabIndex = 17;
+            // 
+            // AutoplayButton2
+            // 
+            this.AutoplayButton2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.AutoplayButton2.AutoSize = true;
+            this.AutoplayButton2.BackColor = System.Drawing.Color.Transparent;
+            this.AutoplayButton2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AutoplayButton2.ForeColor = System.Drawing.Color.Transparent;
+            this.AutoplayButton2.Location = new System.Drawing.Point(223, 16);
+            this.AutoplayButton2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.AutoplayButton2.Name = "AutoplayButton2";
+            this.AutoplayButton2.Padding = new System.Windows.Forms.Padding(11, 0, 0, 0);
+            this.AutoplayButton2.Size = new System.Drawing.Size(125, 32);
+            this.AutoplayButton2.TabIndex = 17;
+            this.AutoplayButton2.Text = "Autoplay";
+            this.FormTooltip.SetToolTip(this.AutoplayButton2, "Select to play another video when the current one ends");
+            this.AutoplayButton2.UseVisualStyleBackColor = false;
+            this.AutoplayButton2.CheckedChanged += new System.EventHandler(this.AutoplayButton_CheckedChanged);
+            this.AutoplayButton2.MouseEnter += new System.EventHandler(this.AutoplayButton_MouseEnter);
+            this.AutoplayButton2.MouseLeave += new System.EventHandler(this.HardDriveLabel_MouseLeave);
+            // 
             // RerollButton
             // 
             this.RerollButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
@@ -930,7 +977,7 @@
             this.RerollButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.RerollButton.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.RerollButton.ForeColor = System.Drawing.Color.Transparent;
-            this.RerollButton.Location = new System.Drawing.Point(11, 476);
+            this.RerollButton.Location = new System.Drawing.Point(8, 8);
             this.RerollButton.Margin = new System.Windows.Forms.Padding(11, 2, 3, 12);
             this.RerollButton.Name = "RerollButton";
             this.RerollButton.Size = new System.Drawing.Size(111, 49);
@@ -961,6 +1008,17 @@
             this.RefreshLabel.Click += new System.EventHandler(this.RefreshLabel_Click);
             this.RefreshLabel.MouseEnter += new System.EventHandler(this.AutoplayButton_MouseEnter);
             this.RefreshLabel.MouseLeave += new System.EventHandler(this.HardDriveLabel_MouseLeave);
+            // 
+            // ShowPlayer
+            // 
+            this.ShowPlayer.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ShowPlayer.Enabled = true;
+            this.ShowPlayer.Location = new System.Drawing.Point(3, 55);
+            this.ShowPlayer.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.ShowPlayer.Name = "ShowPlayer";
+            this.ShowPlayer.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("ShowPlayer.OcxState")));
+            this.ShowPlayer.Size = new System.Drawing.Size(366, 1);
+            this.ShowPlayer.TabIndex = 3;
             // 
             // MainForm
             // 
@@ -1014,8 +1072,10 @@
             this.MenuPanel.ResumeLayout(false);
             this.MainPanel.ResumeLayout(false);
             this.PlayerLayout.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.ShowPlayer)).EndInit();
             this.tableLayoutPanel4.ResumeLayout(false);
+            this.PlayShowOptionsPanel.ResumeLayout(false);
+            this.PlayShowOptionsPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ShowPlayer)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1075,6 +1135,9 @@
         private System.Windows.Forms.Label CloseLabel3;
         private System.Windows.Forms.Label PlayLabel;
         private System.Windows.Forms.Button RerollButton;
+        private System.Windows.Forms.Label GhostLabel;
+        private System.Windows.Forms.Panel PlayShowOptionsPanel;
+        private System.Windows.Forms.CheckBox AutoplayButton2;
     }
 }
 

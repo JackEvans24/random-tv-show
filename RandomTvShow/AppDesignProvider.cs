@@ -52,6 +52,17 @@ namespace RandomTvShow
                     closeLabel.Image = closeLabel2.Image = closeLabel3.Image = Properties.Resources.close_icon;
                     refreshLabel.Image = Properties.Resources.refresh_icon;
                     break;
+
+                case AppTheme.Ghost:
+                    Properties.Settings.Default.AppColourBg = Color.FromArgb(150, 127, 153);
+                    Properties.Settings.Default.AppColourHover = Color.FromArgb(139, 127, 140);
+                    Properties.Settings.Default.AppColourMenu = Color.FromArgb(172, 126, 178);
+                    Properties.Settings.Default.AppColourMenuHover = Color.FromArgb(161, 127, 166);
+                    Properties.Settings.Default.AppColourHighlight = Color.FromArgb(195, 126, 204);
+                    Properties.Settings.Default.AppColourText = Color.White;
+                    closeLabel.Image = closeLabel2.Image = closeLabel3.Image = Properties.Resources.close_icon_alt;
+                    refreshLabel.Image = Properties.Resources.refresh_icon_alt;
+                    break;
             }
 
             Properties.Settings.Default.Save();
@@ -111,6 +122,7 @@ namespace RandomTvShow
                 form.Controls.Find("MonolithLabel", true).FirstOrDefault().ForeColor =
                 form.Controls.Find("AzureLabel", true).FirstOrDefault().ForeColor =
                 form.Controls.Find("ForestLabel", true).FirstOrDefault().ForeColor =
+                form.Controls.Find("GhostLabel", true).FirstOrDefault().ForeColor =
                 form.Controls.Find("VersionNumberLabel", true).FirstOrDefault().ForeColor =
                 Properties.Settings.Default.AppColourText;
 
@@ -123,9 +135,10 @@ namespace RandomTvShow
         {
             Label MonolithLabel = (Label)form.Controls.Find("MonolithLabel", true).FirstOrDefault(),
                 AzureLabel = (Label)form.Controls.Find("AzureLabel", true).FirstOrDefault(),
-                SwampLabel = (Label)form.Controls.Find("ForestLabel", true).FirstOrDefault();
+                SwampLabel = (Label)form.Controls.Find("ForestLabel", true).FirstOrDefault(),
+                GhostLabel = (Label)form.Controls.Find("GhostLabel", true).FirstOrDefault();
 
-            MonolithLabel.Font = AzureLabel.Font = SwampLabel.Font = new Font(MonolithLabel.Font, FontStyle.Regular);
+            MonolithLabel.Font = AzureLabel.Font = SwampLabel.Font = GhostLabel.Font = new Font(MonolithLabel.Font, FontStyle.Regular);
             switch (theme)
             {
                 case AppTheme.Monolith:
@@ -136,6 +149,9 @@ namespace RandomTvShow
                     break;
                 case AppTheme.Forest:
                     SwampLabel.Font = new Font(SwampLabel.Font, FontStyle.Underline);
+                    break;
+                case AppTheme.Ghost:
+                    GhostLabel.Font = new Font(GhostLabel.Font, FontStyle.Underline);
                     break;
                 default:
                     break;
@@ -158,14 +174,14 @@ namespace RandomTvShow
                 OnlineLabel.Image = Properties.Resources.online_icon;
                 SettingsLabel.Image = Properties.Resources.settings_icon;
             }
-            else if (theme == AppTheme.Forest)
+            else if (theme == AppTheme.Forest || theme == AppTheme.Ghost)
             {
                 HardDriveLabel.Image = currentTab == AppTab.HardDrive ? Properties.Resources.hard_drive_icon_alt : Properties.Resources.hard_drive_icon;
                 PlayLabel.Image = currentTab == AppTab.Player ? Properties.Resources.play_icon_alt : Properties.Resources.play_icon;
                 OnlineLabel.Image = currentTab == AppTab.Online ? Properties.Resources.online_icon_alt : Properties.Resources.online_icon;
                 SettingsLabel.Image = currentTab == AppTab.Settings ? Properties.Resources.settings_icon_alt : Properties.Resources.settings_icon;
             }
-            else
+            else if (theme == AppTheme.Monolith)
             {
                 HardDriveLabel.Image = currentTab == AppTab.HardDrive ? Properties.Resources.hard_drive_icon : Properties.Resources.hard_drive_icon_alt;
                 PlayLabel.Image = currentTab == AppTab.Player ? Properties.Resources.play_icon : Properties.Resources.play_icon_alt;
@@ -206,6 +222,7 @@ namespace RandomTvShow
     {
         Monolith,
         Azure,
-        Forest
+        Forest,
+        Ghost,
     }
 }

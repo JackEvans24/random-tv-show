@@ -1,4 +1,7 @@
-﻿using System;
+﻿using NLog;
+using NLog.Config;
+using NLog.Targets;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -16,7 +19,38 @@ namespace RandomTvShow
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MainForm());
+
+            var config = new LoggingConfiguration();
+            var fileTarget = new FileTarget("ErrorLog")
+            {
+                FileName = "${basedir}/log.txt",
+                Layout = @"${longdate} ${level} ${message} ${exception}"
+            };
+            config.AddTarget(fileTarget);
+            config.AddRuleForOneLevel(LogLevel.Error, fileTarget);
+            LogManager.Configuration = config;
+
+            Exception fatalError;
+            do
+            {
+                fatalError = RunAndCatchFatalErrors();
+            }
+            while (fatalError != null);
+        }
+
+        static Exception RunAndCatchFatalErrors()
+        {
+            try
+            {
+                Application.Run(new MainForm());
+            }
+            catch (Exception ex)
+            {
+                LogManager.GetLogger("RandomTvShow").Error(ex);
+                return ex;
+            }
+
+            return null;
         }
     }
 }
