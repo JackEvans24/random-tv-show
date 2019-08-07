@@ -1,5 +1,8 @@
 ﻿using AngleSharp;
 using AngleSharp.Parser.Html;
+using SharpCaster.Controllers;
+using SharpCaster.Models.ChromecastRequests;
+using SharpCaster.Services;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -7,6 +10,8 @@ using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Net;
+using System.Net.Sockets;
 using System.Runtime.InteropServices;
 using System.Threading;
 using System.Threading.Tasks;
@@ -149,7 +154,10 @@ namespace RandomTvShow
             currentTab = AppTab.HardDrive;
             AppDesignProvider.SetCurrentTab(this, (AppTheme)Properties.Settings.Default.ThemeIndex, currentTab);
 
-            ShowsLayout.Visible = AutoplayButton.Visible = true;
+            ShowsLayout.Visible = AutoplayButton.Visible = CastCheckbox1.Visible = true;
+            CastCheckbox1.Enabled = CastCheckbox2.Enabled = !string.IsNullOrWhiteSpace(Properties.Settings.Default.ChromecastName);
+            if (!CastCheckbox1.Enabled)
+                CastCheckbox1.Checked = CastCheckbox2.Checked = false;
             PlayerLayout.Visible = SettingsLayout.Visible = SaveSettingsPanel.Visible = false;
             Refresh();
 
@@ -162,6 +170,9 @@ namespace RandomTvShow
             AppDesignProvider.SetCurrentTab(this, (AppTheme)Properties.Settings.Default.ThemeIndex, currentTab);
 
             PlayerLayout.Visible = true;
+            CastCheckbox1.Enabled = CastCheckbox2.Enabled = !string.IsNullOrWhiteSpace(Properties.Settings.Default.ChromecastName);
+            if (!CastCheckbox1.Enabled)
+                CastCheckbox1.Checked = CastCheckbox2.Checked = false;
             ShowsLayout.Visible = SettingsLayout.Visible = SaveSettingsPanel.Visible = false;
             ErrorLabel.Visible = RefreshLabel.Visible = AutoplayButton.Visible = false;
         }
@@ -174,7 +185,7 @@ namespace RandomTvShow
 
             ShowsLayout.Visible = true;
             PlayerLayout.Visible = SettingsLayout.Visible = SaveSettingsPanel.Visible = false;
-            ErrorLabel.Visible = RefreshLabel.Visible = AutoplayButton.Visible = false;
+            ErrorLabel.Visible = RefreshLabel.Visible = AutoplayButton.Visible = CastCheckbox1.Visible = false;
 
             LoadFromOnline();
         }
@@ -234,6 +245,12 @@ namespace RandomTvShow
             AutoplayButton.Checked = AutoplayButton2.Checked = isChecked;
         }
 
+        private void CastCheckbox1_CheckedChanged(object sender, EventArgs e)
+        {
+            var isChecked = ((CheckBox)sender).Checked;
+            CastCheckbox1.Checked = CastCheckbox2.Checked = isChecked;
+        }
+
         private void ShowsList_SelectedIndexChanged(object sender, EventArgs e)
         {
             List<string> selectedShows = new List<string>();
@@ -265,12 +282,12 @@ namespace RandomTvShow
             refreshing = false;
         }
 
-        private void GoButton_Click(object sender, EventArgs e)
+        private async void GoButton_Click(object sender, EventArgs e)
         {
             // Select a show from the main folder if there are no folders inside it
             if (currentTab == AppTab.HardDrive && useRootFolder)
             {
-                SelectFromDrive(new string[] { "" });
+                await SelectFromDrive(new string[] { "" });
                 return;
             }
 
@@ -294,7 +311,7 @@ namespace RandomTvShow
                         selectedShows.Add(item.ToString());
                     }
 
-                    SelectFromDrive(selectedShows);
+                    await SelectFromDrive(selectedShows);
                 }
                 // If picking from online shows...
                 else if (currentTab == AppTab.Online)
@@ -318,12 +335,12 @@ namespace RandomTvShow
             }
         }
 
-        private void RerollButton_Click(object sender, EventArgs e)
+        private async void RerollButton_Click(object sender, EventArgs e)
         {
-            SelectFromDrive(timerFolders);
+            await SelectFromDrive(timerFolders);
         }
 
-        private void Timer_Tick(object sender, EventArgs e)
+        private async void Timer_Tick(object sender, EventArgs e)
         {
             if (ShowPlayer.playState != WMPLib.WMPPlayState.wmppsStopped)
             {
@@ -347,7 +364,7 @@ namespace RandomTvShow
                         return;
                     }
 
-                    SelectFromDrive(timerFolders);
+                    await SelectFromDrive(timerFolders);
                 }
             }
         }
@@ -379,6 +396,12 @@ namespace RandomTvShow
         {
             MonolithLabel.Font = AzureLabel.Font = ForestLabel.Font = GhostLabel.Font = new Font(MonolithLabel.Font, FontStyle.Regular);
             ((Control)sender).Font = new Font(((Control)sender).Font, FontStyle.Underline);
+        }
+
+        private void CastButton_Click(object sender, EventArgs e)
+        {
+            var castingForm = new CastingOptions();
+            castingForm.ShowDialog();
         }
 
         private void SaveButton_Click(object sender, EventArgs e)
@@ -503,7 +526,7 @@ namespace RandomTvShow
         /// Play a random episode from one of the shows passed in
         /// </summary>
         /// <param name="selectedShows">The list of shows selected by the user to pick an episode from</param>
-        private void SelectFromDrive(IEnumerable<string> selectedShows)
+        private async Task SelectFromDrive(IEnumerable<string> selectedShows)
         {
             // If no shows are passed in, return
             if (selectedShows == null || selectedShows.Count() <= 0)
@@ -524,7 +547,7 @@ namespace RandomTvShow
                 var showFolder = Path.Combine(Properties.Settings.Default.MainDrivePath, selectedShowsArr[rnd.Next(selectedShowsArr.Count())]);
 
                 // Attempt to find a file in the folder and play it
-                videoStarted = PickAndPlayVideoFile(showFolder);
+                videoStarted = await PickAndPlayVideoFile(showFolder);
 
                 // If 5 attempts have passed, inform the user and return
                 if (attempts > 4)
@@ -543,7 +566,7 @@ namespace RandomTvShow
         /// <param name="folderPath">Path to pick file from</param>
         /// <param name="rnd">Random number generator</param>
         /// <returns>True if the video is started</returns>
-        private bool PickAndPlayVideoFile(string folderPath)
+        private async Task<bool> PickAndPlayVideoFile(string folderPath)
         {
             // Stop the timer if it's running
             if (timer.Enabled)
@@ -552,6 +575,19 @@ namespace RandomTvShow
             // Get all files in the folder and pick one
             var files = Directory.GetFiles(folderPath, "*", SearchOption.AllDirectories).Where(f => IsVideoFile(f)).ToArray();
             var file = files.Count() > 0 ? files[rnd.Next(files.Count())] : null;
+
+            if (CastCheckbox1.Checked)
+            {
+                try
+                {
+                    return await CastVideoFile(file);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(string.Format("Could not cast file: {0}\r\n\r\nError: {1}", file, ex.Message));
+                    return false;
+                }
+            }
 
             // If it's a video file, play it and break the loop
             try
@@ -571,6 +607,40 @@ namespace RandomTvShow
             }
             catch (Exception) { }
             return false;
+        }
+
+        private SharpCasterDemoController controller = null;
+        private async Task<bool> CastVideoFile(string filepath)
+        {
+            if (controller == null)
+            {
+                var getChromecasts = ChromecastService.Current.StartLocatingDevices(GetLocalIPAddress());
+
+                ChromecastService.Current.ChromeCastClient.ConnectedChanged +=
+                    async delegate
+                    {
+                        if (controller == null)
+                            controller = await ChromecastService.Current.ChromeCastClient.LaunchSharpCaster();
+                    };
+                ChromecastService.Current.ChromeCastClient.ApplicationStarted +=
+                async delegate {
+                    while (controller == null)
+                    {
+                        await Task.Delay(500);
+                    }
+
+                    await controller.LoadMedia(filepath, "video/mp4", streamType: StreamType.BUFFERED);
+                };
+                var chromecasts = await getChromecasts;
+                var chromecast = chromecasts.First(c => c.DeviceUri == Properties.Settings.Default.ChromecastURI);
+                await ChromecastService.Current.ConnectToChromecast(chromecast);
+            }
+            else
+            {
+                await controller.LoadMedia(filepath, streamType: StreamType.BUFFERED);
+            }
+
+            return true;
         }
 
         /// <summary>
@@ -685,6 +755,19 @@ namespace RandomTvShow
         static bool IsVideoFile(string path)
         {
             return Array.IndexOf(videoExtensions, Path.GetExtension(path).ToUpperInvariant()) != -1;
+        }
+
+        public static string GetLocalIPAddress()
+        {
+            var host = Dns.GetHostEntry(Dns.GetHostName());
+            foreach (var ip in host.AddressList)
+            {
+                if (ip.AddressFamily == AddressFamily.InterNetwork)
+                {
+                    return ip.ToString();
+                }
+            }
+            throw new Exception("No network adapters with an IPv4 address in the system!");
         }
 
         #endregion

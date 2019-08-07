@@ -32,5 +32,11 @@
     <Setting Name="AppColourMenuHover" Type="System.Drawing.Color" Scope="User">
       <Value Profile="(Default)">116, 116, 116</Value>
     </Setting>
+    <Setting Name="ChromecastURI" Type="System.Uri" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="ChromecastName" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
   </Settings>
 </SettingsFile>

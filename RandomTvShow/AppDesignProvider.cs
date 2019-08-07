@@ -123,6 +123,8 @@ namespace RandomTvShow
                 form.Controls.Find("AzureLabel", true).FirstOrDefault().ForeColor =
                 form.Controls.Find("ForestLabel", true).FirstOrDefault().ForeColor =
                 form.Controls.Find("GhostLabel", true).FirstOrDefault().ForeColor =
+                form.Controls.Find("CastLabel", true).FirstOrDefault().ForeColor =
+                form.Controls.Find("CastButton", true).FirstOrDefault().ForeColor =
                 form.Controls.Find("VersionNumberLabel", true).FirstOrDefault().ForeColor =
                 Properties.Settings.Default.AppColourText;
 
